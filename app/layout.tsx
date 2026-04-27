@@ -29,9 +29,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${bricolage.variable} ${inter.variable} scroll-smooth`}
     >
-      <body className="font-sans bg-brand-50 text-brand-900 antialiased">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
