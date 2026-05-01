@@ -6,6 +6,8 @@ import flagCroatia from "../../assets/img/flags/Croatia.webp";
 import flagSouthAfrica from "../../assets/img/flags/SouthAfrica.webp";
 import flagPortugal from "../../assets/img/flags/Portugal.webp";
 import flagBrazil from "../../assets/img/flags/Brazil.webp";
+import Button from "../Button";
+import { ArrowDown } from "lucide-react";
 
 const GlobalExperience = () => {
   return (
@@ -158,6 +160,13 @@ const GlobalExperience = () => {
             Brasil
           </div>
         </div>
+      </div>
+
+      <div className="text-center mt-12">
+        <Button className="gap-2" variant="outline" href="#portfolio">
+          <ArrowDown />
+          Portfolio
+        </Button>
       </div>
     </section>
   );
