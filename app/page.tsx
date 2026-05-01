@@ -1,3 +1,4 @@
+import FocusSection from "./components/sections/FocusSection";
 import GlobalExperience from "./components/sections/GlobalExperience";
 import Hero from "./components/sections/Hero";
 
@@ -6,7 +7,7 @@ export default function Home() {
     <main>
       <Hero />
       <GlobalExperience />
-      <div className="h-[800px]"></div>
+      <FocusSection />
     </main>
   );
 }

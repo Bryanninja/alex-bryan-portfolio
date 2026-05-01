@@ -20,6 +20,7 @@ export default function Button({
   const variants = {
     primary: "bg-brand-800 text-white hover:bg-brand-900 shadow-md",
     secondary: "bg-brand-400 text-white hover:bg-brand-500 shadow-md",
+
     outline:
       "border-2 border-brand-800 text-brand-800 hover:bg-brand-800 hover:text-white",
   };
