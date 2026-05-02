@@ -163,9 +163,9 @@ const GlobalExperience = () => {
       </div>
 
       <div className="text-center mt-12">
-        <Button className="gap-2" variant="outline" href="#portfolio">
+        <Button className="gap-2" variant="outline" href="#projetos">
           <ArrowDown />
-          Portfolio
+          Ver projetos
         </Button>
       </div>
     </section>
