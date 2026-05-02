@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, BadgeCheck } from "lucide-react";
 import { projectsData } from "../../data/projects";
 import FloatingMenu from "@/app/components/FloatingMenu";
+import Footer from "@/app/components/sections/Footer";
 // import Button from "../../../components/Button"; // Make sure you have this component or replace with simple buttons
 
 interface ProjectPageProps {
@@ -34,7 +35,7 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-brand-50 pt-32 pb-20">
+    <main className="min-h-screen bg-brand-50 pt-20 space-y-20 ">
       <FloatingMenu />
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header Section */}
@@ -93,11 +94,6 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
                   </span>
                 </div>
               </div>
-            </div>
-
-            {/* Coluna da direita do Header (se quiser colocar botões no futuro) */}
-            <div className="flex gap-4 shrink-0 mt-4 md:mt-0">
-              {/* <Button variant="outline" className="flex gap-2">Visitar Site Ao Vivo <ArrowUpRight size={18} /></Button> */}
             </div>
           </div>
         </div>
@@ -185,27 +181,8 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
             </div>
           )}
         </div>
-
-        {/* CTA Bottom */}
-        <div className="mt-32 text-center bg-brand-800 rounded-3xl p-16 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-900 to-brand-700 z-0" />
-          <div className="relative z-10">
-            <h2 className="font-heading text-4xl font-bold text-white mb-6">
-              Pronto para ser o próximo case de sucesso?
-            </h2>
-            <p className="text-brand-200 text-lg mb-10 max-w-2xl mx-auto">
-              Vamos transformar a sua marca e elevar a percepção do seu negócio
-              no mercado.
-            </p>
-            <Link
-              href="/contato"
-              className="inline-block bg-brand-500 text-white font-bold px-10 py-4 rounded-full hover:bg-brand-400 transition-colors"
-            >
-              Solicitar Orçamento
-            </Link>
-          </div>
-        </div>
       </div>
+      <Footer />
     </main>
   );
 }
