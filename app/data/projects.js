@@ -1,12 +1,61 @@
 // src/data/projects.js
 
-import projMSFinancial from "../assets/img/projects/ms-financial.webp";
-import projPaceon from "../assets/img/projects/Paceon.webp";
-import projIgrejaJesusEoCaminho from "../assets/img/projects/igreja-jesus.webp";
-import projSenaFilms from "../assets/img/projects/sena-films.webp";
-import projProteck from "../assets/img/projects/proteck.webp";
-import projInfluence from "../assets/img/projects/rede-influence.webp";
-import projILS from "../assets/img/projects/ils.webp";
+import projMSFinancial from "../assets/img/projects/ms-financial/ms-financial.webp";
+import projMSFinancialMockup from "../assets/img/projects/ms-financial/mockup.webp";
+import projMSFinancialIcon from "../assets/img/projects/ms-financial/Icon-logo-black.png";
+import projMSFinancialNote from "../assets/img/projects/ms-financial/Notepad.webp";
+import projMSFinancialOffice from "../assets/img/projects/ms-financial/Office-building.webp";
+import projMSFinancialTalking from "../assets/img/projects/ms-financial/michel-talking.webp";
+
+import projPaceon from "../assets/img/projects/paceon/Paceon.webp";
+import projPaceonLogoBlack from "../assets/img/projects/paceon/paceon-black-logo.webp";
+import projPaceonIconWhite from "../assets/img/projects/paceon/paceon-white-icon.webp";
+import projPaceonEnergyDrink from "../assets/img/projects/paceon/paceon-energy-drink.webp";
+import projPaceonShirt from "../assets/img/projects/paceon/paceon-shirt.webp";
+import projPaceonShirtAirplane from "../assets/img/projects/paceon/paceon-shirt-airplan.webp";
+
+import projIgrejaJesusEoCaminho from "../assets/img/projects/igreja-jesus/igreja-jesus-web.webp";
+import projIgrejaJesusEoCaminhoLogoGreen from "../assets/img/projects/igreja-jesus/igreja-jesus-logo-green.webp";
+import projIgrejaJesusEoCaminhoLogoWhite from "../assets/img/projects/igreja-jesus/igreja-jesus-logo-white.webp";
+import projIgrejaJesusEoCaminhoShirtFront from "../assets/img/projects/igreja-jesus/igreja-jesus-front-shirt.webp";
+import projIgrejaJesusEoCaminhoShirtBack from "../assets/img/projects/igreja-jesus/igreja-jesus-back-shirt.jpg";
+import projIgrejaJesusEoCaminhoPlan from "../assets/img/projects/igreja-jesus/igreja-jesus-plan.webp";
+
+import projSenaFilms from "../assets/img/projects/sena-films/sena-films.webp";
+import projSenaFilmsBanner from "../assets/img/projects/sena-films/sena-films-banner.webp";
+import projSenaFilmsCap from "../assets/img/projects/sena-films/sena-films-cap.webp";
+import projSenaFilmsFilms from "../assets/img/projects/sena-films/sena-films-films.webp";
+import projSenaFilmsIcon from "../assets/img/projects/sena-films/sena-films-icon.webp";
+import projSenaFilmsAssets from "../assets/img/projects/sena-films/sena-films-assets.webp";
+
+import projProteck from "../assets/img/projects/proteck/proteck.webp";
+import projProteckBanner from "../assets/img/projects/proteck/proteck-banner.webp";
+import projProteckBuilding from "../assets/img/projects/proteck/proteck-building.webp";
+import projProteckVan from "../assets/img/projects/proteck/RealVan.webp";
+import projProteckVan2 from "../assets/img/projects/proteck/RealVan2.webp";
+import projProteckVan3 from "../assets/img/projects/proteck/RealVan3jpg.webp";
+import projProteckIcon from "../assets/img/projects/proteck/proteck-icon.webp";
+
+import projInfluence from "../assets/img/projects/influence/influence.webp";
+import projInfluenceShirt from "../assets/img/projects/influence/rede-influence-shirt.webp";
+import projInfluenceYoungs from "../assets/img/projects/influence/influence-youngs.webp";
+import projInfluenceCta from "../assets/img/projects/influence/influence-cta.webp";
+import projInfluencePalco from "../assets/img/projects/influence/influence-palco.webp";
+import projInfluenceGarrafa from "../assets/img/projects/influence/influence-garrafa.webp";
+import projInfluenceIcon from "../assets/img/projects/influence/influence-icon.webp";
+
+import projILS from "../assets/img/projects/ils/ils.webp";
+import projILSAssets from "../assets/img/projects/ils/ils-assets.webp";
+import projILSBanner from "../assets/img/projects/ils/ils-banner.webp";
+import projILSBuilding from "../assets/img/projects/ils/ils-building.webp";
+import projILSCap from "../assets/img/projects/ils/ils-cap.webp";
+import projILSCar from "../assets/img/projects/ils/ils-car.webp";
+import projILSHat from "../assets/img/projects/ils/ils-hat.webp";
+import projILSIcon from "../assets/img/projects/ils/ils-icon.webp";
+import projILSKeys from "../assets/img/projects/ils/ils-keys.webp";
+import projILSPlate from "../assets/img/projects/ils/ils-plate.webp";
+import projILSModel from "../assets/img/projects/ils/ils-shirt-model.webp";
+import projILShirts from "../assets/img/projects/ils/ils-shirts.webp";
 
 import avatarMichel from "../assets/img/projects/michel.webp";
 import avatarAdryan from "../assets/img/projects/adryan.webp";
@@ -25,12 +74,19 @@ export const projectsData = [
       "Criação de Identidade Visual e Site Institucional para mentoria financeira, com foco estratégico em gerar alta autoridade no mercado.",
     projectImg: projMSFinancial,
     clientImg: avatarMichel,
+    services: ["Identidade Visual", "UI/UX Design", "Desenvolvimento Web"], // <--- NOVO
     fullDescription: [
-      "A MS Financial atua em cenários de alta complexidade, exigindo uma estrutura financeira sólida para sustentar o crescimento com disciplina e consistência[cite: 1, 2].",
-      "O projeto envolveu a criação de um design limpo e estruturado, utilizando gráficos e dados claros para transmitir previsibilidade e organização financeira[cite: 1, 2].",
-      "A identidade visual reflete o foco da empresa em análises estruturadas e intervenções metodológicas para evolução da área financeira[cite: 1, 2].",
+      "Para a MS Financial, o desafio era traduzir mais de 30 anos de expertise em cenários financeiros de alta complexidade — incluindo operações de até 3 bilhões de dólares — em uma presença digital inquestionável.",
+      "A identidade visual e a arquitetura do site foram construídas sob a premissa de que 'estrutura precede crescimento', focando em um design limpo, premium e direto.",
+      "Utilizamos dados visuais precisos, tipografia sofisticada e uma navegação fluida para refletir a autoridade da marca, entregando clareza e organização para empresas que buscam escalar com solidez e disciplina.",
     ],
-    gallery: [projMSFinancial, projMSFinancial, projMSFinancial], // placeholders, we can change later
+    gallery: [
+      projMSFinancialIcon,
+      projMSFinancialMockup,
+      projMSFinancialTalking,
+      projMSFinancialNote,
+      projMSFinancialOffice,
+    ],
   },
   {
     id: 2,
@@ -38,14 +94,25 @@ export const projectsData = [
     projectName: "Paceon",
     description:
       "Desenvolvimento de Identidade Visual para uma marca focada em corredores obstinados, que buscam superar constantemente a sua versão de ontem.",
-    projectImg: projPaceon,
+    projectImg: projPaceonLogoBlack,
     clientImg: avatarAdryan,
+    services: [
+      "Identidade Visual",
+      "Estratégia de Marca",
+      "Design de Vestuário",
+    ], // <--- NOVO
     fullDescription: [
-      "Paceon é mais que uma marca; ela acompanha o corredor desde o início até a alta performance[cite: 3].",
-      "A identidade visual, com o logotipo 'P' modificado e a tipografia Abhaya Libre ExtraBold, transmite velocidade, dinamismo, progressão constante e autoridade[cite: 3].",
-      "A paleta de cores (preto, branco e cinza) e as aplicações em produtos (roupas, bandanas, caixas térmicas) reforçam a versatilidade, o minimalismo e a consistência da marca[cite: 3].",
+      "A Paceon nasceu para ser muito mais que uma marca esportiva; ela é um símbolo de consistência que acompanha o corredor desde os primeiros passos até a alta performance.",
+      "O logotipo traz um 'P' modificado com arestas que remetem à velocidade e ao dinamismo, equilibrado por uma paleta minimalista de preto, branco e cinza, conectando a energia do ambiente urbano à natureza.",
+      "A tipografia Abhaya Libre confere uma autoridade elegante ao projeto, resultando em uma identidade visual versátil, pensada para se destacar de forma imponente tanto em vestuário de alta performance quanto no estilo de vida cotidiano.",
     ],
-    gallery: [projPaceon, projPaceon, projPaceon],
+    gallery: [
+      projPaceonIconWhite,
+      projPaceon,
+      projPaceonShirt,
+      projPaceonEnergyDrink,
+      projPaceonShirtAirplane,
+    ],
   },
   {
     id: 3,
@@ -53,17 +120,24 @@ export const projectsData = [
     projectName: "Igreja Jesus é o caminho",
     description:
       "Projeto completo: desde a Identidade Visual até o desenvolvimento de um WebApp de leitura personalizado, com destaque para a alta acessibilidade.",
-    projectImg: projIgrejaJesusEoCaminho,
+    projectImg: projIgrejaJesusEoCaminhoLogoGreen,
     clientImg: avatarFranciely,
+    services: [
+      "Identidade Visual",
+      "UI/UX Design",
+      "Desenvolvimento de WebApp",
+    ], // <--- NOVO
     fullDescription: [
-      "A identidade visual foca na mensagem de Jesus como o Caminho e o Bom Pastor, utilizando o símbolo de uma ovelha e a porta[cite: 4].",
-      "As cores (#69bb8a, #3f3f3f, #2b2b2b) transmitem paz, direção, pureza e eternidade, conectando-se ao público jovem com equilíbrio[cite: 4].",
-      "O projeto inclui o design de materiais como garrafas, crachás e uma presença digital consistente, além de um WebApp com um plano de leitura bíblica[cite: 4, 8].",
+      "A identidade visual deste projeto foi desenhada para conectar a juventude à mensagem cristã de forma moderna e acolhedora, utilizando um símbolo inteligente que mescla sutilmente uma ovelha e a porta.",
+      "A paleta de cores traz o verde como representação de renovação e águas tranquilas, equilibrado por tons profundos de cinza e preto para garantir um visual limpo, sofisticado e atraente.",
+      "Além do branding, desenvolvemos um WebApp interativo e de alta acessibilidade para o Plano de Leitura 2026, oferecendo uma experiência de usuário (UX) fluida e em modo escuro para o acompanhamento diário do progresso espiritual.",
     ],
     gallery: [
+      projIgrejaJesusEoCaminhoLogoWhite,
       projIgrejaJesusEoCaminho,
-      projIgrejaJesusEoCaminho,
-      projIgrejaJesusEoCaminho,
+      projIgrejaJesusEoCaminhoShirtBack,
+      projIgrejaJesusEoCaminhoShirtFront,
+      projIgrejaJesusEoCaminhoPlan,
     ],
   },
   {
@@ -74,12 +148,20 @@ export const projectsData = [
       "Desenvolvimento de Identidade Visual e personalização de van para uma empresa na Croácia, visando uma forte presença e consolidação de mercado.",
     projectImg: projProteck,
     clientImg: avatarKarlo,
+    services: ["Identidade Visual", "Estratégia de Marca", "Design de Frota"], // <--- NOVO
     fullDescription: [
-      "A marca Protek HVAC foi desenhada para ser direta, forte e facilmente reconhecível, conveyindo confiança e expertise técnica na área de climatização[cite: 5].",
-      "O conceito utiliza a chama (aquecimento), o escudo (segurança e controle) e o floco de neve (refrigeração)[cite: 5].",
-      "A tipografia Eurostile e a paleta de cores (Azul, Vermelho e Cinza Escuro) transmitem inovação, urgência e neutralidade sofisticada, ideal para a indústria HVAC e aplicação em veículos[cite: 5].",
+      "Para a Protek HVAC, empresa de climatização sediada na Croácia, criamos uma marca projetada para atuar como um selo de excelência, comunicando confiança e precisão técnica à primeira vista.",
+      "O conceito do logotipo integra de forma simétrica uma chama (aquecimento), um floco de neve (refrigeração) e um escudo (segurança e controle), envoltos em uma paleta vibrante de azul e vermelho com contraste em cinza escuro.",
+      "A combinação de uma tipografia futurista e estruturada garantiu alto impacto, resultando em uma aplicação perfeita e de extrema visibilidade para a frota corporativa e materiais de suporte.",
     ],
-    gallery: [projProteck, projProteck, projProteck],
+    gallery: [
+      projProteckIcon,
+      projProteckBanner,
+      projProteckVan,
+      projProteckVan2,
+      projProteckVan3,
+      projProteckBuilding,
+    ],
   },
   {
     id: 5,
@@ -89,12 +171,20 @@ export const projectsData = [
       "Desenvolvimento de Identidade Visual para um movimento de jovens cristãos, transmitindo um posicionamento moderno, dinâmico e jovial.",
     projectImg: projInfluence,
     clientImg: avatarJorge,
+    services: ["Identidade Visual", "UI/UX Design", "Aplicações de Mídia"], // <--- NOVO
     fullDescription: [
-      "A Rede Influence busca conectar jovens com propósito e fé, usando uma identidade visual que reflete conexões espirituais e influência mútua[cite: 6].",
-      "O logotipo une as letras e um traço de rede sutil, representando a união e a missão de transformar vidas pelo Evangelho[cite: 6].",
-      "A paleta de cores (Roxo e Preto) e a tipografia (Acumin Pro Bold e Segoe UI Variable) trazem criatividade, sofisticação e modernidade para a comunicação, desde mídias sociais até produtos físicos como blusas e crachás[cite: 6].",
+      "A Rede Influence precisava de uma identidade que falasse diretamente com uma juventude dinâmica, traduzindo o conceito de conexões espirituais e influência mútua.",
+      "O logotipo une as letras em um fluxo contínuo ao lado de um ícone que remete a uma 'rede', enquanto o uso estratégico do roxo e do preto com gradientes cria uma sensação de profundidade e transformação.",
+      "Todo o ecossistema visual, desde interfaces de mídia social até o design de vestuário de alto padrão, foi concebido para gerar senso de pertencimento e modernidade para um público altamente conectado.",
     ],
-    gallery: [projInfluence, projInfluence, projInfluence],
+    gallery: [
+      projInfluenceIcon,
+      projInfluenceShirt,
+      projInfluenceYoungs,
+      projInfluenceCta,
+      projInfluenceGarrafa,
+      projInfluencePalco,
+    ],
   },
   {
     id: 6,
@@ -104,12 +194,29 @@ export const projectsData = [
       "Reposicionamento estratégico e Identidade Visual para uma construtora se firmar no mercado de alto padrão, visando aumento de faturamento.",
     projectImg: projILS,
     clientImg: avatarLucas,
+    services: [
+      "Reposicionamento Estratégico",
+      "Identidade Visual",
+      "Papelaria Corporativa",
+    ], // <--- NOVO
     fullDescription: [
-      "A ILS Construções foca em construções de alto padrão, exigindo uma identidade visual que transmita solidez, confiança e precisão técnica[cite: 7].",
-      "O logotipo minimalista combina o 'S' de Silva com a forma de uma casa, refletindo a expertise técnica e a exclusividade dos projetos[cite: 7].",
-      "A paleta de cores (Terracota, Grafite, Areia, Branco Osso e Cinza Mescla) e a tipografia Source Sans Pro garantem elegância e legibilidade em todas as aplicações, desde o digital até os uniformes e a fachada do escritório[cite: 7].",
+      "O reposicionamento da ILS Construções foi meticulosamente desenhado para elevar a marca ao exigente mercado de alto padrão, traduzindo solidez estrutural em um visual premium sob o lema 'Sua Visão. Nossa Estrutura'.",
+      "O logotipo inteligente combina a inicial da família à silhueta minimalista de uma residência, apoiado por uma paleta sóbria de terracota, grafite e areia, que remete aos materiais nobres da construção civil.",
+      "Desde a aplicação impecável em uniformes corporativos até a criação de um Kit de Boas-Vindas exclusivo para a entrega das chaves, cada ponto de contato foi pensado para garantir uma experiência de marca luxuosa e inesquecível.",
     ],
-    gallery: [projILS, projILS, projILS],
+    gallery: [
+      projILSIcon,
+      projILSBuilding,
+      projILSBanner,
+      projILSAssets,
+      projILSCap,
+      projILSCar,
+      projILSHat,
+      projILSKeys,
+      projILSPlate,
+      projILSModel,
+      projILShirts,
+    ],
   },
   {
     id: 7,
@@ -119,11 +226,22 @@ export const projectsData = [
       "Desenvolvimento de Identidade Visual para um estúdio de gravação e edição de vídeos focado em ajudar empresas a melhorarem a sua imagem.",
     projectImg: projSenaFilms,
     clientImg: avatarRaul,
+    services: [
+      "Identidade Visual",
+      "Estratégia de Posicionamento",
+      "Direção de Arte",
+    ], // <--- NOVO
     fullDescription: [
-      "A Sena Films posiciona-se como referência no mercado de produção de vídeos, com uma identidade visual que reflete autoridade, profissionalismo e inovação[cite: 8].",
-      "O conceito do logotipo mescla a letra 'a' (lente da câmera) e a letra 'S' (estrutura da câmera), simbolizando qualidade e excelência audiovisual[cite: 8].",
-      "As cores (Roxo e Preto) e as tipografias selecionadas estimulam a criatividade e a inteligência, alinhando tradição e inovação para criar vídeos envolventes e memoráveis[cite: 8].",
+      "A Sena Films buscou uma identidade visual que transpirasse excelência audiovisual, capaz de atrair grandes marcas interessadas em elevar o padrão estético de sua própria comunicação corporativa.",
+      "O logotipo conceitual mescla de forma inteligente a letra 'a' (simbolizando a lente de uma câmera) com a letra 'S' (a estrutura do equipamento), criando um ícone imponente e de rápido reconhecimento.",
+      "Apostamos em tons de roxo para estimular a criatividade e a inovação, combinados a uma tipografia clara que transita perfeitamente nas plataformas digitais, garantindo uma presença magnética e altamente profissional.",
     ],
-    gallery: [projSenaFilms, projSenaFilms, projSenaFilms],
+    gallery: [
+      projSenaFilmsIcon,
+      projSenaFilmsBanner,
+      projSenaFilmsAssets,
+      projSenaFilmsCap,
+      projSenaFilmsFilms,
+    ],
   },
 ];

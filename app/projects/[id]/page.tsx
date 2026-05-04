@@ -1,11 +1,10 @@
 // app/projetos/[id]/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, BadgeCheck } from "lucide-react";
+import { ArrowLeft, BadgeCheck } from "lucide-react";
 import { projectsData } from "../../data/projects";
 import FloatingMenu from "@/app/components/FloatingMenu";
 import Footer from "@/app/components/sections/Footer";
-// import Button from "../../../components/Button"; // Make sure you have this component or replace with simple buttons
 
 interface ProjectPageProps {
   params: Promise<{
@@ -53,22 +52,15 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
 
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-12">
             <div className="max-w-3xl">
-              {/* Substituímos o "Case Study" por algo mais comercial */}
-              <span className="text-sm font-bold uppercase tracking-widest text-brand-500 mb-4 block">
-                Projeto Entregue
-              </span>
-
               <h1 className="font-heading text-5xl md:text-6xl lg:text-[4rem] font-extrabold text-brand-800 mb-6 leading-tight tracking-tight">
                 {project.projectName}
               </h1>
 
-              {/* Demos um respiro e um tamanho maior para a descrição inicial */}
               <p className="text-xl text-brand-700/90 leading-relaxed mb-10">
                 {project.description}
               </p>
 
               {/* === AVATAR DO CLIENTE === */}
-              {/* Agora ele respira melhor abaixo da descrição */}
               <div className="flex items-center gap-4 bg-white w-max pr-8 p-2.5 rounded-full shadow-sm border border-brand-200/60">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
                   <Image
@@ -99,7 +91,7 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
         </div>
 
         {/* Hero Image */}
-        <div className="relative w-full aspect-[21/9] rounded-[2rem] overflow-hidden bg-brand-200 mb-20 shadow-2xl">
+        <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-brand-200 shadow-md mb-20">
           <Image
             src={project.projectImg}
             alt={`Capa do projeto ${project.projectName}`}
@@ -127,59 +119,51 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
 
           {/* Sidebar (Right) */}
           <div className="lg:col-span-4 space-y-12">
-            {/* Info Box */}
+            {/* Info Box - AGORA DINÂMICA! */}
             <div className="bg-brand-700 rounded-2xl p-8 shadow-sm border border-brand-200/50">
               <h3 className="font-bold text-brand-50 mb-4 uppercase tracking-wider text-sm">
                 Escopo do Projeto
               </h3>
               <ul className="space-y-3 text-brand-50">
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
-                  Identidade Visual
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
-                  UI/UX Design
-                </li>
-                {/* You can make these dynamic later too */}
+                {project.services?.map((service, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+                    {service}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
         {/* Gallery Section */}
+        {/* Gallery Section */}
         <div className="mt-24">
           <h3 className="font-heading text-3xl font-bold text-brand-800 mb-10">
             Galeria do Projeto
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Just showing the first two gallery images for a clean look */}
-            {project.gallery?.slice(0, 2).map((img, index) => (
-              <div
-                key={index}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 shadow-md"
-              >
-                <Image
-                  src={img}
-                  alt={`Galeria ${index}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+            {project.gallery?.map((img, index) => {
+              // Lógica dinâmica: A cada 3 imagens, a terceira ocupa as duas colunas (linha inteira)
+              const isFullWidth = (index + 1) % 3 === 0;
 
-          {/* Full width bottom image */}
-          {project.gallery?.[2] && (
-            <div className="relative w-full aspect-[21/9] mt-8 rounded-2xl overflow-hidden bg-brand-200 shadow-md">
-              <Image
-                src={project.gallery[2]}
-                alt="Galeria destaque"
-                fill
-                className="object-cover"
-              />
-            </div>
-          )}
+              return (
+                <div
+                  key={index}
+                  className={`relative rounded-2xl overflow-hidden bg-brand-200 shadow-md transition-transform duration-300 hover:scale-[1.02] ${
+                    isFullWidth ? "md:col-span-2 aspect-[21/9]" : "aspect-[4/3]"
+                  }`}
+                >
+                  <Image
+                    src={img}
+                    alt={`Detalhe do projeto ${project.projectName} - Imagem ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <Footer />

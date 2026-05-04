@@ -48,7 +48,7 @@ const PortfolioSection = () => {
             >
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 mb-5">
                 <Image
-                  src={project.projectImg}
+                  src={project.gallery[1]}
                   alt={`Projeto ${project.projectName}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover/card:scale-105"
