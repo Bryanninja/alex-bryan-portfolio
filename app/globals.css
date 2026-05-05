@@ -17,9 +17,9 @@
   --font-heading: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Base de estilo geral para garantir a legibilidade */
+/* Base de estilo geral para garantir a legibilidade
 @layer base {
   body {
     @apply bg-brand-50 text-brand-900 antialiased;
   }
-}
+} */

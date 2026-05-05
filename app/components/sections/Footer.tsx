@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
 
           <Link
-            href="/contato"
+            href="/orcamento"
             className="bg-[#3a6d8c] hover:bg-[#5bb5d9] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1"
           >
             Quero um projeto de elite

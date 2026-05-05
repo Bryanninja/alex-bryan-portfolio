@@ -42,7 +42,7 @@ export default function FloatingMenu() {
 
             {/* Botão de Orçamento de Elite */}
             <Link
-              href="/contato"
+              href="/orcamento"
               onClick={() => setIsOpen(false)}
               className="mt-4 flex items-center justify-between rounded-full border border-[#5bb5d9] px-6 py-3 text-brand-50 hover:bg-[#5bb5d9] hover:text-white transition-all duration-300"
             >

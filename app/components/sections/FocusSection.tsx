@@ -40,7 +40,7 @@ const FocusSection = () => {
 
             <div className="pt-4">
               <Button
-                href="/contato"
+                href="/orcamento"
                 className="px-10 py-4 flex items-center justify-center gap-2"
               >
                 Fale comigo! <ArrowRight size={20} />
