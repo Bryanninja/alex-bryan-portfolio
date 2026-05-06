@@ -122,7 +122,7 @@ export default function OrcamentoPage() {
 
       {/* CONTEÚDO PRINCIPAL (Split Screen) */}
       <Container className="w-full py-16 flex flex-col justify-center">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LADO ESQUERDO: COPY */}
           <div className="space-y-6">
             <h1 className="font-heading font-extrabold text-5xl lg:text-6xl text-[#1D3759] leading-tight tracking-tight">
