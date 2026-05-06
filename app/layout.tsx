@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -29,7 +30,10 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${bricolage.variable} ${inter.variable} scroll-smooth`}
     >
-      <body>{children}</body>
+      <body>
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }
