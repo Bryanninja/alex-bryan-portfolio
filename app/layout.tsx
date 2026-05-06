@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next"; // Adicionado Viewport
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
@@ -15,9 +15,62 @@ const inter = Inter({
   display: "swap",
 });
 
+// 1. METADATA DE ALTA PERFORMANCE
 export const metadata: Metadata = {
-  title: "Álex Bryan | Design de Elite & Desenvolvimento Front-end",
-  description: "Identidades visuais de elite e sites que realmente vendem.",
+  title: "Álex Bryan | Landing Pages de Elite & Identidade Visual", // 'Landing Page' logo no início
+  description:
+    "Criação de Landing Pages de alta performance e Identidades Visuais de elite. Transforme seu negócio em uma marca de autoridade com visão internacional.",
+  keywords: [
+    "Criação de Landing Pages",
+    "Landing Page de Elite",
+    "Design de Marcas Premium",
+    "Desenvolvedor Front-end Next.js",
+    "UI/UX Designer",
+    "Albry Studio",
+  ],
+  authors: [{ name: "Álex Bryan" }],
+  creator: "Álex Bryan",
+  publisher: "Albry Studio",
+  alternates: {
+    canonical: "https://www.alexbryan.com.br", // Troque pela sua URL real
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://www.alexbryan.com.br",
+    title: "Álex Bryan | Design de Elite & Desenvolvimento Front-end",
+    description: "Identidades visuais de elite e sites que realmente vendem.",
+    siteName: "Álex Bryan",
+    images: [
+      {
+        url: "/og-image.jpg", // Crie uma imagem de 1200x630 para o preview do link
+        width: 1200,
+        height: 630,
+        alt: "Álex Bryan - Design & Tech",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Álex Bryan | Design & Tech",
+    description: "Marcas de elite e sites de alta performance.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1D3759", // Cor da marca na barra do navegador (mobile)
 };
 
 export default function RootLayout({
@@ -25,12 +78,37 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // 2. JSON-LD (Schema.org) - Isso é ouro para o Google
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Álex Bryan | Albry Studio",
+    image: "https://www.alexbryan.com.br/og-image.jpg",
+    description:
+      "Especialista em Identidade Visual e Desenvolvimento Front-end para negócios que buscam posicionamento premium.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Pedro Leopoldo",
+      addressRegion: "MG",
+      addressCountry: "BR",
+    },
+    url: "https://www.alexbryan.com.br",
+    priceRange: "$$$",
+  };
+
   return (
     <html
       lang="pt-BR"
       className={`${bricolage.variable} ${inter.variable} scroll-smooth`}
     >
-      <body>
+      <head>
+        {/* Inserindo o JSON-LD para o robô do Google ler */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="antialiased text-brand-800 bg-brand-50">
         <ScrollToTop />
         {children}
       </body>
