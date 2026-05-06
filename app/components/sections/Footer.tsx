@@ -1,37 +1,61 @@
+"use client";
+
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import Container from "../Container"; // Ajuste o caminho conforme o seu projeto
+import { motion } from "framer-motion"; // Importando Framer Motion
+import Container from "../Container";
+import { containerStagger, childFadeUp } from "../../utils/animations"; // Importando suas variantes
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#242b3a] pt-24 pb-8 flex flex-col items-center">
+    <footer className="w-full bg-[#242b3a] pt-24 pb-8 flex flex-col items-center overflow-hidden">
       <Container>
-        {/* === SEÇÃO DE CTA === */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24 px-4">
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight mb-6">
+        {/* === SEÇÃO DE CTA COM ANIMAÇÃO === */}
+        <motion.div
+          variants={containerStagger}
+          initial="initial"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24 px-4"
+        >
+          <motion.h2
+            variants={childFadeUp}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight mb-6"
+          >
             O seu serviço já é premium. O seu visual transmite isso?
-          </h2>
+          </motion.h2>
 
-          <p className="text-lg text-slate-300/80 leading-relaxed mb-10 max-w-2xl">
+          <motion.p
+            variants={childFadeUp}
+            className="text-lg text-slate-300/80 leading-relaxed mb-10 max-w-2xl"
+          >
             O seu negócio já entrega um serviço de excelência, mas o seu
             posicionamento digital reflete isso? Vamos construir uma marca de
             elite que transmite a sua verdadeira autoridade e atrai os clientes
             certos.
-          </p>
+          </motion.p>
 
-          <Link
-            href="/orcamento"
-            className="bg-[#3a6d8c] hover:bg-[#5bb5d9] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1"
-          >
-            Quero um projeto de elite
-          </Link>
-        </div>
+          <motion.div variants={childFadeUp}>
+            <Link
+              href="/orcamento"
+              className="bg-[#3a6d8c] hover:bg-[#5bb5d9] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
+            >
+              Quero um projeto de elite
+            </Link>
+          </motion.div>
+        </motion.div>
       </Container>
 
       {/* === LINHA DIVISÓRIA E COPYRIGHT === */}
-      <div className="w-full border-t border-slate-600/50 pt-8 px-6 lg:px-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        viewport={{ once: true }}
+        className="w-full border-t border-slate-600/50 pt-8 px-6 lg:px-12"
+      >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm font-semibold text-slate-400 text-center md:text-left">
             © {currentYear} Álex Bryan. Todos os direitos reservados.
@@ -39,7 +63,7 @@ const Footer = () => {
 
           {/* === REDES SOCIAIS === */}
           <div className="flex items-center justify-center gap-6 text-slate-400">
-            {/* E-mail (Lucide) */}
+            {/* E-mail */}
             <a
               href="mailto:bryanncode@gmail.com"
               className="hover:text-[#5bb5d9] transition-colors"
@@ -48,7 +72,7 @@ const Footer = () => {
               <Mail size={22} />
             </a>
 
-            {/* Instagram (SVG Integrado - permite usar o Tailwind para cores!) */}
+            {/* Instagram */}
             <a
               href="https://www.instagram.com/alexbryannt/"
               target="_blank"
@@ -73,7 +97,7 @@ const Footer = () => {
               </svg>
             </a>
 
-            {/* LinkedIn (Opcional - SVG Integrado, caso você queira usar no futuro) */}
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/alexbryannt/"
               target="_blank"
@@ -98,7 +122,7 @@ const Footer = () => {
               </svg>
             </a>
 
-            {/* Behance (Tipografia) */}
+            {/* Behance */}
             <a
               href="https://www.behance.net/bryan_fnascime"
               target="_blank"
@@ -112,7 +136,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
