@@ -1,28 +1,36 @@
 import Image from "next/image";
 import Container from "../../components/Container";
 import Button from "../../components/Button";
-import { ArrowRight } from "lucide-react"; // Usando Lucide como sugerido
+import { ArrowRight } from "lucide-react";
 
-// Importe sua foto e os elementos abstratos do fundo
+// Importe a sua imagem JÁ CORTADA (sem espaço vazio nas laterais)
 import alexPhoto from "../../assets/img/Bryan/BryanImg2.webp";
+import alexPhoto2 from "../../assets/img/Bryan/bryan-mobile2.webp";
 
 const FocusSection = () => {
   return (
-    <section id="sobre" className="w-full bg-brand-50 lg:py-24 overflow-hidden">
+    <section
+      id="sobre"
+      className="w-full bg-brand-50 py-12 lg:py-24 overflow-hidden"
+    >
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="col-span-12 lg:col-span-5 flex flex-col space-y-8">
-            <div className=" space-y-4 md:space-y-6">
-              <h2 className="text-brand-500 font-heading text-balance font-extrabold uppercase md:leading-20 tracking-tight text-5xl md:text-6xl ">
+        {/* Adicionado gap-12 lg:gap-8 para respirar melhor no mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 items-center">
+          {/* LADO ESQUERDO: TEXTOS */}
+
+          <div className="col-span-12 lg:col-span-6 flex flex-col space-y-8 min-w-0 w-full overflow-hidden">
+            <div className="space-y-3 min-w-0">
+              <span className="text-brand-500 font-bold uppercase tracking-widest text-sm md:text-base block truncate">
                 Foque no que importa
-              </h2>
-              <h2 className="font-heading text-4xl text-balance font-bold text-brand-800 leading-tight">
-                Eu cuido da sua marca <br className="hidden md:block" /> e do
-                seu site.
+              </span>
+
+              {/* Tirei o text-balance no celular para evitar o bug de cálculo, mantive no PC (sm) */}
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-brand-800 leading-[1.1] sm:text-balance break-words">
+                Eu cuido da sua marca e do seu site.
               </h2>
             </div>
 
-            <div className="space-y-6 text-brand-700/90 text-lg leading-relaxed max-w-sm md:max-w-2xl">
+            <div className="space-y-6 text-brand-700/90 text-base md:text-lg leading-relaxed lg:max-w-2xl break-words whitespace-normal">
               <p>
                 <b className="text-brand-800">
                   Beleza sem estratégia não paga a conta.
@@ -41,23 +49,35 @@ const FocusSection = () => {
             <div className="pt-4">
               <Button
                 href="/orcamento"
-                className="px-10 py-4 flex items-center justify-center gap-2"
+                className="w-full sm:w-max px-10 py-4 flex items-center justify-center gap-3"
               >
                 Fale comigo! <ArrowRight size={20} />
               </Button>
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-7 relative flex justify-center lg:justify-end">
+          {/* LADO DIREITO: IMAGEM */}
+          {/* Aumentei para col-span-6 para equilibrar os dois lados */}
+          <div className=" hidden sm:flex col-span-12 lg:col-span-6 relative flex justify-center items-end mt-8 lg:mt-0">
             <Image
               src={alexPhoto}
               alt="Álex Bryan gesticulando"
-              className="w-full object-cover object-right"
-              priority
+              className=" object-contain object-bottom "
             />
 
-            {/* Overlay suave na parte inferior da foto para o efeito de "fading" do design */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-50 to-transparent z-20" />
+            {/* Overlay suave na parte inferior da foto para o efeito de "fading" */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
+          </div>
+
+          <div className="sm:hidden col-span-12 lg:col-span-6 relative flex justify-center items-end mt-8 lg:mt-0">
+            <Image
+              src={alexPhoto2}
+              alt="Álex Bryan gesticulando"
+              className=" object-contain object-bottom "
+            />
+
+            {/* Overlay suave na parte inferior da foto para o efeito de "fading" */}
+            <div className="absolute bottom-0 left-0 w-full h-60 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
           </div>
         </div>
       </Container>

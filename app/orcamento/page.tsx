@@ -138,7 +138,7 @@ export default function OrcamentoPage() {
           </div>
 
           {/* LADO DIREITO: O CARD CINZA/AZUL CLARO */}
-          <div className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-10 md:p-12 min-h-[480px] flex flex-col shadow-sm">
+          <div className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-4 md:p-12 min-h-[480px] flex flex-col shadow-sm">
             {/* Tag do Passo (Outline) */}
             <div className="inline-flex border border-[#37648C] text-[#1D3759] font-bold px-4 py-1.5 rounded-full mb-8 self-start text-sm">
               Passo {step} De 3
@@ -170,7 +170,7 @@ export default function OrcamentoPage() {
                       key={item.id}
                       type="button"
                       onClick={() => setServico(item.id as any)}
-                      className="w-full cursor-pointer flex items-start gap-5 text-left group"
+                      className="w-full cursor-pointer flex items-start gap-4 text-left group"
                     >
                       {/* Checkbox Vazado */}
                       <div

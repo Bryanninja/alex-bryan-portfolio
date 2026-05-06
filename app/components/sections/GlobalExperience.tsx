@@ -21,7 +21,7 @@ const GlobalExperience = () => {
               Experiência Global
             </span>
 
-            <h2 className="font-heading text-5xl font-extrabold tracking-tight text-brand-800 md:text-5xl lg:leading-tight">
+            <h2 className="font-heading text-4xl font-extrabold tracking-tight text-brand-800 md:text-5xl lg:leading-tight">
               Projetos Que Performam Em <br />
               <span className="text-brand-500 text-4xl md:text-[4rem]">
                 Qualquer Mercado

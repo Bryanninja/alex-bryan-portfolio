@@ -14,14 +14,15 @@ const PortfolioSection = () => {
   const visibleProjects = isExpanded ? projectsData : projectsData.slice(0, 4);
 
   return (
-    <section id="projetos" className="w-full bg-brand-50 py-20">
+    <section id="projetos" className="w-full bg-brand-50 py-16">
       <Container>
         {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
           <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-brand-800 tracking-tight">
-            Dá uma olhada no que <br /> a gente já construiu.
+            Dá uma olhada no que <br className="md:block" /> a gente já
+            construiu.
           </h2>
-          <p className="text-lg md:text-xl text-brand-600 max-w-2xl">
+          <p className="text-lg md:text-xl text-pretty text-brand-600 max-w-sm md:max-w-2xl">
             Projetos que transformaram negócios comuns em marcas de elite.
           </p>
         </div>
