@@ -13,7 +13,7 @@ const FocusSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="col-span-12 lg:col-span-5 flex flex-col space-y-8">
             <div className=" space-y-4 md:space-y-6">
-              <h2 className="text-brand-500 font-heading text-balance font-extrabold uppercase md:leading-20 tracking-tight text-5xl md:text-7xl ">
+              <h2 className="text-brand-500 font-heading text-balance font-extrabold uppercase md:leading-20 tracking-tight text-5xl md:text-6xl ">
                 Foque no que importa
               </h2>
               <h2 className="font-heading text-4xl text-balance font-bold text-brand-800 leading-tight">

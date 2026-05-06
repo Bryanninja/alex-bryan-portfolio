@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Header = () => {
   return (
-    <header className="w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+    <header className="w-full max-w-[1440px] mx-auto px-6 md:px-20 py-6 flex justify-between items-center">
       <Link
         href="/"
         className="font-heading font-extrabold text-2xl text-brand-900"

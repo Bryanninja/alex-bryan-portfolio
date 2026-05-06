@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-6 text-slate-400">
             {/* E-mail (Lucide) */}
             <a
-              href="mailto:seuemail@exemplo.com"
+              href="mailto:bryanncode@gmail.com"
               className="hover:text-[#5bb5d9] transition-colors"
               aria-label="Email"
             >

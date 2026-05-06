@@ -5,9 +5,11 @@ interface ContainerProps {
   className?: string;
 }
 
-const Container = ({ children, className }: ContainerProps) => {
+const Container = ({ children, className = "" }: ContainerProps) => {
   return (
-    <div className={`max-w-7xl mx-auto px-6 ${className}`}>{children}</div>
+    <div className={`w-full max-w-[1440px] mx-auto px-6 md:px-20 ${className}`}>
+      {children}
+    </div>
   );
 };
 

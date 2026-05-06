@@ -34,8 +34,8 @@ const GlobalExperience = () => {
           </div>
 
           {/* Coluna 2: Texto (DESKTOP) */}
-          {/* ADICIONADO: hidden lg:flex para sumir no mobile e aparecer no PC */}
-          <div className="col-span-5 hidden lg:flex items-end pb-6">
+
+          <div className="col-span-5 hidden lg:flex items-end pb-2">
             <p className="text-lg leading-relaxed text-brand-700/80 lg:text-xl">
               Colaborando com clientes em Orlando (EUA), Cidade do Cabo (África
               do Sul), Portugal e Croácia. Trago uma visão internacional para
