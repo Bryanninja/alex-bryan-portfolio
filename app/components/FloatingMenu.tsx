@@ -30,7 +30,7 @@ export default function FloatingMenu() {
               onClick={() => setIsOpen(false)}
               className="text-lg font-medium text-white hover:text-[#acdef2] transition-colors"
             >
-              Portfolio
+              Ver Projetos
             </Link>
             <Link
               href="/#sobre"

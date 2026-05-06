@@ -170,7 +170,7 @@ export default function OrcamentoPage() {
                       key={item.id}
                       type="button"
                       onClick={() => setServico(item.id as any)}
-                      className="w-full flex items-start gap-5 text-left group"
+                      className="w-full cursor-pointer flex items-start gap-5 text-left group"
                     >
                       {/* Checkbox Vazado */}
                       <div
@@ -217,7 +217,7 @@ export default function OrcamentoPage() {
                     else setValor(700);
                     setStep(2);
                   }}
-                  className="mt-8 px-8 py-3 self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
+                  className="mt-8 cursor-pointer px-8 py-3 self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
                 >
                   Próximo →
                 </button>
@@ -261,13 +261,13 @@ export default function OrcamentoPage() {
                 <div className="mt-8 flex justify-between items-center">
                   <button
                     onClick={() => setStep(1)}
-                    className="text-[#37648C] font-bold hover:text-[#1D3759]"
+                    className="text-[#37648C] font-bold cursor-pointer hover:text-[#1D3759]"
                   >
                     ← Voltar
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    className="px-8 py-3 bg-[#1D3759] text-white font-bold rounded-full hover:bg-[#242B3A] transition"
+                    className="px-8 py-3 bg-[#1D3759] cursor-pointer text-white font-bold rounded-full hover:bg-[#242B3A] transition"
                   >
                     Próximo →
                   </button>
@@ -317,14 +317,14 @@ export default function OrcamentoPage() {
                 <div className="mt-8 flex justify-between items-center">
                   <button
                     onClick={() => setStep(2)}
-                    className="text-[#37648C] font-bold hover:text-[#1D3759]"
+                    className="text-[#37648C] cursor-pointer font-bold hover:text-[#1D3759]"
                   >
                     ← Voltar
                   </button>
                   <button
                     onClick={handleFinalizar}
                     disabled={isSubmitting || !nome || !whatsapp || !email}
-                    className="px-8 py-3 bg-[#37648C] text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
+                    className="px-8 py-3 bg-[#37648C] cursor-pointer text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
                   >
                     {isSubmitting ? "Enviando..." : "Finalizar Pedido"}
                   </button>

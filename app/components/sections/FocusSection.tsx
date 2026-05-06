@@ -8,7 +8,7 @@ import alexPhoto from "../../assets/img/Bryan/BryanImg2.webp";
 
 const FocusSection = () => {
   return (
-    <section className="w-full bg-brand-50 lg:py-24 overflow-hidden">
+    <section id="sobre" className="w-full bg-brand-50 lg:py-24 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="col-span-12 lg:col-span-5 flex flex-col space-y-8">
