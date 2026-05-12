@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  type Variants,
-  type BezierDefinition,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "../components/Header";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 import Container from "../components/Container";
 import Button from "../components/Button";
 
@@ -36,30 +33,6 @@ export default function OrcamentoPage() {
   const [email, setEmail] = useState("");
   const [empresa, setEmpresa] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-
-  // No topo do arquivo, a definição correta:
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value;
-    if (input.startsWith("+")) {
-      setWhatsapp(input);
-      return;
-    }
-
-    const numbers = input.replace(/\D/g, "");
-    const sliceEnd = 11; // Mudado de 'let' para 'const'
-
-    const finalNumbers = numbers.slice(0, sliceEnd);
-    let formatted = finalNumbers;
-
-    if (finalNumbers.length > 2) {
-      formatted = `(${finalNumbers.slice(0, 2)}) ${finalNumbers.slice(2)}`;
-    }
-    if (finalNumbers.length > 7) {
-      formatted = `(${finalNumbers.slice(0, 2)}) ${finalNumbers.slice(2, 7)}-${finalNumbers.slice(7)}`;
-    }
-    setWhatsapp(formatted);
-  };
 
   const handleFinalizar = async () => {
     if (nome.trim().length < 3) {
@@ -316,10 +289,7 @@ export default function OrcamentoPage() {
               {step === 3 && (
                 <motion.div
                   key="step3"
-                  variants={stepVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
+                  {...stepVariants}
                   className="flex-1 flex flex-col"
                 >
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
@@ -340,14 +310,24 @@ export default function OrcamentoPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
                     />
-                    <input
-                      type="tel"
-                      placeholder="Seu WhatsApp (ex: 31 99999-9999 ou +1...)"
-                      value={whatsapp}
-                      onChange={handlePhoneChange}
-                      maxLength={19}
-                      className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
-                    />
+                    {/* INPUT DE WHATSAPP GLOBAL */}
+                    {/* INPUT DE WHATSAPP GLOBAL UNIFICADO */}
+                    <div className="w-full flex items-center rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] focus-within:border-[#37648C] transition-all group overflow-hidden">
+                      <PhoneInput
+                        defaultCountry="br"
+                        value={whatsapp}
+                        onChange={(phone) => setWhatsapp(phone)}
+                        // Estilo do container da própria lib (removendo interferências)
+                        className="w-full"
+                        // O input real agora fica sem bordas e fundo, pois o pai (div) já tem
+                        inputClassName="w-full !border-none !bg-transparent !p-4 !h-[58px] !text-[#1D3759] !placeholder-[#5496BF] !text-base focus:!ring-0 !outline-none"
+                        // O seletor de país também fica "invisível" visualmente dentro do box
+                        countrySelectorStyleProps={{
+                          buttonClassName:
+                            "!border-none !bg-transparent !h-[58px] !pl-4 !pr-2 hover:!bg-white/40 transition-colors",
+                        }}
+                      />
+                    </div>
                     <input
                       type="text"
                       placeholder="Nome da Empresa (Opcional)"

@@ -32,6 +32,19 @@
   }
 }
 
+/* Unificar visualmente o PhoneInput */
+.react-international-phone-input-container {
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.react-international-phone-country-selector-button {
+  border: none !important;
+  background: transparent !important;
+}
+
 @layer base {
   body {
     @apply bg-brand-50 text-brand-900 antialiased;
