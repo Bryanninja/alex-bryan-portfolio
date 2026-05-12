@@ -15,14 +15,14 @@ export default function Button({
   className = "",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300";
+    "inline-flex items-center border-2 border-transparent justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300";
 
   const variants = {
     primary: "bg-brand-800 text-white hover:bg-brand-900 shadow-md",
     secondary: "bg-brand-400 text-white hover:bg-brand-500 shadow-md",
 
     outline:
-      "border-2 border-brand-800 text-brand-800 hover:bg-brand-800 hover:text-white",
+      "border-brand-800! text-brand-800 hover:bg-brand-800 hover:text-white",
   };
 
   return (
