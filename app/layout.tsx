@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -110,6 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased text-brand-800 bg-brand-50">
+        <Analytics />
         <SpeedInsights />
         <ScrollToTop />
         {children}
