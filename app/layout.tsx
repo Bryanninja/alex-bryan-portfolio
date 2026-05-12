@@ -113,6 +113,7 @@ export default function RootLayout({
         <SpeedInsights />
         <ScrollToTop />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
