@@ -355,9 +355,7 @@ export default function OrcamentoPage() {
                       disabled={isSubmitting || !nome || !whatsapp || !email}
                       className="px-8 py-3 bg-[#37648C] cursor-pointer text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
                     >
-                      {isSubmitting
-                        ? "Enviando..."
-                        : "Solicitar Orçamento de Elite"}
+                      {isSubmitting ? "Enviando..." : "Solicitar Orçamento"}
                     </button>
                   </div>
                 </motion.div>
