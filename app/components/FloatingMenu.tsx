@@ -12,7 +12,7 @@ export default function FloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6  right-6 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -21,13 +21,13 @@ export default function FloatingMenu() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-20 right-0 mb-4 w-64 rounded-3xl bg-brand-700/90 backdrop-blur-md p-6 shadow-2xl"
+            className="absolute bottom-20 right-0 mb-4 w-64 rounded-3xl  bg-brand-700/90 backdrop-blur-md p-6 shadow-2xl"
           >
             {/* Botão Fechar no topo */}
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setIsOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#5bb5d9] text-white hover:bg-[#5496bf] transition-colors shadow-md"
+                className="flex h-10 w-10 items-center justify-center rounded-xl cursor-pointer  bg-[#5bb5d9] text-white hover:bg-[#5496bf] transition-colors shadow-md"
               >
                 <X size={24} />
               </button>
@@ -65,7 +65,7 @@ export default function FloatingMenu() {
                 <Link
                   href="/orcamento"
                   onClick={() => setIsOpen(false)}
-                  className="mt-4 flex items-center justify-between rounded-full border border-[#5bb5d9] px-6 py-3 text-brand-50 hover:bg-[#5bb5d9] hover:text-white transition-all duration-300"
+                  className="mt-4 flex items-center justify-between rounded-full border border-[#5bb5d9] px-6 py-3 text-brand-50 hover:bg-[#5bb5d9]/60 hover:text-white transition-all duration-300"
                 >
                   <span className="font-medium">Orçamento</span>
                   <ArrowUpRight size={20} />
@@ -86,7 +86,7 @@ export default function FloatingMenu() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#3b465b] text-[#5bb5d9] shadow-xl hover:bg-[#242b3a] transition-colors"
+            className="flex h-14 w-14 items-center justify-center cursor-pointer rounded-xl bg-[#3b465b] text-[#5bb5d9] shadow-xl hover:bg-[#242b3a] transition-colors"
           >
             <Menu size={28} strokeWidth={2.5} />
           </motion.button>

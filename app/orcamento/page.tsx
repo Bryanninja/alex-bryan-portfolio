@@ -144,6 +144,7 @@ export default function OrcamentoPage() {
             </div>
 
             <AnimatePresence mode="wait">
+              {/* PASSO 1: SERVIÇO */}
               {step === 1 && (
                 <motion.div
                   key="step1"
@@ -160,15 +161,15 @@ export default function OrcamentoPage() {
                     {[
                       {
                         id: "Identidade Visual",
-                        desc: "Quero uma marca de elite que passe confiança.",
+                        desc: "Posicionamento Visual de Elite: Estratégia de marca, logotipo e identidade que transforma sua percepção no mercado.",
                       },
                       {
                         id: "Site de Alta Performance",
-                        desc: "Já tenho a marca, preciso de um site que venda.",
+                        desc: "Landing Pages ultra rápidas e otimizadas para converter visitantes em clientes.",
                       },
                       {
                         id: "O Combo (Marca + Site)",
-                        desc: "Quero a solução completa e profissional.",
+                        desc: "A solução completa: do posicionamento visual à sua estrutura de vendas online.",
                       },
                     ].map((item) => (
                       <button
@@ -182,10 +183,15 @@ export default function OrcamentoPage() {
                               | "O Combo (Marca + Site)",
                           )
                         }
-                        className="w-full cursor-pointer flex items-start gap-4 text-left group"
+                        className="w-full text-pretty cursor-pointer flex items-start gap-4 text-left group"
                       >
+                        {/* CHECKBOX: Adicionado shrink-0 para não espremer */}
                         <div
-                          className={`w-8 h-8 mt-1 rounded-md border-2 flex items-center justify-center transition-colors ${servico === item.id ? "border-[#37648C] bg-[#37648C]" : "border-[#5496BF] bg-transparent"}`}
+                          className={`w-8 h-8 mt-1 rounded-md border-2 shrink-0 flex items-center justify-center transition-colors ${
+                            servico === item.id
+                              ? "border-[#37648C] bg-[#37648C]"
+                              : "border-[#5496BF] bg-transparent"
+                          }`}
                         >
                           {servico === item.id && (
                             <svg
@@ -207,20 +213,21 @@ export default function OrcamentoPage() {
                           <span className="block font-bold text-[#1D3759] text-xl mb-1">
                             {item.id}
                           </span>
-                          <span className="text-sm text-[#3B465B]">
+                          <span className="text-sm text-[#3B465B] leading-snug block">
                             {item.desc}
                           </span>
                         </div>
                       </button>
                     ))}
                   </div>
+
                   <button
                     disabled={!servico}
                     onClick={() => {
                       if (servico === "Site de Alta Performance")
-                        setValor(2500);
+                        setValor(1200);
                       else if (servico === "O Combo (Marca + Site)")
-                        setValor(3000);
+                        setValor(1700);
                       else setValor(700);
                       setStep(2);
                     }}
@@ -256,8 +263,8 @@ export default function OrcamentoPage() {
                         servico === "Identidade Visual"
                           ? 700
                           : servico === "Site de Alta Performance"
-                            ? 2500
-                            : 3000
+                            ? 1200 // Novo Piso
+                            : 1700 // Novo Piso do Combo
                       }
                       max={15000}
                       step={100}
@@ -348,7 +355,9 @@ export default function OrcamentoPage() {
                       disabled={isSubmitting || !nome || !whatsapp || !email}
                       className="px-8 py-3 bg-[#37648C] cursor-pointer text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
                     >
-                      {isSubmitting ? "Enviando..." : "Finalizar Pedido"}
+                      {isSubmitting
+                        ? "Enviando..."
+                        : "Solicitar Orçamento de Elite"}
                     </button>
                   </div>
                 </motion.div>

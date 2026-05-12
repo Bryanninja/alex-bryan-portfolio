@@ -1,16 +1,14 @@
 "use client";
 
-import { use } from "react"; // Para desempacotar os params no Client Component
+import { use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, BadgeCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, BadgeCheck, LayoutGrid } from "lucide-react";
 
 import { projectsData } from "../../data/projects";
 import FloatingMenu from "@/app/components/FloatingMenu";
 import Footer from "@/app/components/sections/Footer";
-
-// Importando suas variantes de elite
 import {
   containerStagger,
   childFadeUp,
@@ -24,21 +22,22 @@ interface ProjectPageProps {
 }
 
 export default function ProjectDetail({ params }: ProjectPageProps) {
-  // No Next.js 15 Client Components, usamos o 'use' para os params
   const resolvedParams = use(params);
   const projectId = Number(resolvedParams.id);
   const project = projectsData?.find((item) => item.id === projectId);
 
+  // Lógica para o Próximo Projeto
+  const nextProject = projectsData.find(
+    (p) => p.id === (projectId % projectsData.length) + 1,
+  );
+
   if (!project) {
     return (
-      <div className="flex flex-col h-screen items-center justify-center gap-4 bg-brand-50">
+      <div className="flex flex-col h-screen items-center justify-center gap-4 bg-brand-50 text-center px-4">
         <h1 className="text-2xl font-bold text-brand-800">
           Ops! O projeto não foi encontrado.
         </h1>
-        <Link
-          href="/"
-          className="font-bold text-brand-500 hover:text-brand-600 underline"
-        >
+        <Link href="/" className="font-bold text-brand-50 underline">
           Voltar para o Portfólio
         </Link>
       </div>
@@ -49,9 +48,9 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
     <main className="min-h-screen bg-brand-50">
       <FloatingMenu />
 
-      <div className="pt-20 space-y-20">
+      <div className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          {/* === HEADER SECTION === */}
+          {/* VOLTAR */}
           <motion.div
             variants={containerStagger}
             initial="initial"
@@ -61,71 +60,44 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
             <motion.div variants={childFadeUp}>
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-500 font-semibold mb-10 transition-colors group"
+                className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-500 font-semibold group"
               >
                 <ArrowLeft
                   size={20}
-                  className="transition-transform duration-300 group-hover:-translate-x-1"
+                  className="transition-transform group-hover:-translate-x-1"
                 />
                 Voltar aos projetos
               </Link>
             </motion.div>
-
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-12">
-              <div className="max-w-3xl">
-                <motion.h1
-                  variants={childFadeUp}
-                  className="font-heading text-5xl md:text-6xl lg:text-[4rem] font-extrabold text-brand-800 mb-6 leading-tight tracking-tight"
-                >
-                  {project.projectName}
-                </motion.h1>
-
-                <motion.p
-                  variants={childFadeUp}
-                  className="text-xl text-brand-700/90 leading-relaxed mb-10"
-                >
-                  {project.description}
-                </motion.p>
-
-                {/* AVATAR DO CLIENTE */}
-                <motion.div
-                  variants={childFadeUp}
-                  className="flex items-center gap-4 bg-white w-max pr-8 p-2.5 rounded-full shadow-sm border border-brand-200/60"
-                >
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
-                    <Image
-                      src={project.clientImg}
-                      alt={project.clientName}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-bold text-brand-800 text-lg leading-none">
-                        {project.clientName}
-                      </span>
-                      <BadgeCheck
-                        size={18}
-                        className="text-brand-500 fill-brand-500/10"
-                        strokeWidth={2.5}
-                      />
-                    </div>
-                    <span className="text-[0.65rem] font-bold text-brand-500 uppercase tracking-widest mt-1">
-                      Cliente Verificado
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
           </motion.div>
 
-          {/* === HERO IMAGE COM REVEAL === */}
+          {/* TÍTULO */}
+          <motion.div
+            variants={containerStagger}
+            initial="initial"
+            animate="visible"
+            className="max-w-4xl mb-16"
+          >
+            <motion.h1
+              variants={childFadeUp}
+              className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-brand-800 mb-8 leading-[1.1] tracking-tighter"
+            >
+              {project.projectName}
+            </motion.h1>
+            <motion.p
+              variants={childFadeUp}
+              className="text-xl md:text-2xl text-brand-700/85 leading-relaxed"
+            >
+              {project.description}
+            </motion.p>
+          </motion.div>
+
+          {/* HERO IMAGE */}
           <motion.div
             variants={imageReveal}
             initial="initial"
             animate="visible"
-            className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-brand-200 shadow-md mb-20"
+            className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden bg-brand-200 shadow-md mb-24"
           >
             <Image
               src={project.projectImg}
@@ -136,17 +108,16 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
             />
           </motion.div>
 
-          {/* === DETALHES GRID === */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* CONTEÚDO GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
               className="lg:col-span-8"
             >
               <h2 className="font-heading text-3xl font-bold text-brand-800 mb-8">
-                O Desafio e a Solução
+                A Estratégia de Posicionamento
               </h2>
               <div className="space-y-6 text-brand-700 text-lg leading-relaxed">
                 {project.fullDescription?.map((paragraph, index) => (
@@ -155,41 +126,66 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
               </div>
             </motion.div>
 
-            {/* SIDEBAR */}
+            {/* SIDEBAR BRAND-700 */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
               className="lg:col-span-4"
             >
-              <div className="bg-brand-700 rounded-2xl p-8 shadow-sm border border-brand-200/50 sticky top-24">
-                <h3 className="font-bold text-brand-50 mb-4 uppercase tracking-wider text-sm">
-                  Escopo do Projeto
-                </h3>
-                <ul className="space-y-3 text-brand-50">
+              <div className="bg-brand-700 p-10 rounded-[2rem] border border-brand-600 shadow-sm sticky top-24">
+                <div className="flex items-center gap-3 mb-8">
+                  <LayoutGrid className="text-brand-400" size={20} />
+                  <h3 className="font-bold text-brand-50 uppercase tracking-[0.2em] text-xs">
+                    Escopo do Projeto
+                  </h3>
+                </div>
+
+                <ul className="space-y-4 mb-12">
                   {project.services?.map((service, index) => (
-                    <li key={index} className="flex items-center gap-2">
+                    <li
+                      key={index}
+                      className="flex items-center gap-3 text-brand-50/90 text-sm font-semibold"
+                    >
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
                       {service}
                     </li>
                   ))}
                 </ul>
+
+                <div className="pt-8 border-t border-brand-600/50 flex items-center gap-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-500/20">
+                    <Image
+                      src={project.clientImg}
+                      alt={project.clientName}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-bold text-brand-50 text-base leading-none">
+                        {project.clientName}
+                      </span>
+                      <BadgeCheck
+                        size={16}
+                        className="text-brand-400 fill-brand-400/10"
+                      />
+                    </div>
+                    <span className="text-[0.65rem] font-bold text-brand-400 uppercase tracking-widest mt-1.5 block">
+                      Cliente Verificado
+                    </span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* === GALERIA COM STAGGER NO SCROLL === */}
-          <div className="mt-24">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-heading text-3xl font-bold text-brand-800 mb-10"
-            >
+          {/* GALERIA - EFEITO RESTAURADO (LIMPO E RÁPIDO) */}
+          <div className="mt-32 mb-40">
+            <h3 className="font-heading text-3xl font-bold text-brand-800 mb-12">
               Galeria do Projeto
-            </motion.h3>
-
+            </h3>
             <motion.div
               variants={containerStagger}
               initial="initial"
@@ -203,15 +199,11 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
                   <motion.div
                     key={index}
                     variants={childFadeUp}
-                    className={`relative rounded-2xl overflow-hidden bg-brand-200 shadow-md transition-transform duration-500 hover:scale-[1.01] ${
-                      isFullWidth
-                        ? "md:col-span-2 aspect-[21/9]"
-                        : "aspect-[4/3]"
-                    }`}
+                    className={`relative rounded-2xl overflow-hidden bg-brand-200 shadow-md transition-transform duration-300 hover:scale-[1.02] ${isFullWidth ? "md:col-span-2 aspect-[21/9]" : "aspect-[4/3]"}`}
                   >
                     <Image
                       src={img}
-                      alt="Galeria"
+                      alt="Snapshot"
                       fill
                       className="object-cover"
                     />
@@ -220,8 +212,40 @@ export default function ProjectDetail({ params }: ProjectPageProps) {
               })}
             </motion.div>
           </div>
-        </div>
 
+          {/* NAVEGAÇÃO: CARD REFINADO E DISCRETO */}
+          {nextProject && (
+            <div className="pb-32">
+              <Link
+                href={`/projects/${nextProject.id}`}
+                className="group block"
+              >
+                <div className="bg-white border border-brand-200 rounded-[2rem] p-8 md:p-12 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="space-y-3 text-center md:text-left">
+                      <div className="flex items-center justify-center md:justify-start gap-2">
+                        <div className="w-6 h-[2px] bg-brand-500/50" />
+                        <span className="text-brand-500 font-bold uppercase tracking-[0.3em] text-[10px]">
+                          Próximo Projeto
+                        </span>
+                      </div>
+                      <h4 className="font-heading text-3xl md:text-4xl font-extrabold text-brand-800 group-hover:text-brand-600 transition-colors">
+                        {nextProject.projectName}
+                      </h4>
+                    </div>
+
+                    <div className="flex items-center justify-center w-14 h-14 rounded-full border border-brand-100 text-brand-300 group-hover:bg-brand-700 group-hover:text-white group-hover:border-brand-700 transition-all duration-300">
+                      <ArrowRight
+                        size={24}
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )}
+        </div>
         <Footer />
       </div>
     </main>
