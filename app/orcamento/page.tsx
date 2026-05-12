@@ -1,13 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Importação necessária
+import {
+  motion,
+  AnimatePresence,
+  type Variants,
+  type BezierDefinition,
+} from "framer-motion";
 import Header from "../components/Header";
 import Container from "../components/Container";
 import Button from "../components/Button";
 
 // Importando as suas variantes padronizadas
-import { containerStagger, childFadeUp, slowFadeIn } from "../utils/animations";
+import {
+  containerStagger,
+  stepVariants,
+  childFadeUp,
+  slowFadeIn,
+} from "../utils/animations";
 
 export default function OrcamentoPage() {
   const [step, setStep] = useState(1);
@@ -27,28 +37,26 @@ export default function OrcamentoPage() {
   const [empresa, setEmpresa] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
 
-  // Variantes para a transição dos passos (suave deslize)
-  const stepVariants = {
-    initial: { opacity: 0, x: 20 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -20 },
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-  };
+  // No topo do arquivo, a definição correta:
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let input = e.target.value;
+    const input = e.target.value;
     if (input.startsWith("+")) {
       setWhatsapp(input);
       return;
     }
-    let numbers = input.replace(/\D/g, "");
-    if (numbers.length > 11) numbers = numbers.slice(0, 11);
-    let formatted = numbers;
-    if (numbers.length > 2) {
-      formatted = `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+
+    const numbers = input.replace(/\D/g, "");
+    const sliceEnd = 11; // Mudado de 'let' para 'const'
+
+    const finalNumbers = numbers.slice(0, sliceEnd);
+    let formatted = finalNumbers;
+
+    if (finalNumbers.length > 2) {
+      formatted = `(${finalNumbers.slice(0, 2)}) ${finalNumbers.slice(2)}`;
     }
-    if (numbers.length > 7) {
-      formatted = `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`;
+    if (finalNumbers.length > 7) {
+      formatted = `(${finalNumbers.slice(0, 2)}) ${finalNumbers.slice(2, 7)}-${finalNumbers.slice(7)}`;
     }
     setWhatsapp(formatted);
   };
@@ -92,10 +100,9 @@ export default function OrcamentoPage() {
     }
   };
 
-  // TELA DE SUCESSO (Com animação de entrada)
   if (step === 4) {
     return (
-      <main className="min-h-screen relative bg-gradient-to-br from-[#5496BF] to-[#37648C] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+      <main className="min-h-screen relative bg-gradient-to-br from-[#5496BF] to-[#37648C] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,7 +138,6 @@ export default function OrcamentoPage() {
 
       <Container className="w-full py-16 flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* LADO ESQUERDO: COPY (Animado) */}
           <motion.div
             variants={containerStagger}
             initial="initial"
@@ -154,7 +160,6 @@ export default function OrcamentoPage() {
             </motion.p>
           </motion.div>
 
-          {/* LADO DIREITO: CARD (Com AnimatePresence para os passos) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -169,7 +174,10 @@ export default function OrcamentoPage() {
               {step === 1 && (
                 <motion.div
                   key="step1"
-                  {...stepVariants}
+                  variants={stepVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                   className="flex-1 flex flex-col"
                 >
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
@@ -193,7 +201,14 @@ export default function OrcamentoPage() {
                       <button
                         key={item.id}
                         type="button"
-                        onClick={() => setServico(item.id as any)}
+                        onClick={() =>
+                          setServico(
+                            item.id as
+                              | "Identidade Visual"
+                              | "Site de Alta Performance"
+                              | "O Combo (Marca + Site)",
+                          )
+                        }
                         className="w-full cursor-pointer flex items-start gap-4 text-left group"
                       >
                         <div
@@ -246,7 +261,10 @@ export default function OrcamentoPage() {
               {step === 2 && (
                 <motion.div
                   key="step2"
-                  {...stepVariants}
+                  variants={stepVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                   className="flex-1 flex flex-col"
                 >
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
@@ -298,7 +316,10 @@ export default function OrcamentoPage() {
               {step === 3 && (
                 <motion.div
                   key="step3"
-                  {...stepVariants}
+                  variants={stepVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                   className="flex-1 flex flex-col"
                 >
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">

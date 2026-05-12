@@ -1,8 +1,9 @@
 // utils/animations.ts
-import { Variants } from "framer-motion";
+import { Variants, BezierDefinition } from "framer-motion";
 
-// Definindo a curva premium como uma constante para o TS não reclamar
-const easePremium = [0.22, 1, 0.36, 1] as any;
+// 1. Definindo a curva premium com o tipo correto.
+// Isso substitui o "as any" e o TS entende perfeitamente os 4 números.
+const easePremium: BezierDefinition = [0.22, 1, 0.36, 1];
 
 export const containerStagger: Variants = {
   initial: { opacity: 0 },
@@ -11,6 +12,29 @@ export const containerStagger: Variants = {
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.2,
+    },
+  },
+};
+
+export const stepVariants: Variants = {
+  initial: {
+    opacity: 0,
+    x: 20,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: easePremium,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -20,
+    transition: {
+      duration: 0.4,
+      ease: easePremium,
     },
   },
 };
@@ -30,7 +54,6 @@ export const childFadeUp: Variants = {
 export const imageReveal: Variants = {
   initial: { opacity: 0, y: 50 },
   visible: {
-    // MUDADO DE 'animate' PARA 'visible' para manter o padrão
     opacity: 1,
     y: 0,
     transition: {
@@ -44,7 +67,6 @@ export const imageReveal: Variants = {
 export const slowFadeIn: Variants = {
   initial: { opacity: 0 },
   visible: {
-    // MUDADO DE 'animate' PARA 'visible'
     opacity: 1,
     transition: {
       duration: 1.8,
