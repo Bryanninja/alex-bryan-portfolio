@@ -8,7 +8,11 @@ import "react-international-phone/style.css";
 import Container from "../components/Container";
 import Button from "../components/Button";
 
-// Importando as suas variantes padronizadas
+// Importações do React Hook Form e Zod
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 import {
   containerStagger,
   stepVariants,
@@ -16,60 +20,118 @@ import {
   slowFadeIn,
 } from "../utils/animations";
 
+const configuracaoOrcamentos = {
+  "Identidade Visual": [
+    { label: "R$ 700 — R$ 1.500" },
+    { label: "R$ 1.500 — R$ 3.500" },
+    { label: "R$ 3.500 — R$ 7.000" },
+    { label: "R$ 7.000 +" },
+  ],
+
+  "Site de Alta Performance": [
+    { label: "R$ 1.200 — R$ 2.500" },
+    { label: "R$ 2.500 — R$ 4.500" },
+    { label: "R$ 4.500 — R$ 7.000" },
+    { label: "R$ 7.000 +" },
+  ],
+
+  "O Combo (Marca + Site)": [
+    { label: "R$ 1.700 — R$ 3.000" },
+    { label: "R$ 3.000 — R$ 5.500" },
+    { label: "R$ 5.500 — R$ 7.000" },
+    { label: "R$ 7.000 +" },
+  ],
+};
+
+const formSchema = z.object({
+  servico: z.enum(
+    ["Identidade Visual", "Site de Alta Performance", "O Combo (Marca + Site)"],
+    {
+      message: "Selecione um serviço para continuar.",
+    },
+  ),
+  faixaIndex: z.number().min(0).max(3),
+  nome: z.string().trim().min(3, "Por favor, insira seu nome completo."),
+  email: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .email("Por favor, insira um e-mail válido."),
+  whatsapp: z.string().refine((val) => val.replace(/\D/g, "").length >= 10, {
+    message: "Por favor, insira um WhatsApp válido com DDD.",
+  }),
+  empresa: z.string().trim().optional(),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
 export default function OrcamentoPage() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Estados do Formulário (Exatamente como os seus)
-  const [servico, setServico] = useState<
-    | "Identidade Visual"
-    | "Site de Alta Performance"
-    | "O Combo (Marca + Site)"
-    | ""
-  >("");
-  const [valor, setValor] = useState(700);
+  // 2. Configuração do React Hook Form
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    setValue,
+    trigger,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+    defaultValues: {
+      faixaIndex: 0,
+      whatsapp: "",
+      empresa: "",
+    },
+  });
 
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [empresa, setEmpresa] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
+  // Observamos os valores para atualizar a UI em tempo real
+  const servicoAtual = watch("servico");
+  const faixaIndexAtual = watch("faixaIndex");
 
-  const handleFinalizar = async () => {
-    if (nome.trim().length < 3) {
-      alert("Por favor, insira seu nome completo.");
-      return;
-    }
-    if (!email.includes("@") || !email.includes(".")) {
-      alert("Por favor, insira um e-mail válido.");
-      return;
-    }
-    if (whatsapp.replace(/\D/g, "").length < 10) {
-      alert("Por favor, insira um WhatsApp válido com DDD.");
-      return;
-    }
+  const faixasAtuais =
+    servicoAtual && configuracaoOrcamentos[servicoAtual]
+      ? configuracaoOrcamentos[servicoAtual]
+      : configuracaoOrcamentos["Identidade Visual"];
 
+  // 3. Função de envio atualizada
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    const formspreeEndpoint = "https://formspree.io/f/meenkayj";
 
     try {
-      await fetch(formspreeEndpoint, {
+      await fetch("https://formspree.io/f/meenkayj", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          Nome: nome,
-          Email: email,
-          Empresa: empresa || "Não informada",
-          WhatsApp: whatsapp,
-          Servico: servico,
-          Orcamento: valor === 15000 ? "Mais de R$ 15.000" : `R$ ${valor}`,
+          Nome: data.nome,
+          Email: data.email,
+          Empresa: data.empresa || "Não informada",
+          WhatsApp: data.whatsapp,
+          Servico: data.servico,
+          Orcamento:
+            configuracaoOrcamentos[data.servico][data.faixaIndex].label,
         }),
       });
+
       setStep(4);
     } catch (error) {
-      console.error("Erro no formulário:", error);
+      console.error(error);
       alert("Erro ao enviar. Tente novamente.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Função para validar o passo 3 antes de tentar submeter (opcional, mas bom pra UX)
+  const handleNextStep3 = async () => {
+    const isValid = await trigger(["nome", "email", "whatsapp"]);
+    if (isValid) {
+      handleSubmit(onSubmit)();
     }
   };
 
@@ -111,6 +173,7 @@ export default function OrcamentoPage() {
 
       <Container className="w-full py-16 flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT */}
           <motion.div
             variants={containerStagger}
             initial="initial"
@@ -123,28 +186,30 @@ export default function OrcamentoPage() {
             >
               Vamos conhecer <br /> seus desafios.
             </motion.h1>
+
             <motion.p
               variants={childFadeUp}
               className="text-[#3B465B] text-lg max-w-md leading-relaxed"
             >
               Preencha os passos ao lado para eu entender o seu momento atual.
               Assim que receber, analiso o seu cenário e te chamo direto no
-              WhatsApp pra gente alinhar os detalhes. Simples e sem enrolação.
+              WhatsApp pra gente alinhar os detalhes.
             </motion.p>
           </motion.div>
 
+          {/* FORM */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-6 md:p-12 min-h-[480px] flex flex-col shadow-sm relative"
+            className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-6 md:p-12 min-h-[500px] flex flex-col shadow-sm relative"
           >
             <div className="inline-flex border border-[#37648C] text-[#1D3759] font-bold px-4 py-1.5 rounded-full mb-8 self-start text-sm">
               Passo {step} De 3
             </div>
 
             <AnimatePresence mode="wait">
-              {/* PASSO 1: SERVIÇO */}
+              {/* STEP 1 */}
               {step === 1 && (
                 <motion.div
                   key="step1"
@@ -157,6 +222,7 @@ export default function OrcamentoPage() {
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
                     O que a sua marca precisa hoje?
                   </h2>
+
                   <div className="space-y-6 flex-1">
                     {[
                       {
@@ -176,24 +242,18 @@ export default function OrcamentoPage() {
                         key={item.id}
                         type="button"
                         onClick={() =>
-                          setServico(
-                            item.id as
-                              | "Identidade Visual"
-                              | "Site de Alta Performance"
-                              | "O Combo (Marca + Site)",
-                          )
+                          setValue("servico", item.id as FormData["servico"])
                         }
                         className="w-full text-pretty cursor-pointer flex items-start gap-4 text-left group"
                       >
-                        {/* CHECKBOX: Adicionado shrink-0 para não espremer */}
                         <div
                           className={`w-8 h-8 mt-1 rounded-md border-2 shrink-0 flex items-center justify-center transition-colors ${
-                            servico === item.id
+                            servicoAtual === item.id
                               ? "border-[#37648C] bg-[#37648C]"
                               : "border-[#5496BF] bg-transparent"
                           }`}
                         >
-                          {servico === item.id && (
+                          {servicoAtual === item.id && (
                             <svg
                               className="w-5 h-5 text-white"
                               fill="none"
@@ -209,6 +269,7 @@ export default function OrcamentoPage() {
                             </svg>
                           )}
                         </div>
+
                         <div>
                           <span className="block font-bold text-[#1D3759] text-xl mb-1">
                             {item.id}
@@ -222,22 +283,19 @@ export default function OrcamentoPage() {
                   </div>
 
                   <button
-                    disabled={!servico}
+                    disabled={!servicoAtual}
                     onClick={() => {
-                      if (servico === "Site de Alta Performance")
-                        setValor(1200);
-                      else if (servico === "O Combo (Marca + Site)")
-                        setValor(1700);
-                      else setValor(700);
+                      setValue("faixaIndex", 0);
                       setStep(2);
                     }}
-                    className="mt-8 cursor-pointer px-8 py-3 self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
+                    className="mt-8 cursor-pointer px-8 py-3 cursor-pointer self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
                   >
                     Próximo →
                   </button>
                 </motion.div>
               )}
 
+              {/* STEP 2 */}
               {step === 2 && (
                 <motion.div
                   key="step2"
@@ -247,42 +305,121 @@ export default function OrcamentoPage() {
                   exit="exit"
                   className="flex-1 flex flex-col"
                 >
-                  <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
-                    Expectativa de investimento
-                  </h2>
-                  <div className="flex-1 flex flex-col justify-center">
-                    <span className="text-4xl font-extrabold text-[#1D3759] tracking-tight mb-6">
-                      R${" "}
-                      {valor === 15000
-                        ? "15.000+"
-                        : valor.toLocaleString("pt-BR")}
-                    </span>
-                    <input
-                      type="range"
-                      min={
-                        servico === "Identidade Visual"
-                          ? 700
-                          : servico === "Site de Alta Performance"
-                            ? 1200 // Novo Piso
-                            : 1700 // Novo Piso do Combo
-                      }
-                      max={15000}
-                      step={100}
-                      value={valor}
-                      onChange={(e) => setValor(Number(e.target.value))}
-                      className="w-full h-3 bg-[#ACDEF2] rounded-lg appearance-none cursor-pointer accent-[#37648C]"
-                    />
-                    <div className="flex justify-between text-sm text-[#37648C] font-bold mt-4">
-                      <span>Arraste para ajustar</span>
+                  <div>
+                    <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-2">
+                      Expectativa de investimento
+                    </h2>
+                    <p className="text-[#3B465B] text-sm leading-relaxed">
+                      Escolha a faixa que melhor representa o momento atual do
+                      seu projeto.
+                    </p>
+                  </div>
+
+                  <div className="flex-1 flex flex-col justify-center py-10">
+                    {/* VALUE */}
+                    <div className="mb-12">
+                      <span className="text-5xl font-extrabold tracking-tight text-brand-900 block">
+                        {faixasAtuais[faixaIndexAtual].label}
+                      </span>
+
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#ACDEF2] bg-[#E6F4FD] px-4 py-1.5">
+                        <div className="w-2 h-2 rounded-full bg-[#37648C]" />
+                        <span className="text-xs font-semibold tracking-wide text-[#37648C] uppercase">
+                          {servicoAtual}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* SLIDER */}
+                    <div className="relative px-2">
+                      <div className="absolute left-2 right-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-[#ACDEF2]" />
+
+                      <motion.div
+                        className="absolute left-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-[#37648C]"
+                        initial={false}
+                        animate={{
+                          width: `calc(${
+                            (faixaIndexAtual / (faixasAtuais.length - 1)) * 100
+                          }% - 4px)`,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 35,
+                        }}
+                      />
+
+                      {/* POINTS */}
+                      <div className="absolute left-2 right-2 top-1/2 -translate-y-1/2 flex justify-between z-10 pointer-events-none">
+                        {["Inicial", "Médio", "Avançado", "Elite"].map(
+                          (label, i) => {
+                            const isSelected = i === faixaIndexAtual;
+                            const isPassed = i < faixaIndexAtual;
+
+                            return (
+                              <div
+                                key={label}
+                                className="relative flex flex-col items-center"
+                              >
+                                <div
+                                  className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
+                                    isSelected
+                                      ? "bg-[#1D3759] border-white scale-110 shadow-sm"
+                                      : isPassed
+                                        ? "bg-[#37648C] border-[#37648C]"
+                                        : "bg-[#E6F4FD] border-[#5496BF]"
+                                  }`}
+                                />
+                                <span
+                                  className={`absolute top-8 text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
+                                    isSelected
+                                      ? "text-[#1D3759]"
+                                      : "text-[#5496BF]"
+                                  } ${
+                                    i === 0
+                                      ? "left-0"
+                                      : i === 3
+                                        ? "right-0"
+                                        : "left-1/2 -translate-x-1/2"
+                                  }`}
+                                >
+                                  {label}
+                                </span>
+                              </div>
+                            );
+                          },
+                        )}
+                      </div>
+
+                      {/* INPUT */}
+                      <input
+                        type="range"
+                        min={0}
+                        max={faixasAtuais.length - 1}
+                        step={1}
+                        value={faixaIndexAtual}
+                        onChange={(e) =>
+                          setValue("faixaIndex", Number(e.target.value))
+                        }
+                        className="
+                          relative z-20 w-full h-10 appearance-none bg-transparent cursor-pointer
+                          [&::-webkit-slider-thumb]:appearance-none
+                          [&::-webkit-slider-thumb]:w-8
+                          [&::-webkit-slider-thumb]:h-8
+                          [&::-webkit-slider-thumb]:bg-transparent
+                        "
+                      />
                     </div>
                   </div>
-                  <div className="mt-8 flex justify-between items-center">
+
+                  <div className="mt-10 flex justify-between items-center">
                     <button
                       onClick={() => setStep(1)}
-                      className="text-[#37648C] font-bold cursor-pointer hover:text-[#1D3759]"
+                      className="text-[#37648C] cursor-pointer font-bold hover:text-[#1D3759] transition"
                     >
                       ← Voltar
                     </button>
+
                     <button
                       onClick={() => setStep(3)}
                       className="px-8 py-3 bg-[#1D3759] cursor-pointer text-white font-bold rounded-full hover:bg-[#242B3A] transition"
@@ -293,56 +430,110 @@ export default function OrcamentoPage() {
                 </motion.div>
               )}
 
+              {/* STEP 3 */}
               {step === 3 && (
                 <motion.div
                   key="step3"
-                  {...stepVariants}
+                  variants={stepVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                   className="flex-1 flex flex-col"
                 >
                   <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
                     Como eu entro em contato com você?
                   </h2>
-                  <div className="space-y-4 flex-1">
-                    <input
-                      type="text"
-                      placeholder="Seu Nome completo"
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value)}
-                      className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Seu melhor E-mail"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
-                    />
-                    {/* INPUT DE WHATSAPP GLOBAL */}
-                    {/* INPUT DE WHATSAPP GLOBAL UNIFICADO */}
-                    <div className="w-full flex items-center rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] focus-within:border-[#37648C] transition-all group overflow-hidden">
-                      <PhoneInput
-                        defaultCountry="br"
-                        value={whatsapp}
-                        onChange={(phone) => setWhatsapp(phone)}
-                        // Estilo do container da própria lib (removendo interferências)
-                        className="w-full"
-                        // O input real agora fica sem bordas e fundo, pois o pai (div) já tem
-                        inputClassName="w-full !border-none !bg-transparent !p-4 !h-[58px] !text-[#1D3759] !placeholder-[#5496BF] !text-base focus:!ring-0 !outline-none"
-                        // O seletor de país também fica "invisível" visualmente dentro do box
-                        countrySelectorStyleProps={{
-                          buttonClassName:
-                            "!border-none !bg-transparent !h-[58px] !pl-4 !pr-2 hover:!bg-white/40 transition-colors",
-                        }}
+
+                  <form
+                    className="space-y-4 flex-1"
+                    onSubmit={(e) => e.preventDefault()}
+                  >
+                    {/* NOME */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Seu Nome completo"
+                        {...register("nome")}
+                        className={`w-full p-4 rounded-xl bg-[#E6F4FD] border outline-none text-[#1D3759] placeholder-[#5496BF] transition ${
+                          errors.nome
+                            ? "border-red-500 focus:border-red-500"
+                            : "border-[#ACDEF2] focus:border-[#37648C]"
+                        }`}
+                      />
+                      {errors.nome && (
+                        <span className="text-red-500 text-xs mt-1 ml-2">
+                          {errors.nome.message}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* EMAIL */}
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Seu melhor E-mail"
+                        {...register("email")}
+                        className={`w-full p-4 rounded-xl bg-[#E6F4FD] border outline-none text-[#1D3759] placeholder-[#5496BF] transition ${
+                          errors.email
+                            ? "border-red-500 focus:border-red-500"
+                            : "border-[#ACDEF2] focus:border-[#37648C]"
+                        }`}
+                      />
+                      {errors.email && (
+                        <span className="text-red-500 text-xs mt-1 ml-2">
+                          {errors.email.message}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* TELEFONE - Usando Controller */}
+                    <div>
+                      <div
+                        className={`w-full flex items-center rounded-xl bg-[#E6F4FD] border transition-all group ${
+                          errors.whatsapp
+                            ? "border-red-500 focus-within:border-red-500"
+                            : "border-[#ACDEF2] focus-within:border-[#37648C]"
+                        }`}
+                      >
+                        <Controller
+                          name="whatsapp"
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <PhoneInput
+                              defaultCountry="br"
+                              value={value}
+                              onChange={onChange}
+                              className="w-full relative"
+                              inputClassName="w-full !border-none !bg-transparent !p-4 !h-[58px] !text-[#1D3759] !placeholder-[#5496BF] !text-base focus:!ring-0 !outline-none !rounded-r-xl"
+                              countrySelectorStyleProps={{
+                                buttonClassName:
+                                  "!border-none !bg-transparent cursor-pointer !h-[58px] !pl-4 !pr-2 hover:!bg-white/40 transition-colors !rounded-l-xl",
+                                dropdownStyleProps: {
+                                  style: { zIndex: 50 }, // Garante que o menu fique sempre por cima dos outros inputs
+                                },
+                              }}
+                            />
+                          )}
+                        />
+                      </div>
+                      {errors.whatsapp && (
+                        <span className="text-red-500 text-xs mt-1 ml-2">
+                          {errors.whatsapp.message}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* EMPRESA */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Nome da Empresa (Opcional)"
+                        {...register("empresa")}
+                        className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
                       />
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Nome da Empresa (Opcional)"
-                      value={empresa}
-                      onChange={(e) => setEmpresa(e.target.value)}
-                      className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
-                    />
-                  </div>
+                  </form>
+
                   <div className="mt-8 flex justify-between items-center">
                     <button
                       onClick={() => setStep(2)}
@@ -350,9 +541,10 @@ export default function OrcamentoPage() {
                     >
                       ← Voltar
                     </button>
+
                     <button
-                      onClick={handleFinalizar}
-                      disabled={isSubmitting || !nome || !whatsapp || !email}
+                      onClick={handleNextStep3}
+                      disabled={isSubmitting}
                       className="px-8 py-3 bg-[#37648C] cursor-pointer text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
                     >
                       {isSubmitting ? "Enviando..." : "Solicitar Orçamento"}
