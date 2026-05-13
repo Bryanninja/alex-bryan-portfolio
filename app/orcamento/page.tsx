@@ -80,10 +80,10 @@ export default function OrcamentoPage() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    mode: "onChange",
+    mode: "onTouched",
     defaultValues: {
       faixaIndex: 0,
-      whatsapp: "",
+      whatsapp: "+55",
       empresa: "",
     },
   });
