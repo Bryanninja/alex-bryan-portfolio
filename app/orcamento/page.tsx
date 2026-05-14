@@ -22,24 +22,24 @@ import {
 
 const configuracaoOrcamentos = {
   "Identidade Visual": [
-    { label: "R$ 700 — R$ 1.500" },
-    { label: "R$ 1.500 — R$ 3.500" },
-    { label: "R$ 3.500 — R$ 7.000" },
-    { label: "R$ 7.000 +" },
+    { label: "R$ 700 — 1,5 mil" },
+    { label: "R$ 1,5 mil — 3,5 mil" },
+    { label: "R$ 3,5 mil — 7 mil" },
+    { label: "R$ 7 mil +" },
   ],
 
   "Site de Alta Performance": [
-    { label: "R$ 1.200 — R$ 2.500" },
-    { label: "R$ 2.500 — R$ 4.500" },
-    { label: "R$ 4.500 — R$ 7.000" },
-    { label: "R$ 7.000 +" },
+    { label: "R$ 1,2 mil — 2,5 mil" },
+    { label: "R$ 2,5 mil — 4,5 mil" },
+    { label: "R$ 4,5 mil — 7 mil" },
+    { label: "R$ 7 mil +" },
   ],
 
   "O Combo (Marca + Site)": [
-    { label: "R$ 1.700 — R$ 3.000" },
-    { label: "R$ 3.000 — R$ 5.500" },
-    { label: "R$ 5.500 — R$ 7.000" },
-    { label: "R$ 7.000 +" },
+    { label: "R$ 1,7 mil — 3 mil" },
+    { label: "R$ 3 mil — 5,5 mil" },
+    { label: "R$ 5,5 mil — 7 mil" },
+    { label: "R$ 7 mil +" },
   ],
 };
 
@@ -318,13 +318,13 @@ export default function OrcamentoPage() {
                   <div className="flex-1 flex flex-col justify-center py-10">
                     {/* VALUE */}
                     <div className="mb-12">
-                      <span className="text-5xl font-extrabold tracking-tight text-brand-900 block">
+                      <span className="text-[1.9rem] md:text-5xl font-extrabold tracking-tighter text-[#1D3759] block leading-tight">
                         {faixasAtuais[faixaIndexAtual].label}
                       </span>
 
                       <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#ACDEF2] bg-[#E6F4FD] px-4 py-1.5">
                         <div className="w-2 h-2 rounded-full bg-[#37648C]" />
-                        <span className="text-xs font-semibold tracking-wide text-[#37648C] uppercase">
+                        <span className="text-[10px] md:text-xs font-semibold tracking-wide text-[#37648C] uppercase">
                           {servicoAtual}
                         </span>
                       </div>
@@ -402,12 +402,13 @@ export default function OrcamentoPage() {
                           setValue("faixaIndex", Number(e.target.value))
                         }
                         className="
-                          relative z-20 w-full h-10 appearance-none bg-transparent cursor-pointer
-                          [&::-webkit-slider-thumb]:appearance-none
-                          [&::-webkit-slider-thumb]:w-8
-                          [&::-webkit-slider-thumb]:h-8
-                          [&::-webkit-slider-thumb]:bg-transparent
-                        "
+    relative z-20 w-full h-10 appearance-none bg-transparent cursor-pointer
+    outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]
+    [&::-webkit-slider-thumb]:appearance-none
+    [&::-webkit-slider-thumb]:w-10
+    [&::-webkit-slider-thumb]:h-10
+    [&::-webkit-slider-thumb]:bg-transparent
+  "
                       />
                     </div>
                   </div>
