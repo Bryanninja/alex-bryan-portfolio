@@ -57,9 +57,23 @@ const Footer = () => {
         className="w-full border-t border-slate-600/50 pt-8 px-6 lg:px-12"
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm font-semibold text-slate-400 text-center md:text-left">
-            © {currentYear} Álex Bryan. Todos os direitos reservados.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-sm font-semibold text-slate-400 text-center md:text-left">
+            <p>© {currentYear} Álex Bryan. Todos os direitos reservados.</p>
+            <div className="flex gap-4 mt-2 md:mt-0">
+              <Link
+                href="/politica-de-privacidade"
+                className="hover:text-[#5bb5d9] transition-colors"
+              >
+                Política de Privacidade
+              </Link>
+              <Link
+                href="/termos-de-uso"
+                className="hover:text-[#5bb5d9] transition-colors"
+              >
+                Termos de Uso
+              </Link>
+            </div>
+          </div>
 
           {/* === REDES SOCIAIS === */}
           <div className="flex items-center justify-center gap-6 text-slate-400">

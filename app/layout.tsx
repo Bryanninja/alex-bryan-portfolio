@@ -34,12 +34,12 @@ export const metadata: Metadata = {
   creator: "Álex Bryan",
   publisher: "Albry Studio",
   alternates: {
-    canonical: "https://www.alexbryan.com.br", // Troque pela sua URL real
+    canonical: "https://www.albrystudio.com", // Troque pela sua URL real
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.alexbryan.com.br",
+    url: "https://www.albrystudio.com",
     title: "Álex Bryan | Design de Elite & Desenvolvimento Front-end",
     description: "Identidades visuais de elite e sites que realmente vendem.",
     siteName: "Álex Bryan",
@@ -85,7 +85,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Álex Bryan | Albry Studio",
-    image: "https://www.alexbryan.com.br/og-image.jpg",
+    image: "https://www.albrystudio.com/og-image.jpg",
     description:
       "Especialista em Identidade Visual e Desenvolvimento Front-end para negócios que buscam posicionamento premium.",
     address: {
@@ -94,7 +94,7 @@ export default function RootLayout({
       addressRegion: "MG",
       addressCountry: "BR",
     },
-    url: "https://www.alexbryan.com.br",
+    url: "https://www.albrystudio.com",
     priceRange: "$$$",
   };
 
