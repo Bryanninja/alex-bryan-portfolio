@@ -401,14 +401,18 @@ export default function OrcamentoPage() {
                         onChange={(e) =>
                           setValue("faixaIndex", Number(e.target.value))
                         }
-                        className="
-    relative z-20 w-full h-10 appearance-none bg-transparent cursor-pointer
-    outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]
-    [&::-webkit-slider-thumb]:appearance-none
-    [&::-webkit-slider-thumb]:w-10
-    [&::-webkit-slider-thumb]:h-10
-    [&::-webkit-slider-thumb]:bg-transparent
-  "
+                        className="relative z-20 w-full h-10 appearance-none bg-transparent cursor-pointer
+  outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]
+  [&::-webkit-slider-thumb]:appearance-none
+  [&::-webkit-slider-thumb]:w-10
+  [&::-webkit-slider-thumb]:h-10
+  [&::-webkit-slider-thumb]:bg-transparent
+  [&::-webkit-slider-thumb]:shadow-none
+  [&::-webkit-slider-thumb]:border-0
+  [&::-webkit-slider-thumb]:[background:transparent]
+  [&::-webkit-slider-track]:appearance-none
+  [&::-webkit-slider-track]:bg-transparent
+  [&::-webkit-slider-track]:border-0"
                       />
                     </div>
                   </div>
