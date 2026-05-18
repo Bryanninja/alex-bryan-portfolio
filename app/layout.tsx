@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next"; // Adicionado Viewport
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
@@ -19,7 +19,7 @@ const inter = Inter({
 
 // 1. METADATA DE ALTA PERFORMANCE
 export const metadata: Metadata = {
-  title: "Álex Bryan | Landing Pages de Elite & Identidade Visual", // 'Landing Page' logo no início
+  title: "Álex Bryan | Landing Pages de Elite & Identidade Visual",
   description:
     "Criação de Landing Pages de alta performance e Identidades Visuais de elite. Transforme seu negócio em uma marca de autoridade com visão internacional.",
   keywords: [
@@ -34,8 +34,26 @@ export const metadata: Metadata = {
   creator: "Álex Bryan",
   publisher: "Albry Studio",
   alternates: {
-    canonical: "https://www.albrystudio.com", // Troque pela sua URL real
+    canonical: "https://www.albrystudio.com",
   },
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" }, // Arquivo .ico TRANSPARENTE (Exclusivo para a aba do navegador)
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }, // PNG com fundo sólido (Dispositivos Apple)
+    ],
+    other: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "192x192",
+        url: "/icon-google.png", // PNG com fundo sólido (Para o robô do Google Search ler)
+      },
+    ],
+  },
+
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -45,7 +63,7 @@ export const metadata: Metadata = {
     siteName: "Álex Bryan",
     images: [
       {
-        url: "/og-image.jpg", // Crie uma imagem de 1200x630 para o preview do link
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Álex Bryan - Design & Tech",
@@ -72,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1D3759", // Cor da marca na barra do navegador (mobile)
+  themeColor: "#1D3759", // Mantido sua cor de marca (brand-900) para o topo do navegador mobile
 };
 
 export default function RootLayout({
@@ -80,7 +98,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // 2. JSON-LD (Schema.org) - Isso é ouro para o Google
+  // 2. JSON-LD (Schema.org) - Mantido perfeitamente
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -104,7 +122,6 @@ export default function RootLayout({
       className={`${bricolage.variable} ${inter.variable} scroll-smooth`}
     >
       <head>
-        {/* Inserindo o JSON-LD para o robô do Google ler */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
