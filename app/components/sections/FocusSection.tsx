@@ -85,6 +85,7 @@ const FocusSection = () => {
                 src={alexPhoto}
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
             </motion.div>
@@ -100,6 +101,7 @@ const FocusSection = () => {
                 src={alexPhoto2}
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
             </motion.div>

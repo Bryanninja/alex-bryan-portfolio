@@ -10,7 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#242b3a] pt-24 pb-8 flex flex-col items-center overflow-hidden">
+    <footer className="w-full bg-brand-800 pt-24 pb-8 flex flex-col items-center overflow-hidden">
       <Container>
         {/* === SEÇÃO DE CTA COM ANIMAÇÃO === */}
         <motion.div
@@ -40,7 +40,7 @@ const Footer = () => {
           <motion.div variants={childFadeUp}>
             <Link
               href="/orcamento"
-              className="bg-[#3a6d8c] hover:bg-[#5bb5d9] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
+              className="bg-brand-600 hover:bg-brand-400 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
             >
               Quero um projeto de elite
             </Link>
@@ -62,13 +62,13 @@ const Footer = () => {
             <div className="flex gap-4 mt-2 md:mt-0">
               <Link
                 href="/politica-de-privacidade"
-                className="hover:text-[#5bb5d9] transition-colors"
+                className="hover:text-brand-400 transition-colors"
               >
                 Política de Privacidade
               </Link>
               <Link
                 href="/termos-de-uso"
-                className="hover:text-[#5bb5d9] transition-colors"
+                className="hover:text-brand-400 transition-colors"
               >
                 Termos de Uso
               </Link>
@@ -80,7 +80,7 @@ const Footer = () => {
             {/* E-mail */}
             <a
               href="mailto:bryanncode@gmail.com"
-              className="hover:text-[#5bb5d9] transition-colors"
+              className="hover:text-brand-400 transition-colors"
               aria-label="Email"
             >
               <Mail size={22} />
@@ -91,7 +91,7 @@ const Footer = () => {
               href="https://www.instagram.com/alexbryannt/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#5bb5d9] transition-colors"
+              className="hover:text-brand-400 transition-colors"
               aria-label="Instagram"
             >
               <svg
@@ -116,7 +116,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/alexbryannt/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#5bb5d9] transition-colors"
+              className="hover:text-brand-400 transition-colors"
               aria-label="LinkedIn"
             >
               <svg
@@ -141,7 +141,7 @@ const Footer = () => {
               href="https://www.behance.net/bryan_fnascime"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#5bb5d9] transition-colors flex items-center"
+              className="hover:text-brand-400 transition-colors flex items-center"
               aria-label="Behance"
             >
               <span className="font-extrabold text-[1.35rem] tracking-tighter leading-none">

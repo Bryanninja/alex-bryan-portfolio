@@ -159,9 +159,9 @@ export default function LinksPage() {
       </div>
 
       {/* Marca d'água */}
-      <h1 className="absolute -bottom-26 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[16rem] md:text-[24rem] lg:text-[35rem] 2xl:text-[32rem] font-bold text-brand-500 opacity-24 md:opacity-24 blur-md">
+      <div aria-hidden="true" className="absolute -bottom-26 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[16rem] md:text-[24rem] lg:text-[35rem] 2xl:text-[32rem] font-bold text-brand-500 opacity-24 md:opacity-24 blur-md">
         Álex Bryan
-      </h1>
+      </div>
     </main>
   );
 }

@@ -114,9 +114,9 @@ const Hero = () => {
         animate="visible"
         className="absolute inset-0 pointer-events-none z-[1] overflow-hidden"
       >
-        <h1 className="absolute -bottom-10 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[8rem] md:text-[15rem] lg:text-[35rem] 2xl:text-[32rem] font-bold text-brand-50 opacity-20 md:opacity-40 blur-md">
+        <div aria-hidden="true" className="absolute -bottom-10 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[8rem] md:text-[15rem] lg:text-[35rem] 2xl:text-[32rem] font-bold text-brand-50 opacity-20 md:opacity-40 blur-md">
           Álex Bryan
-        </h1>
+        </div>
       </motion.div>
 
       {/* Dividers (Mantidos estáticos para não poluir o visual) */}

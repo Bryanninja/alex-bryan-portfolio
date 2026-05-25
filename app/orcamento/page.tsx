@@ -139,7 +139,7 @@ export default function OrcamentoPage() {
 
   if (step === 4) {
     return (
-      <main className="min-h-screen relative bg-gradient-to-br from-[#5496BF] to-[#37648C] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+      <main className="min-h-screen relative bg-gradient-to-br from-brand-500 to-brand-600 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -157,20 +157,21 @@ export default function OrcamentoPage() {
           </div>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           variants={slowFadeIn}
           initial="initial"
           animate="visible"
+          aria-hidden="true"
           className="pointer-events-none absolute -bottom-20 -left-10 z-0 select-none whitespace-nowrap text-[15rem] font-bold text-brand-50 opacity-40 blur-md sm:-bottom-32 sm:-left-36 md:text-[35rem] 2xl:-bottom-60 2xl:text-[32rem]"
         >
           Álex Bryan
-        </motion.h1>
+        </motion.div>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[#E6F4FD] font-sans flex flex-col justify-between overflow-hidden">
+    <main className="min-h-screen bg-brand-50 font-sans flex flex-col justify-between overflow-hidden">
       <Header />
 
       <Container className="w-full py-16 flex flex-col justify-center">
@@ -184,14 +185,14 @@ export default function OrcamentoPage() {
           >
             <motion.h1
               variants={childFadeUp}
-              className="font-heading font-extrabold text-5xl lg:text-6xl text-[#1D3759] leading-tight tracking-tight"
+              className="font-heading font-extrabold text-5xl lg:text-6xl text-brand-900 leading-tight tracking-tight"
             >
               Vamos entender o que a sua marca realmente precisa.
             </motion.h1>
 
             <motion.p
               variants={childFadeUp}
-              className="text-[#3B465B] text-lg max-w-md leading-relaxed"
+              className="text-brand-700 text-lg max-w-md leading-relaxed"
             >
               Preencha os três passos abaixo. Assim que receber, analiso o seu
               momento com cuidado e te chamo no WhatsApp pra gente conversar —
@@ -202,7 +203,7 @@ export default function OrcamentoPage() {
               href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20tenho%20uma%20d%C3%BAvida%20antes%20de%20solicitar%20o%20or%C3%A7amento"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#5496BF] font-bold hover:text-[#37648C] transition-colors underline underline-offset-4"
+              className="text-sm text-brand-500 font-bold hover:text-brand-600 transition-colors underline underline-offset-4"
             >
               Prefere tirar uma dúvida antes? Chama no WhatsApp.
             </a>
@@ -213,9 +214,9 @@ export default function OrcamentoPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-6 md:p-12 min-h-[650px] flex flex-col shadow-sm relative"
+            className="bg-brand-100 border border-brand-200 rounded-xl p-6 md:p-12 min-h-[650px] flex flex-col shadow-sm relative"
           >
-            <div className="inline-flex border border-[#37648C] text-[#1D3759] font-bold px-4 py-1.5 rounded-full mb-8 self-start text-sm">
+            <div className="inline-flex border border-brand-600 text-brand-900 font-bold px-4 py-1.5 rounded-full mb-8 self-start text-sm">
               Passo {step} De 3
             </div>
 
@@ -230,7 +231,7 @@ export default function OrcamentoPage() {
                   exit="exit"
                   className="flex-1 flex flex-col"
                 >
-                  <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
+                  <h2 className="font-heading font-bold text-brand-900 text-3xl mb-8">
                     O que a sua marca precisa hoje?
                   </h2>
 
@@ -260,8 +261,8 @@ export default function OrcamentoPage() {
                         <div
                           className={`w-8 h-8 mt-1 rounded-md border-2 shrink-0 flex items-center justify-center transition-colors ${
                             servicoAtual === item.id
-                              ? "border-[#37648C] bg-[#37648C]"
-                              : "border-[#5496BF] bg-transparent"
+                              ? "border-brand-600 bg-brand-600"
+                              : "border-brand-500 bg-transparent"
                           }`}
                         >
                           {servicoAtual === item.id && (
@@ -282,10 +283,10 @@ export default function OrcamentoPage() {
                         </div>
 
                         <div>
-                          <span className="block font-bold text-[#1D3759] text-xl mb-1">
+                          <span className="block font-bold text-brand-900 text-xl mb-1">
                             {item.id}
                           </span>
-                          <span className="text-sm text-[#3B465B] leading-snug block">
+                          <span className="text-sm text-brand-700 leading-snug block">
                             {item.desc}
                           </span>
                         </div>
@@ -300,7 +301,7 @@ export default function OrcamentoPage() {
                       setStep(2);
                       sendGAEvent("event", "orcamento_step", { step: 2 });
                     }}
-                    className="mt-8 cursor-pointer px-8 py-3 cursor-pointer self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
+                    className="mt-8 cursor-pointer px-8 py-3 cursor-pointer self-end bg-brand-900 text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-brand-800 transition"
                   >
                     Próximo →
                   </button>
@@ -318,10 +319,10 @@ export default function OrcamentoPage() {
                   className="flex-1 flex flex-col"
                 >
                   <div>
-                    <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-2">
+                    <h2 className="font-heading font-bold text-brand-900 text-3xl mb-2">
                       Expectativa de investimento
                     </h2>
-                    <p className="text-[#3B465B] text-sm leading-relaxed">
+                    <p className="text-brand-700 text-sm leading-relaxed">
                       Escolha a faixa que melhor representa o momento atual do
                       seu projeto.
                     </p>
@@ -330,13 +331,13 @@ export default function OrcamentoPage() {
                   <div className="flex-1 flex flex-col justify-center py-10">
                     {/* VALUE */}
                     <div className="mb-12">
-                      <span className="text-[1.9rem] md:text-5xl font-extrabold tracking-tighter text-[#1D3759] block leading-tight">
+                      <span className="text-[1.9rem] md:text-5xl font-extrabold tracking-tighter text-brand-900 block leading-tight">
                         {faixasAtuais[faixaIndexAtual].label}
                       </span>
 
-                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#ACDEF2] bg-[#E6F4FD] px-4 py-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#37648C]" />
-                        <span className="text-[10px] md:text-xs font-semibold tracking-wide text-[#37648C] uppercase">
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-1.5">
+                        <div className="w-2 h-2 rounded-full bg-brand-600" />
+                        <span className="text-[10px] md:text-xs font-semibold tracking-wide text-brand-600 uppercase">
                           {servicoAtual}
                         </span>
                       </div>
@@ -344,10 +345,10 @@ export default function OrcamentoPage() {
 
                     {/* SLIDER */}
                     <div className="relative px-2">
-                      <div className="absolute left-2 right-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-[#ACDEF2]" />
+                      <div className="absolute left-2 right-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-brand-200" />
 
                       <motion.div
-                        className="absolute left-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-[#37648C]"
+                        className="absolute left-2 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-brand-600"
                         initial={false}
                         animate={{
                           width: `calc(${
@@ -376,17 +377,17 @@ export default function OrcamentoPage() {
                                 <div
                                   className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
                                     isSelected
-                                      ? "bg-[#1D3759] border-white scale-110 shadow-sm"
+                                      ? "bg-brand-900 border-white scale-110 shadow-sm"
                                       : isPassed
-                                        ? "bg-[#37648C] border-[#37648C]"
-                                        : "bg-[#E6F4FD] border-[#5496BF]"
+                                        ? "bg-brand-600 border-brand-600"
+                                        : "bg-brand-50 border-brand-500"
                                   }`}
                                 />
                                 <span
                                   className={`absolute top-8 text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
                                     isSelected
-                                      ? "text-[#1D3759]"
-                                      : "text-[#5496BF]"
+                                      ? "text-brand-900"
+                                      : "text-brand-500"
                                   } ${
                                     i === 0
                                       ? "left-0"
@@ -432,7 +433,7 @@ export default function OrcamentoPage() {
                   <div className="mt-10 flex justify-between items-center">
                     <button
                       onClick={() => setStep(1)}
-                      className="text-[#37648C] cursor-pointer font-bold hover:text-[#1D3759] transition"
+                      className="text-brand-600 cursor-pointer font-bold hover:text-brand-900 transition"
                     >
                       ← Voltar
                     </button>
@@ -442,7 +443,7 @@ export default function OrcamentoPage() {
                         setStep(3);
                         sendGAEvent("event", "orcamento_step", { step: 3 });
                       }}
-                      className="px-8 py-3 bg-[#1D3759] cursor-pointer text-white font-bold rounded-full hover:bg-[#242B3A] transition"
+                      className="px-8 py-3 bg-brand-900 cursor-pointer text-white font-bold rounded-full hover:bg-brand-800 transition"
                     >
                       Próximo →
                     </button>
@@ -460,7 +461,7 @@ export default function OrcamentoPage() {
                   exit="exit"
                   className="flex-1 flex flex-col"
                 >
-                  <h2 className="font-heading font-bold text-[#1D3759] text-3xl mb-8">
+                  <h2 className="font-heading font-bold text-brand-900 text-3xl mb-8">
                     Como eu entro em contato com você?
                   </h2>
 
@@ -474,10 +475,10 @@ export default function OrcamentoPage() {
                         type="text"
                         placeholder="Seu Nome completo"
                         {...register("nome")}
-                        className={`w-full p-4 rounded-xl bg-[#E6F4FD] border outline-none text-[#1D3759] placeholder-[#5496BF] transition ${
+                        className={`w-full p-4 rounded-xl bg-brand-50 border outline-none text-brand-900 placeholder-brand-500 transition ${
                           errors.nome
                             ? "border-red-500 focus:border-red-500"
-                            : "border-[#ACDEF2] focus:border-[#37648C]"
+                            : "border-brand-200 focus:border-brand-600"
                         }`}
                       />
                       {errors.nome && (
@@ -493,10 +494,10 @@ export default function OrcamentoPage() {
                         type="email"
                         placeholder="Seu melhor E-mail"
                         {...register("email")}
-                        className={`w-full p-4 rounded-xl bg-[#E6F4FD] border outline-none text-[#1D3759] placeholder-[#5496BF] transition ${
+                        className={`w-full p-4 rounded-xl bg-brand-50 border outline-none text-brand-900 placeholder-brand-500 transition ${
                           errors.email
                             ? "border-red-500 focus:border-red-500"
-                            : "border-[#ACDEF2] focus:border-[#37648C]"
+                            : "border-brand-200 focus:border-brand-600"
                         }`}
                       />
                       {errors.email && (
@@ -509,10 +510,10 @@ export default function OrcamentoPage() {
                     {/* TELEFONE - Usando Controller */}
                     <div>
                       <div
-                        className={`w-full flex items-center rounded-xl bg-[#E6F4FD] border transition-all group ${
+                        className={`w-full flex items-center rounded-xl bg-brand-50 border transition-all group ${
                           errors.whatsapp
                             ? "border-red-500 focus-within:border-red-500"
-                            : "border-[#ACDEF2] focus-within:border-[#37648C]"
+                            : "border-brand-200 focus-within:border-brand-600"
                         }`}
                       >
                         <Controller
@@ -524,7 +525,7 @@ export default function OrcamentoPage() {
                               value={value}
                               onChange={onChange}
                               className="w-full relative"
-                              inputClassName="w-full !border-none !bg-transparent !p-4 !h-[58px] !text-[#1D3759] !placeholder-[#5496BF] !text-base focus:!ring-0 !outline-none !rounded-r-xl"
+                              inputClassName="w-full !border-none !bg-transparent !p-4 !h-[58px] !text-brand-900 !placeholder-brand-500 !text-base focus:!ring-0 !outline-none !rounded-r-xl"
                               countrySelectorStyleProps={{
                                 buttonClassName:
                                   "!border-none !bg-transparent cursor-pointer !h-[58px] !pl-4 !pr-2 hover:!bg-white/40 transition-colors !rounded-l-xl",
@@ -549,7 +550,7 @@ export default function OrcamentoPage() {
                         type="text"
                         placeholder="Nome da Empresa (Opcional)"
                         {...register("empresa")}
-                        className="w-full p-4 rounded-xl bg-[#E6F4FD] border border-[#ACDEF2] outline-none focus:border-[#37648C] text-[#1D3759] placeholder-[#5496BF] transition"
+                        className="w-full p-4 rounded-xl bg-brand-50 border border-brand-200 outline-none focus:border-brand-600 text-brand-900 placeholder-brand-500 transition"
                       />
                     </div>
                   </form>
@@ -557,7 +558,7 @@ export default function OrcamentoPage() {
                   <div className="mt-8 flex justify-between items-center">
                     <button
                       onClick={() => setStep(2)}
-                      className="text-[#37648C] cursor-pointer font-bold hover:text-[#1D3759]"
+                      className="text-brand-600 cursor-pointer font-bold hover:text-brand-900"
                     >
                       ← Voltar
                     </button>
@@ -565,7 +566,7 @@ export default function OrcamentoPage() {
                     <button
                       onClick={handleNextStep3}
                       disabled={isSubmitting}
-                      className="px-8 py-3 bg-[#37648C] cursor-pointer text-white font-bold rounded-full hover:bg-[#1D3759] transition disabled:opacity-50"
+                      className="px-8 py-3 bg-brand-600 cursor-pointer text-white font-bold rounded-full hover:bg-brand-900 transition disabled:opacity-50"
                     >
                       {isSubmitting ? "Enviando..." : "Solicitar Orçamento"}
                     </button>
@@ -577,7 +578,7 @@ export default function OrcamentoPage() {
         </div>
       </Container>
 
-      <footer className="w-full bg-[#242B3A] text-center py-6">
+      <footer className="w-full bg-brand-800 text-center py-6">
         <p className="text-brand-50 font-semibold text-sm">
           © 2026 Álex Bryan. Todos os direitos reservados.
         </p>
