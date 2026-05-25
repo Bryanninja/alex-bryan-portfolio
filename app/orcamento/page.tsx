@@ -12,6 +12,7 @@ import Button from "../components/Button";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { sendGAEvent } from "@next/third-parties/google";
 
 import {
   containerStagger,
@@ -118,6 +119,7 @@ export default function OrcamentoPage() {
         }),
       });
 
+      sendGAEvent("event", "orcamento_enviado", {});
       setStep(4);
     } catch (error) {
       console.error(error);
@@ -184,17 +186,26 @@ export default function OrcamentoPage() {
               variants={childFadeUp}
               className="font-heading font-extrabold text-5xl lg:text-6xl text-[#1D3759] leading-tight tracking-tight"
             >
-              Vamos conhecer <br /> seus desafios.
+              Vamos entender o que a sua marca realmente precisa.
             </motion.h1>
 
             <motion.p
               variants={childFadeUp}
               className="text-[#3B465B] text-lg max-w-md leading-relaxed"
             >
-              Preencha os passos ao lado para eu entender o seu momento atual.
-              Assim que receber, analiso o seu cenário e te chamo direto no
-              WhatsApp pra gente alinhar os detalhes.
+              Preencha os três passos abaixo. Assim que receber, analiso o seu
+              momento com cuidado e te chamo no WhatsApp pra gente conversar —
+              sem pressa, sem enrolação.
             </motion.p>
+
+            <a
+              href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20tenho%20uma%20d%C3%BAvida%20antes%20de%20solicitar%20o%20or%C3%A7amento"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#5496BF] font-bold hover:text-[#37648C] transition-colors underline underline-offset-4"
+            >
+              Prefere tirar uma dúvida antes? Chama no WhatsApp.
+            </a>
           </motion.div>
 
           {/* FORM */}
@@ -202,7 +213,7 @@ export default function OrcamentoPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-6 md:p-12 min-h-[500px] flex flex-col shadow-sm relative"
+            className="bg-[#DEEAEE] border border-[#ACDEF2] rounded-xl p-6 md:p-12 min-h-[650px] flex flex-col shadow-sm relative"
           >
             <div className="inline-flex border border-[#37648C] text-[#1D3759] font-bold px-4 py-1.5 rounded-full mb-8 self-start text-sm">
               Passo {step} De 3
@@ -287,6 +298,7 @@ export default function OrcamentoPage() {
                     onClick={() => {
                       setValue("faixaIndex", 0);
                       setStep(2);
+                      sendGAEvent("event", "orcamento_step", { step: 2 });
                     }}
                     className="mt-8 cursor-pointer px-8 py-3 cursor-pointer self-end bg-[#1D3759] text-white font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#242B3A] transition"
                   >
@@ -426,7 +438,10 @@ export default function OrcamentoPage() {
                     </button>
 
                     <button
-                      onClick={() => setStep(3)}
+                      onClick={() => {
+                        setStep(3);
+                        sendGAEvent("event", "orcamento_step", { step: 3 });
+                      }}
                       className="px-8 py-3 bg-[#1D3759] cursor-pointer text-white font-bold rounded-full hover:bg-[#242B3A] transition"
                     >
                       Próximo →

@@ -4,6 +4,7 @@ import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -132,6 +133,7 @@ export default function RootLayout({
         <SpeedInsights />
         <ScrollToTop />
         {children}
+        <GoogleAnalytics gaId="G-BFKMB1DS3V" />
       </body>
     </html>
   );
