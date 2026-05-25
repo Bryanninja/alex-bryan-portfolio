@@ -108,7 +108,7 @@ export default function LinksPage() {
               <rect x="3" y="14" width="7" height="7"></rect>
             </svg>
           </div>
-          <span className="flex-1">Ver meu portfólio</span>
+          <span className="flex-1">Acessar Site Oficial</span>
           <span className="opacity-50 text-brand-600 group-hover:translate-x-1 transition-transform">
             →
           </span>
