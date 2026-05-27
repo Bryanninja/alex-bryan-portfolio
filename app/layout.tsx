@@ -40,18 +40,10 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" }, // Arquivo .ico TRANSPARENTE (Exclusivo para a aba do navegador)
+      { url: "/icon-google.png", type: "image/png", sizes: "192x192" }, // PNG com fundo sólido para aba e Google
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }, // PNG com fundo sólido (Dispositivos Apple)
-    ],
-    other: [
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "192x192",
-        url: "/icon-google.png", // PNG com fundo sólido (Para o robô do Google Search ler)
-      },
     ],
   },
 
