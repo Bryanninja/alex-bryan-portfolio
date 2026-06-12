@@ -172,6 +172,13 @@ const Hero = () => {
         animate="visible"
         className="md:hidden relative w-full h-[60vh] min-h-[480px] z-10 shrink-0 mt-auto overflow-hidden"
       >
+        {/* Brace esquerda (Mobile) */}
+        <Image
+          src={Brace}
+          alt=""
+          className="absolute left-4 top-[45%] z-20 animate-floating-slow w-7 opacity-60"
+        />
+
         <Image
           src={alexbryanIMG}
           alt="Álex Bryan"
@@ -180,6 +187,15 @@ const Hero = () => {
           className="object-cover object-top scale-125 origin-top"
           sizes="100vw"
         />
+
+        {/* Brace direita (Mobile) */}
+        <div
+          className="absolute right-4 top-[30%] z-20 rotate-180 animate-floating-slow w-7 opacity-60"
+          style={{ animationDelay: "1.5s" }}
+        >
+          <Image src={Brace} alt="" className="w-full h-full" />
+        </div>
+
         <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none" />
       </motion.div>
 
