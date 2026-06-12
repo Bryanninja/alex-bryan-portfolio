@@ -103,18 +103,15 @@ const Hero = () => {
 
         {/* COLUNA ESQUERDA: Texto */}
         <div className="flex-1 flex flex-col justify-center pt-24 pb-4 md:py-16">
-          <motion.div
-            variants={containerStagger}
-            initial="initial"
-            animate="visible"
-            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%]"
+          <div
+            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%] animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both"
           >
-            <motion.div variants={childFadeUp}>
+            <div>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-[0.3em]">
                 <span className="w-5 h-px bg-white/40 inline-block" />
                 Albry Studio
               </span>
-            </motion.div>
+            </div>
 
             <h1 className="font-heading tracking-tight">
               <span className="font-extrabold text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] text-white leading-[1.08] block">
@@ -122,30 +119,21 @@ const Hero = () => {
               </span>
             </h1>
 
-            <motion.p
-              variants={childFadeUp}
-              className="text-base md:text-lg max-w-sm text-white/70 font-medium leading-relaxed"
-            >
+            <p className="text-base md:text-lg max-w-sm text-white/70 font-medium leading-relaxed">
               Você entrega um serviço de alto valor. A questão é: a sua marca
               conta essa história antes de você abrir a boca?
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={childFadeUp}
-              className="flex flex-col sm:flex-row gap-4"
-            >
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button href="/orcamento" variant="primary">
                 Solicitar Orçamento
               </Button>
               <Button href="#projetos" variant="outline">
                 Ver Projetos
               </Button>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={childFadeUp}
-              className="flex items-center gap-4 sm:gap-6 pt-1"
-            >
+            <div className="flex items-center gap-4 sm:gap-6 pt-1">
               <div>
                 <p className="text-white font-extrabold text-3xl leading-none">
                   +3
@@ -172,8 +160,8 @@ const Hero = () => {
                   Projetos
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </Container>
 
