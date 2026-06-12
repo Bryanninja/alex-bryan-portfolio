@@ -49,10 +49,10 @@ const GlobalExperience = () => {
 
             <motion.h2
               variants={childFadeUp}
-              className="font-heading text-xl font-extrabold tracking-tight text-brand-800 md:text-5xl lg:leading-tight"
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-800 lg:leading-tight"
             >
-              Projetos Que Performam Em <br />
-              <span className="text-brand-500 text-4xl md:text-[4rem]">
+              Projetos Que Performam Em{" "}
+              <span className="text-brand-500">
                 Qualquer Mercado
               </span>
             </motion.h2>
@@ -82,10 +82,10 @@ const GlobalExperience = () => {
 
       {/* 📱 VERSÃO MOBILE: Slide (Animação de entrada do bloco todo) */}
       <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         className="mt-12 flex w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:hidden"
       >
         {flags.map((item, index) => (
@@ -118,7 +118,7 @@ const GlobalExperience = () => {
 
       {/* 💻 VERSÃO DESKTOP: Sanfona (Animação de entrada suave) */}
       <motion.div
-        variants={itemScale}
+        variants={childFadeUp}
         initial="initial"
         whileInView="visible"
         viewport={{ once: true }}

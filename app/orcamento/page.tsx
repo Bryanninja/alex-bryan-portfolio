@@ -200,7 +200,7 @@ export default function OrcamentoPage() {
             </motion.p>
 
             <a
-              href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20tenho%20uma%20d%C3%BAvida%20antes%20de%20solicitar%20o%20or%C3%A7amento"
+              href="https://wa.me/5531971462832?text=Ol%C3%A1%20Bryan%2C%20tenho%20uma%20d%C3%BAvida%20antes%20de%20solicitar%20o%20or%C3%A7amento"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-brand-500 font-bold hover:text-brand-600 transition-colors underline underline-offset-4"

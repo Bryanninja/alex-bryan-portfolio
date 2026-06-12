@@ -34,39 +34,39 @@ const FocusSection = () => {
             <div className="space-y-4">
               <motion.span
                 variants={childFadeUp}
-                className="text-brand-500 font-bold uppercase tracking-[0.2em] text-xs block"
+                className="text-brand-500 font-bold uppercase tracking-[0.2em] text-xs md:text-sm block"
               >
                 Design & Tecnologia
               </motion.span>
 
               <motion.h2
                 variants={childFadeUp}
-                className="font-heading text-4xl lg:text-5xl font-extrabold text-brand-800 leading-tight tracking-tighter"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-800 leading-[1.15] tracking-tighter text-balance"
               >
-                Construo a alma da sua marca e a estrutura que a faz vender.
+                Marcas que você respeita não nasceram assim por acaso.
               </motion.h2>
             </div>
 
             <motion.div
               variants={childFadeUp}
-              className="space-y-6 text-brand-700/90 text-base md:text-lg leading-relaxed"
+              className="space-y-6 text-brand-700/80 text-base md:text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                Identidades visuais de elite não são apenas "bonitas"; elas são
-                estratégicas. Eu desenvolvo a <strong>alma visual</strong> do
-                seu negócio para garantir que você seja percebido como
-                autoridade antes mesmo do primeiro contato.
+                Tem uma diferença enorme entre ter um logo e ter uma marca. O
+                logo qualquer freelancer faz em 2 dias. A marca é o conjunto de
+                decisões visuais que faz o seu cliente sentir que está lidando
+                com algo de outro nível.
               </p>
               <p>
-                Mas beleza sem performance não gera escala. Por isso, uno esse
-                design a <strong>Landing Pages de alta performance</strong>,
-                garantindo que sua presença digital seja premium por fora e uma
-                máquina de vendas por dentro.
+                É aí que entro com a tecnologia: Landing Pages construídas em
+                cima desse posicionamento, rápidas, diretas, e feitas pra
+                converter. Não é sobre ter um site bonito. É sobre ter uma
+                presença digital que trabalha por você enquanto você dorme.
               </p>
             </motion.div>
 
-            <motion.div variants={childFadeUp}>
-              <Button href="/orcamento" className="flex items-center gap-2">
+            <motion.div variants={childFadeUp} className="pt-2">
+              <Button href="/orcamento" className="inline-flex items-center gap-2">
                 Solicitar Orçamento <ArrowRight size={18} />
               </Button>
             </motion.div>
@@ -85,9 +85,12 @@ const FocusSection = () => {
                 src={alexPhoto}
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 15%)",
+                  maskImage: "linear-gradient(to top, transparent 0%, black 15%)"
+                }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
             </motion.div>
 
             <motion.div
@@ -101,9 +104,12 @@ const FocusSection = () => {
                 src={alexPhoto2}
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 15%)",
+                  maskImage: "linear-gradient(to top, transparent 0%, black 15%)"
+                }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-brand-50 to-transparent z-20 pointer-events-none" />
             </motion.div>
           </div>
         </div>

@@ -22,19 +22,18 @@ const Footer = () => {
         >
           <motion.h2
             variants={childFadeUp}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight mb-6"
+            className="font-heading text-4xl md:text-6xl  font-extrabold leading-tight text-white tracking-tight mb-6"
           >
-            O seu serviço já é premium. O seu visual transmite isso?
+            Pronto pra parar de <br /> ser invisível?
           </motion.h2>
 
           <motion.p
             variants={childFadeUp}
-            className="text-lg text-slate-300/80 leading-relaxed mb-10 max-w-2xl"
+            className="text-lg md:text-xl text-slate-300/80 leading-relaxed mb-10 max-w-2xl"
           >
-            O seu negócio já entrega um serviço de excelência, mas o seu
-            posicionamento digital reflete isso? Vamos construir uma marca de
-            elite que transmite a sua verdadeira autoridade e atrai os clientes
-            certos.
+            Você pode ser o melhor no que faz. Mas se a sua marca não comunica
+            isso, você está perdendo clientes pra quem faz menos e vende mais.
+            Isso muda agora.
           </motion.p>
 
           <motion.div variants={childFadeUp}>
@@ -42,7 +41,7 @@ const Footer = () => {
               href="/orcamento"
               className="bg-brand-600 hover:bg-brand-400 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
             >
-              Quero um projeto de elite
+              Quero começar
             </Link>
           </motion.div>
         </motion.div>
@@ -88,7 +87,7 @@ const Footer = () => {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto"
+              href="https://wa.me/5531971462832?text=Ol%C3%A1%20Bryan%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-brand-400 transition-colors"

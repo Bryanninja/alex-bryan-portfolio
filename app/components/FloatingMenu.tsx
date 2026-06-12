@@ -63,7 +63,7 @@ export default function FloatingMenu() {
               {/* NOVO: WhatsApp */}
               <motion.div variants={childFadeUp}>
                 <a
-                  href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto"
+                  href="https://wa.me/5531971462832?text=Ol%C3%A1%20Bryan%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}

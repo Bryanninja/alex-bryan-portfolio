@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
-// Importe as variantes do caminho correto do seu projeto
 import {
   containerStagger,
   childFadeUp,
@@ -19,10 +19,31 @@ import Brace from "../../assets/svg/Brace.svg";
 import Divider from "../../assets/svg/Divider.svg";
 import DividerDesktop from "../../assets/svg/DividerDesktop.svg";
 
+function useCountUp(end: number, duration = 1800, delay = 1000) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const startTime = performance.now();
+      const tick = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCount(Math.round(eased * end));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [end, duration, delay]);
+  return count;
+}
+
 const Hero = () => {
+  const projectCount = useCountUp(40, 1800, 1000);
+
   return (
-    <section className="relative w-full min-h-[100dvh] md:min-h-[800px] overflow-hidden bg-slate-900 flex flex-col justify-center md:justify-start">
-      {/* Background estático para performance */}
+    <section className="relative w-full min-h-[100dvh] overflow-hidden bg-slate-900 flex flex-col">
+      {/* Background */}
       <Image
         src={bg}
         alt="Background"
@@ -31,95 +52,155 @@ const Hero = () => {
         className="absolute z-0 object-cover"
       />
 
-      <Container className="relative z-10 h-full flex flex-col justify-center md:justify-start md:pt-16">
-        {/* BLOCO DE TEXTO: Container que coordena a entrada dos filhos */}
-        <motion.div
-          variants={containerStagger}
-          initial="initial"
-          animate="visible"
-          className="flex text-brand-50 space-y-6 flex-col items-center text-center mt-10 shrink-0 px-4"
-        >
-          <motion.h1
-            variants={childFadeUp}
-            className="font-heading tracking-tight flex flex-col gap-2"
-          >
-            <span className="text-xl md:text-2xl font-semibold text-white/80 uppercase tracking-widest">
-              Sua marca não cresce?
-            </span>
-            <span className="font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1]">
-              O erro está no seu visual.
-            </span>
-          </motion.h1>
-
-          <motion.p
-            variants={childFadeUp}
-            className="text-base md:text-lg max-w-2xl text-white/80 px-2 font-medium"
-          >
-            Identidades visuais de elite e sites que realmente vendem. Eu não
-            faço o "básico", eu construo o próximo nível da sua marca.
-          </motion.p>
-
-          <motion.div
-            variants={childFadeUp}
-            className="flex flex-col w-full px-6 sm:px-0 sm:w-auto sm:flex-row gap-4 pt-6"
-          >
-            <div className="w-full sm:w-auto">
-              <Button href="/orcamento" variant="primary">
-                Solicitar Orçamento
-              </Button>
-            </div>
-            <div className="w-full sm:w-auto">
-              <Button href="#projetos" variant="outline">
-                Ver Projetos
-              </Button>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* IMAGEM DO ALEX: Reveal independente com delay maior */}
-        <motion.div
-          variants={imageReveal}
-          initial="initial"
-          animate="visible"
-          className="relative z-10 w-full flex-1 hidden md:flex justify-center items-end mt-12 px-4"
-        >
-          <div className="relative w-full max-w-[450px] lg:max-w-[600px] flex justify-center">
-            <Image
-              src={Brace}
-              alt=""
-              className="absolute -left-12 lg:-left-20 top-[50%] z-20 animate-floating-slow w-12 2xl:w-14"
-            />
-
-            <Image
-              src={alexbryanIMG}
-              alt="Imagem Alex Bryan"
-              className="w-full h-auto object-contain object-bottom drop-shadow-2xl"
-              priority
-            />
-
-            <div
-              className="absolute -right-12 lg:-right-20 top-[30%] z-20 rotate-180 animate-floating-slow w-12 2xl:w-14"
-              style={{ animationDelay: "1.5s" }}
-            >
-              <Image src={Brace} alt="" className="w-full h-full" />
-            </div>
-          </div>
-        </motion.div>
-      </Container>
-
-      {/* TEXTO DE FUNDO: Fade suave e lento */}
+      {/* Marca d'água */}
       <motion.div
         variants={slowFadeIn}
         initial="initial"
         animate="visible"
         className="absolute inset-0 pointer-events-none z-[1] overflow-hidden"
       >
-        <div aria-hidden="true" className="absolute -bottom-10 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[8rem] md:text-[15rem] lg:text-[35rem] 2xl:text-[32rem] font-bold text-brand-50 opacity-20 md:opacity-40 blur-md">
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-10 -left-4 md:-bottom-56 md:-left-10 select-none whitespace-nowrap text-[8rem] md:text-[15rem] lg:text-[26rem] font-bold text-brand-50 opacity-20 md:opacity-30 blur-md"
+        >
           Álex Bryan
         </div>
       </motion.div>
 
-      {/* Dividers (Mantidos estáticos para não poluir o visual) */}
+      {/* CONTAINER PRINCIPAL: Centralizado (max-w) para manter o texto e foto próximos */}
+      <Container className="relative z-10 flex-1 flex flex-col">
+        {/* FOTO DESKTOP: Ancorada no fundo do Container (respeitando a max-w de 1440px) */}
+        <motion.div
+          variants={imageReveal}
+          initial="initial"
+          animate="visible"
+          className="hidden md:block absolute bottom-0 right-6 md:right-20 w-[50%] lg:w-[52%] h-[85vh] max-h-[800px] z-10 pointer-events-none"
+        >
+          {/* Brace esquerda */}
+          <Image
+            src={Brace}
+            alt=""
+            className="absolute left-0 lg:left-10 top-[39%] z-20 animate-floating-slow w-10 lg:w-12"
+          />
+
+          <Image
+            src={alexbryanIMG}
+            alt="Álex Bryan — Designer & Desenvolvedor Front-end"
+            fill
+            priority
+            className="object-contain object-bottom drop-shadow-2xl"
+            sizes="50vw"
+          />
+
+          {/* Brace direita */}
+          <div
+            className="absolute right-8 lg:right-16 top-[30%] z-20 rotate-180 animate-floating-slow w-10 lg:w-12"
+            style={{ animationDelay: "1.5s" }}
+          >
+            <Image src={Brace} alt="" className="w-full h-full" />
+          </div>
+        </motion.div>
+
+        {/* COLUNA ESQUERDA: Texto */}
+        <div className="flex-1 flex flex-col justify-center pt-24 pb-4 md:py-16">
+          <motion.div
+            variants={containerStagger}
+            initial="initial"
+            animate="visible"
+            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%]"
+          >
+            <motion.div variants={childFadeUp}>
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-[0.3em]">
+                <span className="w-5 h-px bg-white/40 inline-block" />
+                Albry Studio
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={childFadeUp}
+              className="font-heading tracking-tight"
+            >
+              <span className="font-extrabold text-[3.25rem] sm:text-[3.5rem] md:text-5xl lg:text-6xl xl:text-[4.25rem] text-white leading-[1.05] block">
+                Sua marca fala
+                <br />
+                antes de você.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={childFadeUp}
+              className="text-base md:text-lg max-w-sm text-white/70 font-medium leading-relaxed"
+            >
+              Você entrega um serviço de alto valor. A questão é: a sua marca
+              conta essa história antes de você abrir a boca?
+            </motion.p>
+
+            <motion.div
+              variants={childFadeUp}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button href="/orcamento" variant="primary">
+                Solicitar Orçamento
+              </Button>
+              <Button href="#projetos" variant="outline">
+                Ver Projetos
+              </Button>
+            </motion.div>
+
+            <motion.div
+              variants={childFadeUp}
+              className="flex items-center gap-4 sm:gap-6 pt-1"
+            >
+              <div>
+                <p className="text-white font-extrabold text-3xl leading-none">
+                  +3
+                </p>
+                <p className="text-white/50 text-xs uppercase tracking-wider mt-1">
+                  Anos
+                </p>
+              </div>
+              <div className="w-px h-9 bg-white/20" />
+              <div>
+                <p className="text-white font-extrabold text-3xl leading-none">
+                  5
+                </p>
+                <p className="text-white/50 text-xs uppercase tracking-wider mt-1">
+                  Países
+                </p>
+              </div>
+              <div className="w-px h-9 bg-white/20" />
+              <div>
+                <p className="text-white font-extrabold text-3xl leading-none">
+                  +{projectCount}
+                </p>
+                <p className="text-white/50 text-xs uppercase tracking-wider mt-1">
+                  Projetos
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </Container>
+
+      {/* MOBILE: foto abaixo do texto */}
+      <motion.div
+        variants={imageReveal}
+        initial="initial"
+        animate="visible"
+        className="md:hidden relative w-full h-[60vh] min-h-[480px] z-10 shrink-0 mt-auto overflow-hidden"
+      >
+        <Image
+          src={alexbryanIMG}
+          alt="Álex Bryan"
+          fill
+          priority
+          className="object-cover object-top scale-125 origin-top"
+          sizes="100vw"
+        />
+        <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none" />
+      </motion.div>
+
+      {/* Dividers */}
       <Image
         src={Divider}
         alt=""

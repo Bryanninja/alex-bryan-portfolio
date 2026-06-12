@@ -20,6 +20,7 @@ const inter = Inter({
 
 // 1. METADATA DE ALTA PERFORMANCE
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.albrystudio.com"),
   title: "Álex Bryan | Landing Pages de Elite & Identidade Visual",
   description:
     "Criação de Landing Pages de alta performance e Identidades Visuais de elite. Transforme seu negócio em uma marca de autoridade com visão internacional.",

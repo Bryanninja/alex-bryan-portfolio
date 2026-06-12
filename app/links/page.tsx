@@ -64,7 +64,7 @@ export default function LinksPage() {
 
         {/* Link 2: Chamar no WhatsApp */}
         <a
-          href="https://wa.me/5531971462832?text=Ol%C3%A1%20%C3%81lex%2C%20vi%20seu%20conte%C3%BAdo%20e%20quero%20conversar%20sobre%20um%20projeto"
+          href="https://wa.me/5531971462832?text=Ol%C3%A1%20Bryan%2C%20vi%20seu%20conte%C3%BAdo%20e%20quero%20conversar%20sobre%20um%20projeto"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-4 md:gap-6 px-5 py-4 md:px-8 md:py-5 rounded-2xl bg-white/60 border border-brand-600/40 text-brand-900 font-semibold md:text-lg hover:scale-[1.02] hover:bg-white hover:shadow-lg hover:shadow-brand-200/50 transition-all duration-300 group"

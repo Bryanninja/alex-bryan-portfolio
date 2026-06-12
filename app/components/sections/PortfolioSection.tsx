@@ -28,7 +28,7 @@ const PortfolioSection = () => {
         >
           <motion.h2
             variants={childFadeUp}
-            className="font-heading text-3xl md:text-5xl lg:text-[3.5rem] text-balance font-extrabold text-brand-800 tracking-tight"
+            className="font-heading text-4xl md:text-5xl lg:text-6xl text-balance font-extrabold text-brand-800 tracking-tight"
           >
             Dá uma olhada no que <br className="md:block" /> a gente já
             construiu.
