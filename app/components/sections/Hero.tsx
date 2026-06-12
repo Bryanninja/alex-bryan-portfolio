@@ -74,7 +74,7 @@ const Hero = () => {
           variants={imageReveal}
           initial="initial"
           animate="visible"
-          className="hidden md:block absolute bottom-0 right-6 md:right-20 w-[50%] lg:w-[52%] h-[85vh] max-h-[800px] z-10 pointer-events-none"
+          className="hidden lg:block absolute bottom-0 right-6 lg:right-20 w-[50%] lg:w-[52%] h-[85vh] max-h-[800px] z-10 pointer-events-none"
         >
           {/* Brace esquerda */}
           <Image
@@ -104,7 +104,7 @@ const Hero = () => {
         {/* COLUNA ESQUERDA: Texto */}
         <div className="flex-1 flex flex-col justify-center pt-24 pb-4 md:py-16">
           <div
-            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%]"
+            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full lg:w-[48%]"
           >
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-[0.3em]">
@@ -170,13 +170,13 @@ const Hero = () => {
         variants={imageReveal}
         initial="initial"
         animate="visible"
-        className="md:hidden relative w-full h-[60vh] min-h-[480px] z-10 shrink-0 mt-auto overflow-hidden"
+        className="lg:hidden relative w-full h-[60vh] min-h-[480px] z-10 shrink-0 mt-auto overflow-hidden"
       >
         {/* Brace esquerda (Mobile) */}
         <Image
           src={Brace}
           alt=""
-          className="absolute left-4 top-[45%] z-20 animate-floating-slow w-7 opacity-60"
+          className="absolute left-8 top-[45%] z-20 animate-floating-slow w-7 opacity-60"
         />
 
         <Image
@@ -190,7 +190,7 @@ const Hero = () => {
 
         {/* Brace direita (Mobile) */}
         <div
-          className="absolute right-4 top-[30%] z-20 rotate-180 animate-floating-slow w-7 opacity-60"
+          className="absolute right-8 top-[30%] z-20 rotate-180 animate-floating-slow w-7 opacity-60"
           style={{ animationDelay: "1.5s" }}
         >
           <Image src={Brace} alt="" className="w-full h-full" />
