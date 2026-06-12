@@ -97,6 +97,7 @@ const GlobalExperience = () => {
               src={item.img}
               alt={item.name}
               fill
+              sizes="(max-width: 768px) 85vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-transparent" />
@@ -133,6 +134,7 @@ const GlobalExperience = () => {
             <Image
               src={flag.img}
               fill
+              sizes="(max-width: 1024px) 100vw, 30vw"
               alt={flag.name}
               className="object-cover transition-transform duration-700 group-hover/item:scale-110"
             />

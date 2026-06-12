@@ -104,7 +104,7 @@ const Hero = () => {
         {/* COLUNA ESQUERDA: Texto */}
         <div className="flex-1 flex flex-col justify-center pt-24 pb-4 md:py-16">
           <div
-            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%] animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both"
+            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full md:w-[50%] lg:w-[48%]"
           >
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-[0.3em]">
