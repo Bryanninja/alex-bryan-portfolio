@@ -49,7 +49,7 @@ const GlobalExperience = () => {
 
             <motion.h2
               variants={childFadeUp}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-800 lg:leading-tight"
+              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-800 lg:leading-tight text-balance"
             >
               Projetos Que Performam Em{" "}
               <span className="text-brand-500">
