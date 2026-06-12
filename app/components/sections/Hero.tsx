@@ -120,7 +120,7 @@ const Hero = () => {
               variants={childFadeUp}
               className="font-heading tracking-tight"
             >
-              <span className="font-extrabold text-5xl sm:text-[3.5rem] md:text-5xl lg:text-6xl xl:text-[4.25rem] text-white leading-[1.05] block text-balance">
+              <span className="font-extrabold text-[2.75rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] text-white leading-[1.05] block text-balance">
                 Sua marca fala <br className="hidden md:block" /> antes de você.
               </span>
             </motion.h1>
