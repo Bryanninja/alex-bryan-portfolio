@@ -27,6 +27,7 @@ export default function FloatingMenu() {
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Fechar menu"
                 className="flex h-10 w-10 items-center justify-center rounded-xl cursor-pointer bg-brand-400 text-white hover:bg-brand-500 transition-colors shadow-md"
               >
                 <X size={24} />
@@ -102,6 +103,7 @@ export default function FloatingMenu() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
+            aria-label="Abrir menu de navegação"
             className="flex h-14 w-14 items-center justify-center cursor-pointer rounded-xl bg-brand-700 text-brand-400 shadow-xl hover:bg-brand-800 transition-colors"
           >
             <Menu size={28} strokeWidth={2.5} />

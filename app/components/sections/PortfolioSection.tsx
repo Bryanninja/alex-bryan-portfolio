@@ -123,7 +123,7 @@ const PortfolioSection = () => {
                         />
                       </div>
 
-                      <span className="text-sm font-semibold text-brand-500 mt-1">
+                      <span className="text-sm font-semibold text-brand-700 mt-1">
                         {project.projectName}
                       </span>
                       <p className="text-sm text-brand-700/80 mt-0.5 line-clamp-2">
