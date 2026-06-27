@@ -23,23 +23,23 @@ import {
 
 const configuracaoOrcamentos = {
   "Identidade Visual": [
-    { label: "R$ 700 — 1,5 mil" },
-    { label: "R$ 1,5 mil — 3,5 mil" },
-    { label: "R$ 3,5 mil — 7 mil" },
-    { label: "R$ 7 mil +" },
+    { label: "R$ 400 — 1 mil" },
+    { label: "R$ 1 mil — 3 mil" },
+    { label: "R$ 3 mil — 6 mil" },
+    { label: "R$ 6 mil +" },
   ],
 
   "Site de Alta Performance": [
-    { label: "R$ 1,2 mil — 2,5 mil" },
-    { label: "R$ 2,5 mil — 4,5 mil" },
-    { label: "R$ 4,5 mil — 7 mil" },
-    { label: "R$ 7 mil +" },
+    { label: "R$ 600 — 1,5 mil" },
+    { label: "R$ 1,5 mil — 3 mil" },
+    { label: "R$ 3 mil — 6 mil" },
+    { label: "R$ 6 mil +" },
   ],
 
   "O Combo (Marca + Site)": [
-    { label: "R$ 1,7 mil — 3 mil" },
-    { label: "R$ 3 mil — 5,5 mil" },
-    { label: "R$ 5,5 mil — 7 mil" },
+    { label: "R$ 900 — 2 mil" },
+    { label: "R$ 2 mil — 4,5 mil" },
+    { label: "R$ 4,5 mil — 7 mil" },
     { label: "R$ 7 mil +" },
   ],
 };
