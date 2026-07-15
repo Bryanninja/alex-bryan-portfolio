@@ -125,7 +125,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/orcamento" variant="primary">
+              <Button href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto." variant="primary" target="_blank">
                 Solicitar Orçamento
               </Button>
               <Button href="#projetos" variant="outline">

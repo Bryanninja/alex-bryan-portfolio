@@ -38,7 +38,8 @@ const Footer = () => {
 
           <motion.div variants={childFadeUp}>
             <Link
-              href="/orcamento"
+              href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto."
+              target="_blank"
               className="bg-brand-600 hover:bg-brand-400 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
             >
               Quero começar

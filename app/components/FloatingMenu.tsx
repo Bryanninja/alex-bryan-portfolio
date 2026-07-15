@@ -80,11 +80,12 @@ export default function FloatingMenu() {
               {/* Botão de Orçamento */}
               <motion.div variants={childFadeUp}>
                 <Link
-                  href="/orcamento"
+                  href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto."
                   onClick={() => setIsOpen(false)}
+                  target="_blank"
                   className="mt-4 flex items-center justify-between rounded-full border border-brand-400 px-6 py-3 text-brand-50 hover:bg-brand-400/60 hover:text-white transition-all duration-300"
                 >
-                  <span className="font-medium">Orçamento</span>
+                  <span className="font-medium">Orçamento via WhatsApp</span>
                   <ArrowUpRight size={20} />
                 </Link>
               </motion.div>

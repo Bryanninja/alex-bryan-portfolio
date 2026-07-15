@@ -66,7 +66,7 @@ const FocusSection = () => {
             </motion.div>
 
             <motion.div variants={childFadeUp} className="pt-2">
-              <Button href="/orcamento" className="inline-flex items-center gap-2">
+              <Button href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto." className="inline-flex items-center gap-2" target="_blank">
                 Solicitar Orçamento <ArrowRight size={18} />
               </Button>
             </motion.div>

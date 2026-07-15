@@ -24,9 +24,10 @@ const Header = () => {
           Sobre
         </Link>
         <Button
-          href="/orcamento"
+          href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto."
           variant="outline"
           className="px-6 py-2 text-sm"
+          target="_blank"
         >
           Orçamento ↗
         </Button>
