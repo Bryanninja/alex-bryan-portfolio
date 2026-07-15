@@ -6,6 +6,7 @@ interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline";
   className?: string;
+  target?: string;
 }
 
 export default function Button({
@@ -13,6 +14,7 @@ export default function Button({
   children,
   variant = "primary",
   className = "",
+  target,
 }: ButtonProps) {
   const baseStyles =
     "inline-flex items-center border-2 border-transparent justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300";
@@ -29,6 +31,7 @@ export default function Button({
     <Link
       href={href}
       className={`${baseStyles} ${variants[variant]} ${className}`}
+      target={target}
     >
       {children}
     </Link>
