@@ -92,7 +92,7 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
                 >
                   <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 mb-5">
                     <Image
-                      src={project.projectImg}
+                      src={[8, 9, 10, 11].includes(project.id) ? project.projectImg : project.gallery[1]}
                       alt={`Projeto ${project.projectName}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover/card:scale-105"
