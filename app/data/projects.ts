@@ -97,6 +97,10 @@ import projTask02 from "../assets/img/projects/task-manager/task-02.webp";
 import projTask03 from "../assets/img/projects/task-manager/task-03.webp";
 import projTask04 from "../assets/img/projects/task-manager/task-04.webp";
 
+
+import logoBetel from "../assets/img/projects/igreja-betel.png";
+import logoTaskManager from "../assets/img/projects/tasks-mananger-logo.png";
+
 export const projectsData = [
   {
     id: 1,
@@ -255,7 +259,7 @@ export const projectsData = [
     description:
       "Plataforma híbrida (Site + Web App) desenvolvida com carinho para minha comunidade local. Foco em UX fluida e alta performance (Lighthouse 90+).",
     projectImg: projBetelCover,
-    clientImg: avatarMichel,
+    clientImg: logoBetel,
     services: [
       "Engenharia Front-end",
       "UI/UX Design",
@@ -382,7 +386,7 @@ export const projectsData = [
     description:
       "Um gerenciador de tarefas criado para testar meus limites com arquitetura escalável e gerenciamento de estados globais.",
     projectImg: projTaskCover,
-    clientImg: avatarMichel,
+    clientImg: logoTaskManager,
     services: [
       "Arquitetura Limpa",
       "TanStack Query (React Query)",
