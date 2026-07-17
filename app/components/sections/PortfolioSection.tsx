@@ -16,6 +16,11 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
   const path = usePathname();
   const [isExpanded, setIsExpanded] = useState(false);
   const filteredProjects = projectsData.filter(p => filterCategory === 'all' || p.category === filterCategory || p.category === 'both');
+  
+  if (filterCategory === 'dev') {
+    filteredProjects.sort((a, b) => (a.devOrder || 99) - (b.devOrder || 99));
+  }
+
   const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (

@@ -65,42 +65,114 @@ import avatarJorge from "../assets/img/projects/jorge.webp";
 import avatarRaul from "../assets/img/projects/raul.webp";
 import avatarLucas from "../assets/img/projects/lucas.webp";
 
-
-// FinanceiraMente Imports
-import projFinCover from "../assets/img/projects/financeiramente/fin-cover.webp";
-import projFin01 from "../assets/img/projects/financeiramente/fin-01.webp";
-import projFin02 from "../assets/img/projects/financeiramente/fin-02.webp";
-import projFin03 from "../assets/img/projects/financeiramente/fin-03.webp";
-import projFin04 from "../assets/img/projects/financeiramente/fin-04.webp";
-import projFin05 from "../assets/img/projects/financeiramente/fin-05.webp";
-
-// HKN Imports
-import projHknCover from "../assets/img/projects/hkn/hkn-cover.webp";
-import projHkn01 from "../assets/img/projects/hkn/hkn-01.webp";
-import projHkn02 from "../assets/img/projects/hkn/hkn-02.webp";
-import projHkn03 from "../assets/img/projects/hkn/hkn-03.webp";
-import projHkn04 from "../assets/img/projects/hkn/hkn-04.webp";
-
-// Betel Imports
-import projBetelCover from "../assets/img/projects/igreja-betel/betel-cover.webp";
-import projBetel01 from "../assets/img/projects/igreja-betel/betel-01.webp";
-import projBetel02 from "../assets/img/projects/igreja-betel/betel-02.webp";
-import projBetel03 from "../assets/img/projects/igreja-betel/betel-03.webp";
-import projBetel04 from "../assets/img/projects/igreja-betel/betel-04.webp";
-import projBetel05 from "../assets/img/projects/igreja-betel/betel-05.webp";
-
-// Task Manager Imports
-import projTaskCover from "../assets/img/projects/task-manager/task-cover.webp";
-import projTask01 from "../assets/img/projects/task-manager/task-01.webp";
-import projTask02 from "../assets/img/projects/task-manager/task-02.webp";
-import projTask03 from "../assets/img/projects/task-manager/task-03.webp";
-import projTask04 from "../assets/img/projects/task-manager/task-04.webp";
-
 export const projectsData = [
+  {
+    id: 8,
+    category: "dev",
+    clientName: "Igreja Batista Betel",
+    projectName: "Betel App",
+    description:
+      "Plataforma híbrida (Site + Web App) desenvolvida com carinho para minha comunidade local. Foco em UX fluida e alta performance (Lighthouse 90+).",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Engenharia Front-end",
+      "UI/UX Design",
+      "Otimização de Performance",
+    ],
+    fullDescription: [
+      "O Betel App foi um projeto muito especial para mim, pois foi desenvolvido para a minha igreja local. Mais do que código, eu queria criar uma experiência que realmente acolhesse as pessoas no momento de leitura bíblica.",
+      "O grande desafio aqui foi técnico: garantir que a plataforma fosse extremamente rápida e fluida, independente do celular que a pessoa estivesse usando. Consegui atingir métricas excelentes de performance (acima de 90 no Lighthouse) usando Next.js e otimização cirúrgica de imagens.",
+      "O feedback da comunidade foi a melhor parte. Ver as pessoas usando o aplicativo diariamente e sentindo que o design 'abraça' a experiência de leitura me mostrou o impacto real que o Front-end tem na vida dos usuários."
+    ],
+    techs: ["Next.js", "React", "Tailwind CSS", "GSAP", "Lighthouse"],
+    linkWebsite: "https://www.ibbetelpl.com.br/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 9,
+    category: "dev",
+    clientName: "Michel Stawicki",
+    projectName: "FinanceiraMente",
+    description:
+      "Plataforma B2B de diagnóstico financeiro que ajuda pequenas empresas a verem seus números com clareza. Conta com gamificação e relatórios automatizados.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Desenvolvimento de Plataforma B2B",
+      "Integração de APIs (Resend)",
+      "Otimização de Conversão",
+    ],
+    fullDescription: [
+      "Eu percebi que muitos empreendedores tomam decisões 'no escuro' por não entenderem seus próprios números. O FinanceiraMente nasceu dessa dor: transformar dados chatos em um diagnóstico interativo e gamificado.",
+      "Para fazer isso acontecer, mergulhei de cabeça no Next.js e no Tailwind CSS, garantindo uma interface onde o usuário não sente que está preenchendo um formulário gigante, mas sim conversando com um consultor.",
+      "A parte que mais me desafiou (e me ensinou) foi a integração com a API do Resend para enviar e-mails automatizados. Foi gratificante ver a lógica do Backend conversando perfeitamente com a interface limpa que eu desenhei no Front-end."
+    ],
+    techs: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n"],
+    linkWebsite: "https://msfinanceiramente.com/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 11,
+    category: "dev",
+    clientName: "Projeto Pessoal",
+    projectName: "Task Manager Pro",
+    description:
+      "Um gerenciador de tarefas criado para testar meus limites com arquitetura escalável e gerenciamento de estados globais.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Arquitetura Limpa",
+      "TanStack Query (React Query)",
+      "Alta Performance e Cache",
+    ],
+    fullDescription: [
+      "Como todo desenvolvedor, eu precisava do meu próprio To-Do App. Mas decidi não fazer o 'arroz com feijão'. Eu queria simular o ambiente caótico de uma aplicação de nível empresarial (Enterprise Level).",
+      "O maior foco desse projeto foi estruturar um código limpo e sustentável. Utilizei o TanStack Query para cuidar do cache e do estado das tarefas. Isso significa que o aplicativo é rápido, guarda as informações de forma inteligente e responde instantaneamente aos cliques.",
+      "Esse projeto foi um laboratório de boas práticas para mim. Aprendi que, no mundo real, a forma como organizamos as pastas e separamos as responsabilidades do código importa tanto quanto a cor do botão na tela."
+    ],
+    techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
+    linkWebsite: "https://app-tasks-red.vercel.app/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 10,
+    category: "dev",
+    clientName: "HKN Projetos",
+    projectName: "HKN Engenharia",
+    description:
+      "Landing Page desenvolvida para converter visitantes em clientes. Foco total em SEO técnico, performance rápida e usabilidade.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Desenvolvimento Front-end",
+      "UI/UX Design",
+      "SEO Técnico",
+    ],
+    fullDescription: [
+      "A HKN precisava de algo que transmitisse a confiança e a robustez do mercado de engenharia e arquitetura BIM. Como designer e desenvolvedor da solução, minha prioridade foi alinhar a estética à performance.",
+      "Estruturei a aplicação usando React e Vite para garantir que fosse uma SPA (Single Page Application) extremamente rápida. Se o site demora a carregar, o cliente vai embora. Então a otimização foi a minha regra número um.",
+      "Foi muito gratificante criar uma interface limpa, focada inteiramente na jornada do usuário e na conversão. É um excelente exemplo de como o Front-end precisa trabalhar de mãos dadas com os objetivos de negócio."
+    ],
+    techs: ["React", "Vite", "Tailwind CSS"],
+    linkWebsite: "https://hkn-engenharia.vercel.app/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
   {
     id: 1,
     category: "dev",
-    devOrder: 5,
     clientName: "Michel Stawicki",
     projectName: "MS Financial",
     description:
@@ -124,9 +196,37 @@ export const projectsData = [
     ],
   },
   {
+    id: 3,
+    category: "dev",
+    clientName: "Franciely Hisdaleck",
+    projectName: "Igreja Jesus é o caminho",
+    description:
+      "Projeto completo: desde a Identidade Visual até o desenvolvimento de um WebApp de leitura personalizado, com destaque para a alta acessibilidade.",
+    projectImg: projIgrejaJesusEoCaminhoLogoGreen,
+    clientImg: avatarFranciely,
+    services: [
+      "Identidade Visual",
+      "UI/UX Design",
+      "Desenvolvimento de WebApp",
+    ],
+    fullDescription: [
+      "A identidade visual deste projeto foi desenhada para conectar a juventude à mensagem cristã de forma moderna e acolhedora, utilizando um símbolo inteligente que mescla sutilmente uma ovelha e a porta.",
+      "A paleta de cores traz o verde como representação de renovação e águas tranquilas, equilibrado por tons profundos de cinza e preto para garantir um visual limpo, sofisticado e atraente.",
+      "Além do branding, desenvolvemos um WebApp interativo e de alta acessibilidade para o Plano de Leitura 2026, oferecendo uma experiência de usuário (UX) fluida e em modo escuro para o acompanhamento diário do progresso espiritual.",
+    ],
+    techs: ["React.js", "Javascript"],
+    linkWebsite: "https://jesuseocaminho.vercel.app/",
+    gallery: [
+      projIgrejaJesusEoCaminhoLogoWhite,
+      projIgrejaJesusEoCaminho,
+      projIgrejaJesusEoCaminhoShirtBack,
+      projIgrejaJesusEoCaminhoShirtFront,
+      projIgrejaJesusEoCaminhoPlan,
+    ],
+  },
+  {
     id: 2,
     category: "both",
-    devOrder: 7,
     clientName: "Adryan Medeiros",
     projectName: "Paceon",
     description:
@@ -156,7 +256,6 @@ export const projectsData = [
   {
     id: 4,
     category: "both",
-    devOrder: 8,
     clientName: "Karlo Kirin",
     projectName: "Proteck HVAC",
     description:
@@ -181,33 +280,29 @@ export const projectsData = [
     ],
   },
   {
-    id: 3,
-    category: "dev",
-    devOrder: 6,
-    clientName: "Franciely Hisdaleck",
-    projectName: "Igreja Jesus é o caminho",
+    id: 5,
+    category: "design",
+    clientName: "Jorge Martins",
+    projectName: "Rede Influence",
     description:
-      "Projeto completo: desde a Identidade Visual até o desenvolvimento de um WebApp de leitura personalizado, com destaque para a alta acessibilidade.",
-    projectImg: projIgrejaJesusEoCaminhoLogoGreen,
-    clientImg: avatarFranciely,
-    services: [
-      "Identidade Visual",
-      "UI/UX Design",
-      "Desenvolvimento de WebApp",
-    ],
+      "Desenvolvimento de Identidade Visual para um movimento de jovens cristãos, transmitindo um posicionamento moderno, dinâmico e jovial.",
+    projectImg: projInfluence,
+    clientImg: avatarJorge,
+    services: ["Identidade Visual", "UI/UX Design", "Aplicações de Mídia"],
     fullDescription: [
-      "A identidade visual deste projeto foi desenhada para conectar a juventude à mensagem cristã de forma moderna e acolhedora, utilizando um símbolo inteligente que mescla sutilmente uma ovelha e a porta.",
-      "A paleta de cores traz o verde como representação de renovação e águas tranquilas, equilibrado por tons profundos de cinza e preto para garantir um visual limpo, sofisticado e atraente.",
-      "Além do branding, desenvolvemos um WebApp interativo e de alta acessibilidade para o Plano de Leitura 2026, oferecendo uma experiência de usuário (UX) fluida e em modo escuro para o acompanhamento diário do progresso espiritual.",
+      "A Rede Influence precisava de uma identidade que falasse diretamente com uma juventude dinâmica, traduzindo o conceito de conexões espirituais e influência mútua.",
+      "O logotipo une as letras em um fluxo contínuo ao lado de um ícone que remete a uma 'rede', enquanto o uso estratégico do roxo e do preto com gradientes cria uma sensação de profundidade e transformação.",
+      "Todo o ecossistema visual, desde interfaces de mídia social até o design de vestuário de alto padrão, foi concebido para gerar senso de pertencimento e modernidade para um público altamente conectado.",
     ],
-    techs: ["React.js", "Javascript"],
-    linkWebsite: "https://jesuseocaminho.vercel.app/",
+    linkWebsite:
+      "https://drive.google.com/file/d/1_mtK94eoJMXyQBpNwfJaoUOI6VHgmmKY/view?usp=sharing",
     gallery: [
-      projIgrejaJesusEoCaminhoLogoWhite,
-      projIgrejaJesusEoCaminho,
-      projIgrejaJesusEoCaminhoShirtBack,
-      projIgrejaJesusEoCaminhoShirtFront,
-      projIgrejaJesusEoCaminhoPlan,
+      projInfluenceIcon,
+      projInfluenceShirt,
+      projInfluenceYoungs,
+      projInfluenceCta,
+      projInfluenceGarrafa,
+      projInfluencePalco,
     ],
   },
   {
@@ -246,59 +341,6 @@ export const projectsData = [
     ],
   },
   {
-    id: 8,
-    category: "dev",
-    devOrder: 1,
-    clientName: "Igreja Batista Betel",
-    projectName: "Betel App",
-    description:
-      "Plataforma híbrida (Site + Web App) desenvolvida com carinho para minha comunidade local. Foco em UX fluida e alta performance (Lighthouse 90+).",
-    projectImg: projBetelCover,
-    clientImg: avatarMichel,
-    services: [
-      "Engenharia Front-end",
-      "UI/UX Design",
-      "Otimização de Performance",
-    ],
-    fullDescription: [
-      "O Betel App foi um projeto muito especial para mim, pois foi desenvolvido para a minha igreja local. Mais do que código, eu queria criar uma experiência que realmente acolhesse as pessoas no momento de leitura bíblica.",
-      "O grande desafio aqui foi técnico: garantir que a plataforma fosse extremamente rápida e fluida, independente do celular que a pessoa estivesse usando. Consegui atingir métricas excelentes de performance (acima de 90 no Lighthouse) usando Next.js e otimização cirúrgica de imagens.",
-      "O feedback da comunidade foi a melhor parte. Ver as pessoas usando o aplicativo diariamente e sentindo que o design 'abraça' a experiência de leitura me mostrou o impacto real que o Front-end tem na vida dos usuários."
-    ],
-    techs: ["Next.js", "React", "Tailwind CSS", "GSAP", "Lighthouse"],
-    linkWebsite: "https://www.ibbetelpl.com.br/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 5,
-    category: "design",
-    clientName: "Jorge Martins",
-    projectName: "Rede Influence",
-    description:
-      "Desenvolvimento de Identidade Visual para um movimento de jovens cristãos, transmitindo um posicionamento moderno, dinâmico e jovial.",
-    projectImg: projInfluence,
-    clientImg: avatarJorge,
-    services: ["Identidade Visual", "UI/UX Design", "Aplicações de Mídia"],
-    fullDescription: [
-      "A Rede Influence precisava de uma identidade que falasse diretamente com uma juventude dinâmica, traduzindo o conceito de conexões espirituais e influência mútua.",
-      "O logotipo une as letras em um fluxo contínuo ao lado de um ícone que remete a uma 'rede', enquanto o uso estratégico do roxo e do preto com gradientes cria uma sensação de profundidade e transformação.",
-      "Todo o ecossistema visual, desde interfaces de mídia social até o design de vestuário de alto padrão, foi concebido para gerar senso de pertencimento e modernidade para um público altamente conectado.",
-    ],
-    linkWebsite:
-      "https://drive.google.com/file/d/1_mtK94eoJMXyQBpNwfJaoUOI6VHgmmKY/view?usp=sharing",
-    gallery: [
-      projInfluenceIcon,
-      projInfluenceShirt,
-      projInfluenceYoungs,
-      projInfluenceCta,
-      projInfluenceGarrafa,
-      projInfluencePalco,
-    ],
-  },
-  {
     id: 7,
     category: "design",
     clientName: "Raul Sena",
@@ -325,87 +367,6 @@ export const projectsData = [
       projSenaFilmsAssets,
       projSenaFilmsCap,
       projSenaFilmsFilms,
-    ],
-  },
-  {
-    id: 9,
-    category: "dev",
-    devOrder: 2,
-    clientName: "Michel Stawicki",
-    projectName: "FinanceiraMente",
-    description:
-      "Plataforma B2B de diagnóstico financeiro que ajuda pequenas empresas a verem seus números com clareza. Conta com gamificação e relatórios automatizados.",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
-    services: [
-      "Desenvolvimento de Plataforma B2B",
-      "Integração de APIs (Resend)",
-      "Otimização de Conversão",
-    ],
-    fullDescription: [
-      "Eu percebi que muitos empreendedores tomam decisões 'no escuro' por não entenderem seus próprios números. O FinanceiraMente nasceu dessa dor: transformar dados chatos em um diagnóstico interativo e gamificado.",
-      "Para fazer isso acontecer, mergulhei de cabeça no Next.js e no Tailwind CSS, garantindo uma interface onde o usuário não sente que está preenchendo um formulário gigante, mas sim conversando com um consultor.",
-      "A parte que mais me desafiou (e me ensinou) foi a integração com a API do Resend para enviar e-mails automatizados. Foi gratificante ver a lógica do Backend conversando perfeitamente com a interface limpa que eu desenhei no Front-end."
-    ],
-    techs: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n"],
-    linkWebsite: "https://msfinanceiramente.com/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 10,
-    category: "dev",
-    devOrder: 4,
-    clientName: "HKN Projetos",
-    projectName: "HKN Engenharia",
-    description:
-      "Landing Page desenvolvida para converter visitantes em clientes. Foco total em SEO técnico, performance rápida e usabilidade.",
-    projectImg: projHknCover,
-    clientImg: avatarMichel,
-    services: [
-      "Desenvolvimento Front-end",
-      "UI/UX Design",
-      "SEO Técnico",
-    ],
-    fullDescription: [
-      "A HKN precisava de algo que transmitisse a confiança e a robustez do mercado de engenharia e arquitetura BIM. Como designer e desenvolvedor da solução, minha prioridade foi alinhar a estética à performance.",
-      "Estruturei a aplicação usando React e Vite para garantir que fosse uma SPA (Single Page Application) extremamente rápida. Se o site demora a carregar, o cliente vai embora. Então a otimização foi a minha regra número um.",
-      "Foi muito gratificante criar uma interface limpa, focada inteiramente na jornada do usuário e na conversão. É um excelente exemplo de como o Front-end precisa trabalhar de mãos dadas com os objetivos de negócio."
-    ],
-    techs: ["React", "Vite", "Tailwind CSS"],
-    linkWebsite: "https://hkn-engenharia.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 11,
-    category: "dev",
-    devOrder: 3,
-    clientName: "Projeto Pessoal",
-    projectName: "Task Manager Pro",
-    description:
-      "Um gerenciador de tarefas criado para testar meus limites com arquitetura escalável e gerenciamento de estados globais.",
-    projectImg: projTaskCover,
-    clientImg: avatarMichel,
-    services: [
-      "Arquitetura Limpa",
-      "TanStack Query (React Query)",
-      "Alta Performance e Cache",
-    ],
-    fullDescription: [
-      "Como todo desenvolvedor, eu precisava do meu próprio To-Do App. Mas decidi não fazer o 'arroz com feijão'. Eu queria simular o ambiente caótico de uma aplicação de nível empresarial (Enterprise Level).",
-      "O maior foco desse projeto foi estruturar um código limpo e sustentável. Utilizei o TanStack Query para cuidar do cache e do estado das tarefas. Isso significa que o aplicativo é rápido, guarda as informações de forma inteligente e responde instantaneamente aos cliques.",
-      "Esse projeto foi um laboratório de boas práticas para mim. Aprendi que, no mundo real, a forma como organizamos as pastas e separamos as responsabilidades do código importa tanto quanto a cor do botão na tela."
-    ],
-    techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
-    linkWebsite: "https://app-tasks-red.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
     ],
   },
 ];
