@@ -10,8 +10,11 @@ import { BadgeCheck, ArrowDown, ArrowUp } from "lucide-react";
 // Importando nossas variantes padronizadas
 import { containerStagger, childFadeUp } from "../../utils/animations";
 import { projectsData } from "../../data/projects";
+import { usePathname } from "next/navigation";
 
 const PortfolioSection = () => {
+  const path = usePathname();
+  console.log("aqui está ele", path);
   const [isExpanded, setIsExpanded] = useState(false);
   const visibleProjects = isExpanded ? projectsData : projectsData.slice(0, 4);
 
@@ -79,7 +82,7 @@ const PortfolioSection = () => {
                 }}
               >
                 <Link
-                  href={`/projects/${project.id}`}
+                  href={`${path}/projects/${project.id}`}
                   className="flex flex-col group/card cursor-pointer"
                 >
                   <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 mb-5">

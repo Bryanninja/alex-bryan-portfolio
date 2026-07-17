@@ -2,14 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
-import {
-  containerStagger,
-  childFadeUp,
-  imageReveal,
-  slowFadeIn,
-} from "../../utils/animations";
+import { imageReveal, slowFadeIn } from "../../utils/animations";
 
 import alexbryanIMG from "../../assets/img/Bryan/BryanImg.webp";
 import bg from "../../assets/img/bg/background.webp";
@@ -18,6 +13,7 @@ import Container from "../../components/Container";
 import Brace from "../../assets/svg/Brace.svg";
 import Divider from "../../assets/svg/Divider.svg";
 import DividerDesktop from "../../assets/svg/DividerDesktop.svg";
+import { ArrowRight } from "lucide-react";
 
 function useCountUp(end: number, duration = 1800, delay = 1000) {
   const [count, setCount] = useState(0);
@@ -38,7 +34,27 @@ function useCountUp(end: number, duration = 1800, delay = 1000) {
   return count;
 }
 
-const Hero = () => {
+interface HeroProps {
+  badgeText?: string;
+  title?: ReactNode;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  showPrimaryButton?: boolean;
+}
+
+const Hero = ({
+  badgeText = "Albry Studio",
+  title = (
+    <>
+      Sua marca fala <br /> antes de você.
+    </>
+  ),
+  description = "Você entrega um serviço de alto valor. A questão é: a sua marca conta essa história antes de você abrir a boca?",
+  ctaText = "Solicitar Orçamento",
+  ctaLink = "https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto.",
+  showPrimaryButton = true,
+}: HeroProps) => {
   const projectCount = useCountUp(40, 1800, 1000);
 
   return (
@@ -103,33 +119,36 @@ const Hero = () => {
 
         {/* COLUNA ESQUERDA: Texto */}
         <div className="flex-1 flex flex-col justify-center pt-24 pb-4 md:py-16">
-          <div
-            className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full lg:w-[48%]"
-          >
+          <div className="flex flex-col justify-center space-y-7 text-brand-50 text-left w-full lg:w-[48%]">
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-[0.3em]">
                 <span className="w-5 h-px bg-white/40 inline-block" />
-                Albry Studio
+                {badgeText}
               </span>
             </div>
 
             <h1 className="font-heading tracking-tight">
               <span className="font-extrabold text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] text-white leading-[1.08] block">
-                Sua marca fala <br /> antes de você.
+                {title}
               </span>
             </h1>
 
             <p className="text-base md:text-lg max-w-sm text-white/70 font-medium leading-relaxed">
-              Você entrega um serviço de alto valor. A questão é: a sua marca
-              conta essa história antes de você abrir a boca?
+              {description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto." variant="primary" target="_blank">
-                Solicitar Orçamento
-              </Button>
-              <Button href="#projetos" variant="outline">
+              {showPrimaryButton && (
+                <Button href={ctaLink} variant="primary" target="_blank">
+                  {ctaText}
+                </Button>
+              )}
+              <Button
+                href="#projetos"
+                variant={showPrimaryButton ? "outline" : "primary"}
+              >
                 Ver Projetos
+                <ArrowRight />
               </Button>
             </div>
 

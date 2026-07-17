@@ -17,7 +17,7 @@ export default function Button({
   target,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center border-2 border-transparent justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300";
+    "inline-flex items-center border-2 border-transparent justify-center px-8 gap-2 py-3 rounded-full font-semibold transition-all duration-300";
 
   const variants = {
     primary: "bg-brand-800 text-white hover:bg-brand-900 shadow-md",

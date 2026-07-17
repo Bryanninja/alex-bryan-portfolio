@@ -1,7 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Button from "./Button";
 
 const Header = () => {
+  const pathname = usePathname();
+  
+  // Se estivermos em /dev, os links devem rolar a própria página /dev.
+  // Caso contrário, apontam para a Home (/).
+  const isDevRoute = pathname === "/dev";
+  const projetosLink = isDevRoute ? "/dev#projetos" : "/#projetos";
+  const sobreLink = isDevRoute ? "/dev#sobre" : "/#sobre";
   return (
     <header className="w-full max-w-[1440px] mx-auto px-6 md:px-20 py-6 flex justify-between items-center">
       <Link
@@ -12,13 +22,13 @@ const Header = () => {
       </Link>
       <nav className="hidden md:flex items-center gap-8 font-medium">
         <Link
-          href="/#projetos"
+          href={projetosLink}
           className="text-brand-700 hover:text-brand-500 transition"
         >
           Ver Projetos
         </Link>
         <Link
-          href="/#sobre"
+          href={sobreLink}
           className="text-brand-700 hover:text-brand-500 transition"
         >
           Sobre

@@ -5,8 +5,25 @@ import { Mail } from "lucide-react";
 import { motion } from "framer-motion"; // Importando Framer Motion
 import Container from "../Container";
 import { containerStagger, childFadeUp } from "../../utils/animations"; // Importando suas variantes
+import { ReactNode } from "react";
 
-const Footer = () => {
+interface FooterProps {
+  title?: ReactNode;
+  description?: string;
+  cta?: string;
+  ctaLink?: string;
+}
+
+const Footer = ({
+  title = (
+    <>
+      Pronto pra parar de <br /> ser invisível?
+    </>
+  ),
+  description = "Você pode ser o melhor no que faz. Mas se a sua marca não comunica isso, você está perdendo clientes pra quem faz menos e vende mais. Isso muda agora.",
+  cta = "Quero começar",
+  ctaLink = "https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto.",
+}) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,25 +41,23 @@ const Footer = () => {
             variants={childFadeUp}
             className="font-heading text-4xl md:text-6xl  font-extrabold leading-tight text-white tracking-tight mb-6"
           >
-            Pronto pra parar de <br /> ser invisível?
+            {title}
           </motion.h2>
 
           <motion.p
             variants={childFadeUp}
             className="text-lg md:text-xl text-slate-300/80 leading-relaxed mb-10 max-w-2xl"
           >
-            Você pode ser o melhor no que faz. Mas se a sua marca não comunica
-            isso, você está perdendo clientes pra quem faz menos e vende mais.
-            Isso muda agora.
+            {description}
           </motion.p>
 
           <motion.div variants={childFadeUp}>
             <Link
-              href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto."
+              href={ctaLink}
               target="_blank"
               className="bg-brand-600 hover:bg-brand-400 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 hover:-translate-y-1 block"
             >
-              Quero começar
+              {cta}
             </Link>
           </motion.div>
         </motion.div>

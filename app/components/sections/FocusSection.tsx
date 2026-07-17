@@ -14,8 +14,33 @@ import {
 
 import alexPhoto from "../../assets/img/Bryan/BryanImg2.webp";
 import alexPhoto2 from "../../assets/img/Bryan/bryan-mobile2.webp";
+import { ReactNode } from "react";
 
-const FocusSection = () => {
+interface FocusSection {
+  badgeText?: string;
+  title?: string;
+  description?: ReactNode;
+  cta?: string;
+  ctaLink?: string;
+}
+
+const FocusSection = ({
+  badgeText = "Design & Tecnologia",
+  title = "Marcas que você respeita não nasceram assim por acaso.",
+  description = (
+    <>
+      Tem uma diferença enorme entre ter um logo e ter uma marca. O logo
+      qualquer freelancer faz em 2 dias. A marca é o conjunto de decisões
+      visuais que faz o seu cliente sentir que está lidando com algo de outro
+      nível. <br /> <br /> É aí que entro com a tecnologia: Landing Pages
+      construídas em cima desse posicionamento, rápidas, diretas, e feitas pra
+      converter. Não é sobre ter um site bonito. É sobre ter uma presença
+      digital que trabalha por você enquanto você dorme.
+    </>
+  ),
+  cta = "Solicitar Orçamento",
+  ctaLink = "https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto.",
+}) => {
   return (
     <section
       id="sobre"
@@ -36,14 +61,14 @@ const FocusSection = () => {
                 variants={childFadeUp}
                 className="text-brand-500 font-bold uppercase tracking-[0.2em] text-xs md:text-sm block"
               >
-                Design & Tecnologia
+                {badgeText}
               </motion.span>
 
               <motion.h2
                 variants={childFadeUp}
                 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-800 leading-[1.15] tracking-tighter text-balance"
               >
-                Marcas que você respeita não nasceram assim por acaso.
+                {title}
               </motion.h2>
             </div>
 
@@ -51,23 +76,16 @@ const FocusSection = () => {
               variants={childFadeUp}
               className="space-y-6 text-brand-700/80 text-base md:text-lg leading-relaxed max-w-2xl"
             >
-              <p>
-                Tem uma diferença enorme entre ter um logo e ter uma marca. O
-                logo qualquer freelancer faz em 2 dias. A marca é o conjunto de
-                decisões visuais que faz o seu cliente sentir que está lidando
-                com algo de outro nível.
-              </p>
-              <p>
-                É aí que entro com a tecnologia: Landing Pages construídas em
-                cima desse posicionamento, rápidas, diretas, e feitas pra
-                converter. Não é sobre ter um site bonito. É sobre ter uma
-                presença digital que trabalha por você enquanto você dorme.
-              </p>
+              {description}
             </motion.div>
 
             <motion.div variants={childFadeUp} className="pt-2">
-              <Button href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto." className="inline-flex items-center gap-2" target="_blank">
-                Solicitar Orçamento <ArrowRight size={18} />
+              <Button
+                href={ctaLink}
+                className="inline-flex items-center gap-2"
+                target="_blank"
+              >
+                {cta} <ArrowRight size={18} />
               </Button>
             </motion.div>
           </motion.div>
@@ -86,8 +104,10 @@ const FocusSection = () => {
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
                 style={{
-                  WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 15%)",
-                  maskImage: "linear-gradient(to top, transparent 0%, black 15%)"
+                  WebkitMaskImage:
+                    "linear-gradient(to top, transparent 0%, black 15%)",
+                  maskImage:
+                    "linear-gradient(to top, transparent 0%, black 15%)",
                 }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -105,8 +125,10 @@ const FocusSection = () => {
                 alt="Álex Bryan"
                 className="object-contain object-bottom"
                 style={{
-                  WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 15%)",
-                  maskImage: "linear-gradient(to top, transparent 0%, black 15%)"
+                  WebkitMaskImage:
+                    "linear-gradient(to top, transparent 0%, black 15%)",
+                  maskImage:
+                    "linear-gradient(to top, transparent 0%, black 15%)",
                 }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
