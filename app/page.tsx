@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <GlobalExperience />
       <FocusSection />
-      <PortfolioSection />
+      <PortfolioSection filterCategory='all' />
       <FloatingMenu />
       <Footer />
     </main>

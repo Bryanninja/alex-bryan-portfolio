@@ -3,7 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, BadgeCheck, LayoutGrid } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BadgeCheck,
+  LayoutGrid,
+  Globe,
+} from "lucide-react";
 
 import { projectsData } from "../../data/projects";
 import FloatingMenu from "@/app/components/FloatingMenu";
@@ -13,12 +19,16 @@ import {
   childFadeUp,
   imageReveal,
 } from "../../utils/animations";
+import Button from "@/app/components/Button";
+import { useSearchParams } from "next/navigation";
 
 interface ProjectClientProps {
   projectId: number;
 }
 
 export default function ProjectClient({ projectId }: ProjectClientProps) {
+  const searchParams = useSearchParams();
+  const fromPath = searchParams.get("from") || "/";
   const project = projectsData?.find((item) => item.id === projectId);
 
   // Lógica para o Próximo Projeto
@@ -32,7 +42,10 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
         <h1 className="text-2xl font-bold text-brand-800">
           Ops! O projeto não foi encontrado.
         </h1>
-        <Link href="/" className="font-bold text-brand-50 underline">
+        <Link
+          href={`${fromPath}#projetos`}
+          className="font-bold text-brand-50 underline"
+        >
           Voltar para o Portfólio
         </Link>
       </div>
@@ -54,7 +67,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
           >
             <motion.div variants={childFadeUp}>
               <Link
-                href="/"
+                href={`${fromPath}#projetos`}
                 className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-500 font-semibold group"
               >
                 <ArrowLeft
@@ -114,11 +127,19 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
               <h2 className="font-heading text-3xl font-bold text-brand-800 mb-8">
                 A Estratégia de Posicionamento
               </h2>
-              <div className="space-y-6 text-brand-700 text-lg leading-relaxed">
+              <div className="space-y-6 mb-8 text-brand-700 text-lg leading-relaxed">
                 {project.fullDescription?.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
+
+              <Button
+                href={project.linkWebsite}
+                variant="outline"
+                target="blank"
+              >
+                Visualizar projeto
+              </Button>
             </motion.div>
 
             {/* SIDEBAR BRAND-700 */}
@@ -136,7 +157,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
                   </h3>
                 </div>
 
-                <ul className="space-y-4 mb-12">
+                <ul className="space-y-4 mb-6">
                   {project.services?.map((service, index) => (
                     <li
                       key={index}
@@ -147,6 +168,25 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
                     </li>
                   ))}
                 </ul>
+
+                {project.techs ? (
+                  <div className="space-y-6 border-t pt-8 border-brand-600/50">
+                    <p className=" text-brand-50/90 flex gap-3 items-center text-sm font-semibold">
+                      <Globe className="text-brand-400" size={20} />
+                      Tecnologias utilizadas
+                    </p>
+                    <div className="flex flex-wrap mb-6 gap-2">
+                      {project.techs?.map((tech, index) => (
+                        <button
+                          key={index}
+                          className="py-1 border border-brand-50/10 bg-brand-600/60 rounded-full text-sm text-brand-50/80 hover:text-brand-50 px-4"
+                        >
+                          {tech}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
 
                 <div className="pt-8 border-t border-brand-600/50 flex items-center gap-4">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-500/20">
@@ -212,7 +252,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
           {nextProject && (
             <div className="pb-32">
               <Link
-                href={`/projects/${nextProject.id}`}
+                href={`/projects/${nextProject.id}?from=${fromPath === "/" ? "" : fromPath}`}
                 className="group block"
               >
                 <div className="bg-white border border-brand-200 rounded-[2rem] p-8 md:p-12 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
@@ -241,7 +281,21 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
             </div>
           )}
         </div>
-        <Footer />
+
+        {fromPath === "/dev" ? (
+          <Footer
+            title={
+              <>
+                Pronto para o meu <br /> próximo desafio.
+              </>
+            }
+            description="Estou ativamente em busca de oportunidades como Estagiário ou Desenvolvedor Júnior. Busco me conectar com times que valorizam código limpo, arquitetura escalável e impacto real de negócio. Vamos conversar sobre como eu posso agregar valor à sua equipe."
+            cta="Falar no LinkedIn"
+            ctaLink="https://www.linkedin.com/in/alexbryannt/"
+          />
+        ) : (
+          <Footer />
+        )}
       </div>
     </main>
   );

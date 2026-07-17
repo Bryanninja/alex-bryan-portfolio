@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion"; // Importando para animações de entrada/saída
 import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 // Importando nossas variantes
 import { containerStagger, childFadeUp } from "../utils/animations";
@@ -12,6 +12,8 @@ import { containerStagger, childFadeUp } from "../utils/animations";
 export default function FloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const fromPath = searchParams.get("from") || "/";
 
   // Se estivermos em /dev, os links devem apontar para a própria página
   const isDevRoute = pathname === "/dev";
@@ -50,7 +52,7 @@ export default function FloatingMenu() {
             >
               <motion.div variants={childFadeUp}>
                 <Link
-                  href={projetosLink}
+                  href={fromPath === "/dev" ? "/dev#projetos" : projetosLink}
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium text-white hover:text-brand-200 transition-colors"
                 >
@@ -59,7 +61,7 @@ export default function FloatingMenu() {
               </motion.div>
               <motion.div variants={childFadeUp}>
                 <Link
-                  href={sobreLink}
+                  href={fromPath === "/dev" ? "/dev#sobre" : sobreLink}
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium text-white hover:text-brand-200 transition-colors"
                 >

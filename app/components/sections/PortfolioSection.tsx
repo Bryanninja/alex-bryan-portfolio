@@ -12,11 +12,11 @@ import { containerStagger, childFadeUp } from "../../utils/animations";
 import { projectsData } from "../../data/projects";
 import { usePathname } from "next/navigation";
 
-const PortfolioSection = () => {
+const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' | 'dev' | 'design' }) => {
   const path = usePathname();
-  console.log("aqui está ele", path);
   const [isExpanded, setIsExpanded] = useState(false);
-  const visibleProjects = isExpanded ? projectsData : projectsData.slice(0, 4);
+  const filteredProjects = projectsData.filter(p => filterCategory === 'all' || p.category === filterCategory);
+  const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
     <section id="projetos" className="w-full bg-brand-50 py-16 overflow-hidden">
@@ -82,7 +82,7 @@ const PortfolioSection = () => {
                 }}
               >
                 <Link
-                  href={`${path}/projects/${project.id}`}
+                  href={`/projects/${project.id}?from=${path}`}
                   className="flex flex-col group/card cursor-pointer"
                 >
                   <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 mb-5">

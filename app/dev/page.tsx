@@ -39,7 +39,7 @@ const DevPage = () => {
         cta="Acessar GitHub"
         ctaLink="https://github.com/Bryanninja"
       />
-      <PortfolioSection />
+      <PortfolioSection filterCategory='dev' />
       <FloatingMenu />
       <Footer
         title={
