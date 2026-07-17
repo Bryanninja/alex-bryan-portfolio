@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' | 'dev' | 'design' }) => {
   const path = usePathname();
   const [isExpanded, setIsExpanded] = useState(false);
-  const filteredProjects = projectsData.filter(p => filterCategory === 'all' || p.category === filterCategory);
+  const filteredProjects = projectsData.filter(p => filterCategory === 'all' || p.category === filterCategory || p.category === 'both');
   const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (

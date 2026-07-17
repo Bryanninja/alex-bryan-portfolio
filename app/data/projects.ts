@@ -67,6 +67,110 @@ import avatarLucas from "../assets/img/projects/lucas.webp";
 
 export const projectsData = [
   {
+    id: 8,
+    category: "dev",
+    clientName: "Igreja Batista Betel",
+    projectName: "Betel App",
+    description:
+      "Plataforma híbrida (Site + Web App) desenvolvida com carinho para minha comunidade local. Foco em UX fluida e alta performance (Lighthouse 90+).",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Engenharia Front-end",
+      "UI/UX Design",
+      "Otimização de Performance",
+    ],
+    fullDescription: [
+      "O Betel App foi um projeto muito especial para mim, pois foi desenvolvido para a minha igreja local. Mais do que código, eu queria criar uma experiência que realmente acolhesse as pessoas no momento de leitura bíblica.",
+      "O grande desafio aqui foi técnico: garantir que a plataforma fosse extremamente rápida e fluida, independente do celular que a pessoa estivesse usando. Consegui atingir métricas excelentes de performance (acima de 90 no Lighthouse) usando Next.js e otimização cirúrgica de imagens.",
+      "O feedback da comunidade foi a melhor parte. Ver as pessoas usando o aplicativo diariamente e sentindo que o design 'abraça' a experiência de leitura me mostrou o impacto real que o Front-end tem na vida dos usuários."
+    ],
+    techs: ["Next.js", "React", "Tailwind CSS", "GSAP", "Lighthouse"],
+    linkWebsite: "https://www.ibbetelpl.com.br/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 9,
+    category: "dev",
+    clientName: "Michel Stawicki",
+    projectName: "FinanceiraMente",
+    description:
+      "Plataforma B2B de diagnóstico financeiro que ajuda pequenas empresas a verem seus números com clareza. Conta com gamificação e relatórios automatizados.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Desenvolvimento de Plataforma B2B",
+      "Integração de APIs (Resend)",
+      "Otimização de Conversão",
+    ],
+    fullDescription: [
+      "Eu percebi que muitos empreendedores tomam decisões 'no escuro' por não entenderem seus próprios números. O FinanceiraMente nasceu dessa dor: transformar dados chatos em um diagnóstico interativo e gamificado.",
+      "Para fazer isso acontecer, mergulhei de cabeça no Next.js e no Tailwind CSS, garantindo uma interface onde o usuário não sente que está preenchendo um formulário gigante, mas sim conversando com um consultor.",
+      "A parte que mais me desafiou (e me ensinou) foi a integração com a API do Resend para enviar e-mails automatizados. Foi gratificante ver a lógica do Backend conversando perfeitamente com a interface limpa que eu desenhei no Front-end."
+    ],
+    techs: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n"],
+    linkWebsite: "https://msfinanceiramente.com/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 11,
+    category: "dev",
+    clientName: "Projeto Pessoal",
+    projectName: "Task Manager Pro",
+    description:
+      "Um gerenciador de tarefas criado para testar meus limites com arquitetura escalável e gerenciamento de estados globais.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Arquitetura Limpa",
+      "TanStack Query (React Query)",
+      "Alta Performance e Cache",
+    ],
+    fullDescription: [
+      "Como todo desenvolvedor, eu precisava do meu próprio To-Do App. Mas decidi não fazer o 'arroz com feijão'. Eu queria simular o ambiente caótico de uma aplicação de nível empresarial (Enterprise Level).",
+      "O maior foco desse projeto foi estruturar um código limpo e sustentável. Utilizei o TanStack Query para cuidar do cache e do estado das tarefas. Isso significa que o aplicativo é rápido, guarda as informações de forma inteligente e responde instantaneamente aos cliques.",
+      "Esse projeto foi um laboratório de boas práticas para mim. Aprendi que, no mundo real, a forma como organizamos as pastas e separamos as responsabilidades do código importa tanto quanto a cor do botão na tela."
+    ],
+    techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
+    linkWebsite: "https://app-tasks-red.vercel.app/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
+    id: 10,
+    category: "dev",
+    clientName: "HKN Projetos",
+    projectName: "HKN Engenharia",
+    description:
+      "Landing Page desenvolvida para converter visitantes em clientes. Foco total em SEO técnico, performance rápida e usabilidade.",
+    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
+    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    services: [
+      "Desenvolvimento Front-end",
+      "UI/UX Design",
+      "SEO Técnico",
+    ],
+    fullDescription: [
+      "A HKN precisava de algo que transmitisse a confiança e a robustez do mercado de engenharia e arquitetura BIM. Como designer e desenvolvedor da solução, minha prioridade foi alinhar a estética à performance.",
+      "Estruturei a aplicação usando React e Vite para garantir que fosse uma SPA (Single Page Application) extremamente rápida. Se o site demora a carregar, o cliente vai embora. Então a otimização foi a minha regra número um.",
+      "Foi muito gratificante criar uma interface limpa, focada inteiramente na jornada do usuário e na conversão. É um excelente exemplo de como o Front-end precisa trabalhar de mãos dadas com os objetivos de negócio."
+    ],
+    techs: ["React", "Vite", "Tailwind CSS"],
+    linkWebsite: "https://hkn-engenharia.vercel.app/",
+    gallery: [
+      projSenaFilmsIcon, // PLACEHOLDERS
+      projSenaFilmsIcon,
+    ],
+  },
+  {
     id: 1,
     category: "dev",
     clientName: "Michel Stawicki",
@@ -75,7 +179,7 @@ export const projectsData = [
       "Criação de Identidade Visual e Site Institucional para mentoria financeira, com foco estratégico em gerar alta autoridade no mercado.",
     projectImg: projMSFinancial,
     clientImg: avatarMichel,
-    services: ["Identidade Visual", "UI/UX Design", "Desenvolvimento Web"], // <--- NOVO
+    services: ["Identidade Visual", "UI/UX Design", "Desenvolvimento Web"],
     fullDescription: [
       "Para a MS Financial, o desafio era traduzir mais de 30 anos de expertise em cenários financeiros de alta complexidade — incluindo operações de até 3 bilhões de dólares — em uma presença digital inquestionável.",
       "A identidade visual e a arquitetura do site foram construídas sob a premissa de que 'estrutura precede crescimento', focando em um design limpo, premium e direto.",
@@ -92,35 +196,6 @@ export const projectsData = [
     ],
   },
   {
-    id: 2,
-    category: "design",
-    clientName: "Adryan Medeiros",
-    projectName: "Paceon",
-    description:
-      "Desenvolvimento de Identidade Visual para uma marca focada em corredores obstinados, que buscam superar constantemente a sua versão de ontem.",
-    projectImg: projPaceonLogoBlack,
-    clientImg: avatarAdryan,
-    services: [
-      "Identidade Visual",
-      "Estratégia de Marca",
-      "Design de Vestuário",
-    ], // <--- NOVO
-    fullDescription: [
-      "A Paceon nasceu para ser muito mais que uma marca esportiva; ela é um símbolo de consistência que acompanha o corredor desde os primeiros passos até a alta performance.",
-      "O logotipo traz um 'P' modificado com arestas que remetem à velocidade e ao dinamismo, equilibrado por uma paleta minimalista de preto, branco e cinza, conectando a energia do ambiente urbano à natureza.",
-      "A tipografia Abhaya Libre confere uma autoridade elegante ao projeto, resultando em uma identidade visual versátil, pensada para se destacar de forma imponente tanto em vestuário de alta performance quanto no estilo de vida cotidiano.",
-    ],
-    linkWebsite:
-      "https://drive.google.com/file/d/1AuxAxQwy4mCheM_SrjW6zagkl1cjGmzC/view?usp=sharing",
-    gallery: [
-      projPaceonIconWhite,
-      projPaceon,
-      projPaceonShirt,
-      projPaceonEnergyDrink,
-      projPaceonShirtAirplane,
-    ],
-  },
-  {
     id: 3,
     category: "dev",
     clientName: "Franciely Hisdaleck",
@@ -133,7 +208,7 @@ export const projectsData = [
       "Identidade Visual",
       "UI/UX Design",
       "Desenvolvimento de WebApp",
-    ], // <--- NOVO
+    ],
     fullDescription: [
       "A identidade visual deste projeto foi desenhada para conectar a juventude à mensagem cristã de forma moderna e acolhedora, utilizando um símbolo inteligente que mescla sutilmente uma ovelha e a porta.",
       "A paleta de cores traz o verde como representação de renovação e águas tranquilas, equilibrado por tons profundos de cinza e preto para garantir um visual limpo, sofisticado e atraente.",
@@ -150,21 +225,49 @@ export const projectsData = [
     ],
   },
   {
+    id: 2,
+    category: "both",
+    clientName: "Adryan Medeiros",
+    projectName: "Paceon",
+    description:
+      "Desenvolvimento de Identidade Visual para uma marca focada em corredores obstinados, que buscam superar constantemente a sua versão de ontem.",
+    projectImg: projPaceonLogoBlack,
+    clientImg: avatarAdryan,
+    services: [
+      "Identidade Visual",
+      "Estratégia de Marca",
+      "Design de Vestuário",
+    ],
+    fullDescription: [
+      "A Paceon nasceu para ser muito mais que uma marca esportiva; ela é um símbolo de consistência que acompanha o corredor desde os primeiros passos até a alta performance.",
+      "O logotipo traz um 'P' modificado com arestas que remetem à velocidade e ao dinamismo, equilibrado por uma paleta minimalista de preto, branco e cinza, conectando a energia do ambiente urbano à natureza.",
+      "A tipografia Abhaya Libre confere uma autoridade elegante ao projeto, resultando em uma identidade visual versátil, pensada para se destacar de forma imponente tanto em vestuário de alta performance quanto no estilo de vida cotidiano.",
+    ],
+    linkWebsite:
+      "https://drive.google.com/file/d/1AuxAxQwy4mCheM_SrjW6zagkl1cjGmzC/view?usp=sharing",
+    gallery: [
+      projPaceonIconWhite,
+      projPaceon,
+      projPaceonShirt,
+      projPaceonEnergyDrink,
+      projPaceonShirtAirplane,
+    ],
+  },
+  {
     id: 4,
-    category: "design",
+    category: "both",
     clientName: "Karlo Kirin",
     projectName: "Proteck HVAC",
     description:
       "Desenvolvimento de Identidade Visual e personalização de van para uma empresa na Croácia, visando uma forte presença e consolidação de mercado.",
     projectImg: projProteck,
     clientImg: avatarKarlo,
-    services: ["Identidade Visual", "Estratégia de Marca", "Design de Frota"], // <--- NOVO
+    services: ["Identidade Visual", "Estratégia de Marca", "Design de Frota"],
     fullDescription: [
       "Para a Protek HVAC, empresa de climatização sediada na Croácia, criamos uma marca projetada para atuar como um selo de excelência, comunicando confiança e precisão técnica à primeira vista.",
       "O conceito do logotipo integra de forma simétrica uma chama (aquecimento), um floco de neve (refrigeração) e um escudo (segurança e controle), envoltos em uma paleta vibrante de azul e vermelho com contraste em cinza escuro.",
       "A combinação de uma tipografia futurista e estruturada garantiu alto impacto, resultando em uma aplicação perfeita e de extrema visibilidade para a frota corporativa e materiais de suporte.",
     ],
-
     linkWebsite:
       "https://drive.google.com/file/d/1NWW-hNg1AveIK06KZpNJiFTHWX0IyYuo/view?usp=sharing",
     gallery: [
@@ -185,13 +288,12 @@ export const projectsData = [
       "Desenvolvimento de Identidade Visual para um movimento de jovens cristãos, transmitindo um posicionamento moderno, dinâmico e jovial.",
     projectImg: projInfluence,
     clientImg: avatarJorge,
-    services: ["Identidade Visual", "UI/UX Design", "Aplicações de Mídia"], // <--- NOVO
+    services: ["Identidade Visual", "UI/UX Design", "Aplicações de Mídia"],
     fullDescription: [
       "A Rede Influence precisava de uma identidade que falasse diretamente com uma juventude dinâmica, traduzindo o conceito de conexões espirituais e influência mútua.",
       "O logotipo une as letras em um fluxo contínuo ao lado de um ícone que remete a uma 'rede', enquanto o uso estratégico do roxo e do preto com gradientes cria uma sensação de profundidade e transformação.",
       "Todo o ecossistema visual, desde interfaces de mídia social até o design de vestuário de alto padrão, foi concebido para gerar senso de pertencimento e modernidade para um público altamente conectado.",
     ],
-
     linkWebsite:
       "https://drive.google.com/file/d/1_mtK94eoJMXyQBpNwfJaoUOI6VHgmmKY/view?usp=sharing",
     gallery: [
@@ -216,13 +318,12 @@ export const projectsData = [
       "Reposicionamento Estratégico",
       "Identidade Visual",
       "Papelaria Corporativa",
-    ], // <--- NOVO
+    ],
     fullDescription: [
       "O reposicionamento da ILS Construções foi meticulosamente desenhado para elevar a marca ao exigente mercado de alto padrão, traduzindo solidez estrutural em um visual premium sob o lema 'Sua Visão. Nossa Estrutura'.",
       "O logotipo inteligente combina a inicial da família à silhueta minimalista de uma residência, apoiado por uma paleta sóbria de terracota, grafite e areia, que remete aos materiais nobres da construção civil.",
       "Desde a aplicação impecável em uniformes corporativos até a criação de um Kit de Boas-Vindas exclusivo para a entrega das chaves, cada ponto de contato foi pensado para garantir uma experiência de marca luxuosa e inesquecível.",
     ],
-
     linkWebsite:
       "https://drive.google.com/file/d/1StOuUiVBpyIK8y_ZInO970pDBcET4S8e/view?usp=sharing",
     gallery: [
@@ -252,13 +353,12 @@ export const projectsData = [
       "Identidade Visual",
       "Estratégia de Posicionamento",
       "Direção de Arte",
-    ], // <--- NOVO
+    ],
     fullDescription: [
       "A Sena Films buscou uma identidade visual que transpirasse excelência audiovisual, capaz de atrair grandes marcas interessadas em elevar o padrão estético de sua própria comunicação corporativa.",
       "O logotipo conceitual mescla de forma inteligente a letra 'a' (simbolizando a lente de uma câmera) com a letra 'S' (a estrutura do equipamento), criando um ícone imponente e de rápido reconhecimento.",
       "Apostamos em tons de roxo para estimular a criatividade e a inovação, combinados a uma tipografia clara que transita perfeitamente nas plataformas digitais, garantindo uma presença magnética e altamente profissional.",
     ],
-
     linkWebsite:
       "https://drive.google.com/file/d/1hVI1ND_9cnwV7bprPCFAKcLO3dguQgjb/view?usp=sharing",
     gallery: [
@@ -267,110 +367,6 @@ export const projectsData = [
       projSenaFilmsAssets,
       projSenaFilmsCap,
       projSenaFilmsFilms,
-    ],
-  },
-  {
-    id: 8,
-    category: "dev",
-    clientName: "Igreja Batista Betel",
-    projectName: "Betel App",
-    description:
-      "Plataforma híbrida (Site + Web App) desenvolvida com carinho para minha comunidade local. Foco em UX fluida e alta performance (Lighthouse 90+).",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
-    services: [
-      "Engenharia Front-end",
-      "UI/UX Design",
-      "Otimização de Performance",
-    ],
-    fullDescription: [
-      "O Betel App foi um projeto muito especial para mim, pois foi desenvolvido para a minha igreja local. Mais do que código, eu queria criar uma experiência que realmente acolhesse as pessoas no momento de leitura bíblica.",
-      "O grande desafio aqui foi técnico: garantir que a plataforma fosse extremamente rápida e fluida, independente do celular que a pessoa estivesse usando. Consegui atingir métricas excelentes de performance (acima de 90 no Lighthouse) usando Next.js e otimização cirúrgica de imagens.",
-      "O feedback da comunidade foi a melhor parte. Ver as pessoas usando o aplicativo diariamente e sentindo que o design 'abraça' a experiência de leitura me mostrou o impacto real que o Front-end tem na vida dos usuários.",
-    ],
-    techs: ["Next.js", "React", "Tailwind CSS", "GSAP", "Lighthouse"],
-    linkWebsite: "https://www.ibbetelpl.com.br/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 9,
-    category: "dev",
-    clientName: "Michel Stawicki",
-    projectName: "FinanceiraMente",
-    description:
-      "Plataforma B2B de diagnóstico financeiro que ajuda pequenas empresas a verem seus números com clareza. Conta com gamificação e relatórios automatizados.",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
-    services: [
-      "Desenvolvimento de Plataforma B2B",
-      "Integração de APIs (Resend)",
-      "Otimização de Conversão",
-    ],
-    fullDescription: [
-      "Eu percebi que muitos empreendedores tomam decisões 'no escuro' por não entenderem seus próprios números. O FinanceiraMente nasceu dessa dor: transformar dados chatos em um diagnóstico interativo e gamificado.",
-      "Para fazer isso acontecer, mergulhei de cabeça no Next.js e no Tailwind CSS, garantindo uma interface onde o usuário não sente que está preenchendo um formulário gigante, mas sim conversando com um consultor.",
-      "A parte que mais me desafiou (e me ensinou) foi a integração com a API do Resend para enviar e-mails automatizados. Foi gratificante ver a lógica do Backend conversando perfeitamente com a interface limpa que eu desenhei no Front-end.",
-    ],
-    techs: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n"],
-    linkWebsite: "https://msfinanceiramente.com/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 10,
-    category: "dev",
-    clientName: "HKN Projetos",
-    projectName: "HKN Engenharia",
-    description:
-      "Landing Page desenvolvida para converter visitantes em clientes. Foco total em SEO técnico, performance rápida e usabilidade.",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
-    services: [
-      "Desenvolvimento Front-end",
-      "UI/UX Design",
-      "SEO Técnico",
-    ],
-    fullDescription: [
-      "A HKN precisava de algo que transmitisse a confiança e a robustez do mercado de engenharia e arquitetura BIM. Como designer e desenvolvedor da solução, minha prioridade foi alinhar a estética à performance.",
-      "Estruturei a aplicação usando React e Vite para garantir que fosse uma SPA (Single Page Application) extremamente rápida. Se o site demora a carregar, o cliente vai embora. Então a otimização foi a minha regra número um.",
-      "Foi muito gratificante criar uma interface limpa, focada inteiramente na jornada do usuário e na conversão. É um excelente exemplo de como o Front-end precisa trabalhar de mãos dadas com os objetivos de negócio.",
-    ],
-    techs: ["React", "Vite", "Tailwind CSS"],
-    linkWebsite: "https://hkn-engenharia.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
-  },
-  {
-    id: 11,
-    category: "dev",
-    clientName: "Projeto Pessoal",
-    projectName: "Task Manager Pro",
-    description:
-      "Um gerenciador de tarefas criado para testar meus limites com arquitetura escalável e gerenciamento de estados globais.",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
-    services: [
-      "Arquitetura Limpa",
-      "TanStack Query (React Query)",
-      "Alta Performance e Cache",
-    ],
-    fullDescription: [
-      "Como todo desenvolvedor, eu precisava do meu próprio To-Do App. Mas decidi não fazer o 'arroz com feijão'. Eu queria simular o ambiente caótico de uma aplicação de nível empresarial (Enterprise Level).",
-      "O maior foco desse projeto foi estruturar um código limpo e sustentável. Utilizei o TanStack Query para cuidar do cache e do estado das tarefas. Isso significa que o aplicativo é rápido, guarda as informações de forma inteligente e responde instantaneamente aos cliques.",
-      "Esse projeto foi um laboratório de boas práticas para mim. Aprendi que, no mundo real, a forma como organizamos as pastas e separamos as responsabilidades do código importa tanto quanto a cor do botão na tela.",
-    ],
-    techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
-    linkWebsite: "https://app-tasks-red.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
     ],
   },
 ];
