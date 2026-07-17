@@ -268,10 +268,7 @@ export const projectsData = [
     ],
     techs: ["Next.js", "React", "Tailwind CSS", "GSAP", "Lighthouse"],
     linkWebsite: "https://www.ibbetelpl.com.br/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
+    gallery: [projBetel01, projBetel02, projBetel03, projBetel04, projBetel05],
   },
   {
     id: 5,
@@ -336,8 +333,8 @@ export const projectsData = [
     projectName: "FinanceiraMente",
     description:
       "Plataforma B2B de diagnóstico financeiro que ajuda pequenas empresas a verem seus números com clareza. Conta com gamificação e relatórios automatizados.",
-    projectImg: projSenaFilmsIcon, // PLACEHOLDER: TROCAR DEPOIS
-    clientImg: avatarMichel, // PLACEHOLDER: TROCAR DEPOIS
+    projectImg: projFinCover,
+    clientImg: avatarMichel,
     services: [
       "Desenvolvimento de Plataforma B2B",
       "Integração de APIs (Resend)",
@@ -350,10 +347,7 @@ export const projectsData = [
     ],
     techs: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n"],
     linkWebsite: "https://msfinanceiramente.com/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
+    gallery: [projFin01, projFin02, projFin03, projFin04, projFin05],
   },
   {
     id: 10,
@@ -377,10 +371,7 @@ export const projectsData = [
     ],
     techs: ["React", "Vite", "Tailwind CSS"],
     linkWebsite: "https://hkn-engenharia.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
+    gallery: [projHkn01, projHkn02, projHkn03, projHkn04],
   },
   {
     id: 11,
@@ -404,9 +395,6 @@ export const projectsData = [
     ],
     techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
     linkWebsite: "https://app-tasks-red.vercel.app/",
-    gallery: [
-      projSenaFilmsIcon, // PLACEHOLDERS
-      projSenaFilmsIcon,
-    ],
+    gallery: [projTask01, projTask02, projTask03, projTask04],
   },
 ];
