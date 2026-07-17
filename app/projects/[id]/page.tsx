@@ -31,9 +31,14 @@ export async function generateMetadata({
 }
 
 // 2. A Página em si (Roda no Servidor, repassa o ID para o Client Component)
+import { Suspense } from "react";
 export default async function ProjectDetail({ params }: ProjectPageProps) {
   const resolvedParams = await params;
   const projectId = Number(resolvedParams.id);
 
-  return <ProjectClient projectId={projectId} />;
+  return (
+    <Suspense fallback={null}>
+      <ProjectClient projectId={projectId} />
+    </Suspense>
+  );
 }

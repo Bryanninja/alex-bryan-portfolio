@@ -64,6 +64,7 @@ import avatarKarlo from "../assets/img/projects/karlo.webp";
 import avatarJorge from "../assets/img/projects/jorge.webp";
 import avatarRaul from "../assets/img/projects/raul.webp";
 import avatarLucas from "../assets/img/projects/lucas.webp";
+import avatarHyagor from "../assets/img/projects/hyagor.webp";
 
 
 // FinanceiraMente Imports
@@ -358,12 +359,12 @@ export const projectsData = [
     id: 10,
     category: "dev",
     devOrder: 4,
-    clientName: "HKN Projetos",
+    clientName: "Hyagor Kevelhen",
     projectName: "HKN Engenharia",
     description:
       "Landing Page desenvolvida para converter visitantes em clientes. Foco total em SEO técnico, performance rápida e usabilidade.",
     projectImg: projHknCover,
-    clientImg: avatarMichel,
+    clientImg: avatarHyagor,
     services: [
       "Desenvolvimento Front-end",
       "UI/UX Design",

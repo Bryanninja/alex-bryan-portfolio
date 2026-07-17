@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion"; // Importando para animações de entrada/saída
 import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
@@ -9,7 +9,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 // Importando nossas variantes
 import { containerStagger, childFadeUp } from "../utils/animations";
 
-export default function FloatingMenu() {
+function FloatingMenuContent() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -204,5 +204,13 @@ export default function FloatingMenu() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function FloatingMenu() {
+  return (
+    <Suspense fallback={null}>
+      <FloatingMenuContent />
+    </Suspense>
   );
 }
