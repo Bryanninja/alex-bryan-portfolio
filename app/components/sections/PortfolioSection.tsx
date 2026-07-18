@@ -39,7 +39,7 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-balance font-extrabold text-brand-800 tracking-tight"
           >
             {filterCategory === 'dev'
-              ? <>Ótimo. Agora veja <br className="md:block" /> o que eu já fiz.</>             
+              ? <>Uma parte do que <br className="md:block" /> já entreguei.</>
               : <>Dá uma olhada no que <br className="md:block" /> a gente já construiu.</>}
           </motion.h2>
           <motion.p

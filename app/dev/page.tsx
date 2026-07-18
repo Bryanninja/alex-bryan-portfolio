@@ -35,10 +35,8 @@ const DevPage = () => {
             fui ontem — e isso aparece no código.
           </>
         }
-        cta="Acessar GitHub"
-        ctaLink="https://github.com/Bryanninja"
       />
-      <PortfolioSection filterCategory='dev' />
+      <PortfolioSection filterCategory="dev" />
       <FloatingMenu />
       <Footer
         title={
