@@ -9,6 +9,7 @@ import {
   BadgeCheck,
   LayoutGrid,
   Globe,
+  ArrowUpRight,
 } from "lucide-react";
 
 import { projectsData } from "../../data/projects";
@@ -139,6 +140,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
                 target="blank"
               >
                 Visualizar projeto
+                <ArrowUpRight />
               </Button>
             </motion.div>
 

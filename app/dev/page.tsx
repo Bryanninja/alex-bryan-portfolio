@@ -9,31 +9,31 @@ const DevPage = () => {
   return (
     <main>
       <Hero
-        badgeText="Álex Bryan — Desenvolvedor"
+        badgeText="Álex Bryan — Desenvolvedor Frontend"
         title={
           <>
-            Engenharia <br /> Front-end.
+            Interfaces que <br /> fazem sentido.
           </>
         }
-        description="Em transição de carreira para a engenharia de software com forte background de 3 anos em UI/UX Design. Focado em construir interfaces escaláveis e de alta performance no ecossistema React."
+        description="Desenvolvo no ecossistema React e Next.js com um olhar de quem também pensa em Design. Não sou Sênior, mas sou honesto sobre o que sei — e determinado a crescer rápido."
         showPrimaryButton={false}
       />
       <GlobalExperience />
       <FocusSection
-        badgeText="Arquitetura & Engenharia"
-        title="Código limpo. Performance extrema."
+        badgeText="Desenvolvimento & Design"
+        title="Código limpo, produto bonito."
         description={
           <>
-            Vindo de um background internacional como UI/UX Designer, desenvolvi
-            um olhar crítico para produto e usabilidade. Hoje, aplico essa visão
-            analítica diretamente na engenharia Front-end.
+            Minha trajetória mistura dois mundos: comecei pelo Design
+            (Branding, identidade visual, tipografia) e hoje estou migrando
+            para o Desenvolvimento Frontend de cabeça. Isso me deu algo que
+            poucos devs têm: <strong>senso estético e atenção ao detalhe</strong>.
             <br /> <br />
             Meu foco técnico está em{" "}
-            <strong>React, Next.js e TypeScript</strong>, aplicando os
-            princípios de arquitetura escalável e garantindo métricas perfeitas
-            de Core Web Vitals (Lighthouse 100/100). Estou em busca de uma
-            oportunidade como Estagiário ou Desenvolvedor Júnior para resolver
-            problemas complexos e escalar ao lado de um time técnico.
+            <strong>React, Next.js e TypeScript</strong>. Estou construindo
+            projetos reais, aprendendo na prática e buscando minha primeira
+            oportunidade como Estagiário ou Júnior — em um time onde eu
+            possa crescer e contribuir de verdade.
           </>
         }
         cta="Acessar GitHub"
@@ -47,7 +47,7 @@ const DevPage = () => {
             Pronto para o meu <br /> próximo desafio.
           </>
         }
-        description="Estou ativamente em busca de oportunidades como Estagiário ou Desenvolvedor Júnior. Busco me conectar com times que valorizam código limpo, arquitetura escalável e impacto real de negócio. Vamos conversar sobre como eu posso agregar valor à sua equipe."
+        description="Estou em busca da minha primeira oportunidade como Estagiário ou Desenvolvedor Júnior. Quero fazer parte de um time que valorize código bem feito, aprendizado constante e pessoas que se importam com o que entregam."
         cta="Falar no LinkedIn"
         ctaLink="https://www.linkedin.com/in/alexbryannt/"
       />
