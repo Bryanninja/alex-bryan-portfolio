@@ -21,7 +21,6 @@ import {
   childFadeUp,
   imageReveal,
 } from "../../utils/animations";
-import Button from "@/app/components/Button";
 import { useSearchParams } from "next/navigation";
 
 interface ProjectClientProps {
@@ -35,7 +34,10 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
 
   // Ref para detectar quando a galeria entra na tela
   const galleryRef = useRef(null);
-  const isGalleryVisible = useInView(galleryRef, { once: false, margin: "0px 0px -100px 0px" });
+  const isGalleryVisible = useInView(galleryRef, {
+    once: false,
+    margin: "0px 0px -100px 0px",
+  });
 
   // Lógica para o Próximo Projeto
   const nextProject = projectsData.find(
@@ -299,7 +301,9 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
       {/* FLOATING CTA — aparece quando a galeria entra na tela */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
-        animate={isGalleryVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        animate={
+          isGalleryVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }
+        }
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 pointer-events-none"
       >
@@ -307,7 +311,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
           href={project.linkWebsite}
           target="_blank"
           rel="noopener noreferrer"
-          className="pointer-events-auto flex items-center gap-2.5 bg-brand-800 hover:bg-brand-700 text-brand-50 font-bold px-8 py-4 rounded-full shadow-2xl shadow-brand-900/30 transition-all duration-300 hover:scale-105 hover:shadow-brand-900/50"
+          className="pointer-events-auto flex items-center gap-2.5 bg-brand-600/80 backdrop-blur-sm border border-brand-50/20 hover:bg-brand-700 text-brand-50 font-bold px-8 py-4 rounded-full shadow-2xl shadow-brand-900/30 transition-all duration-300 hover:scale-105 hover:shadow-brand-900/50"
         >
           Visualizar projeto
           <ArrowUpRight size={18} strokeWidth={2.5} />
