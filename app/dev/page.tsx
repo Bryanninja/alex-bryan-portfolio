@@ -12,28 +12,27 @@ const DevPage = () => {
         badgeText="Álex Bryan — Desenvolvedor Frontend"
         title={
           <>
-            Interfaces que <br /> fazem sentido.
+            Dev que entende <br /> o negócio.
           </>
         }
-        description="Desenvolvo no ecossistema React e Next.js com um olhar de quem também pensa em Design. Não sou Sênior, mas sou honesto sobre o que sei — e determinado a crescer rápido."
+        description="Mergulhei no Frontend para construir o que a maioria dos devs não consegue: aplicações com estratégia e com Design de fato pensado. Código para mim não é só funcionar — é sobre como a pessoa do outro lado se sente ao usar."
         showPrimaryButton={false}
       />
       <GlobalExperience />
       <FocusSection
-        badgeText="Desenvolvimento & Design"
-        title="Código limpo, produto bonito."
+        badgeText="Desenvolvimento & Estratégia"
+        title="Não sou só mais um dev."
         description={
           <>
-            Minha trajetória mistura dois mundos: comecei pelo Design
-            (Branding, identidade visual, tipografia) e hoje estou migrando
-            para o Desenvolvimento Frontend de cabeça. Isso me deu algo que
-            poucos devs têm: <strong>senso estético e atenção ao detalhe</strong>.
+            Venho do Branding — penso em marca, em narrativa, em como cada
+            detalhe comunica algo. Hoje, levo essa visão para o{" "}
+            <strong>React e o Next.js</strong>, buscando construir produtos
+            que fazem sentido de ponta a ponta.
             <br /> <br />
-            Meu foco técnico está em{" "}
-            <strong>React, Next.js e TypeScript</strong>. Estou construindo
-            projetos reais, aprendendo na prática e buscando minha primeira
-            oportunidade como Estagiário ou Júnior — em um time onde eu
-            possa crescer e contribuir de verdade.
+            Não tenho anos de experiência para mostrar, mas tenho algo que
+            não se ensina fácil: <strong>visão de produto e mentalidade de
+            empreendedor</strong>. Acordo todo dia querendo ser melhor do que
+            fui ontem — e isso aparece no código.
           </>
         }
         cta="Acessar GitHub"
@@ -44,10 +43,10 @@ const DevPage = () => {
       <Footer
         title={
           <>
-            Pronto para o meu <br /> próximo desafio.
+            Vamos construir <br /> algo juntos?
           </>
         }
-        description="Estou em busca da minha primeira oportunidade como Estagiário ou Desenvolvedor Júnior. Quero fazer parte de um time que valorize código bem feito, aprendizado constante e pessoas que se importam com o que entregam."
+        description="Estou em busca de uma oportunidade como Estagiário ou Dev Júnior. Se você precisa de alguém que pensa além do código e se importa com o produto de verdade, quero muito conversar."
         cta="Falar no LinkedIn"
         ctaLink="https://www.linkedin.com/in/alexbryannt/"
       />

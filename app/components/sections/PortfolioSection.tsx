@@ -38,14 +38,17 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
             variants={childFadeUp}
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-balance font-extrabold text-brand-800 tracking-tight"
           >
-            Dá uma olhada no que <br className="md:block" /> a gente já
-            construiu.
+            {filterCategory === 'dev'
+              ? <>Ótimo. Agora veja <br className="md:block" /> o que eu já fiz.</>             
+              : <>Dá uma olhada no que <br className="md:block" /> a gente já construiu.</>}
           </motion.h2>
           <motion.p
             variants={childFadeUp}
             className="text-lg md:text-xl text-pretty text-brand-600 max-w-sm md:max-w-2xl"
           >
-            Projetos que transformaram negócios comuns em marcas de elite.
+            {filterCategory === 'dev'
+              ? "Projetos reais, em produção. Cada um com uma lição aprendida."
+              : "Projetos que transformaram negócios comuns em marcas de elite."}
           </motion.p>
         </motion.div>
 
