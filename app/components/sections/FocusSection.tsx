@@ -22,6 +22,7 @@ interface FocusSection {
   description?: ReactNode;
   cta?: string;
   ctaLink?: string;
+  showPrimaryButton?: boolean;
 }
 
 const FocusSection = ({
@@ -40,6 +41,7 @@ const FocusSection = ({
   ),
   cta = "Solicitar Orçamento",
   ctaLink = "https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+site+da+Albry+Studio+e+gostaria+de+conversar+sobre+um+projeto.",
+  showPrimaryButton = true,
 }) => {
   return (
     <section
@@ -79,15 +81,17 @@ const FocusSection = ({
               {description}
             </motion.div>
 
-            <motion.div variants={childFadeUp} className="pt-2">
-              <Button
-                href={ctaLink}
-                className="inline-flex items-center gap-2"
-                target="_blank"
-              >
-                {cta} <ArrowRight size={18} />
-              </Button>
-            </motion.div>
+            {showPrimaryButton && (
+              <motion.div variants={childFadeUp} className="pt-2">
+                <Button
+                  href={ctaLink}
+                  className="inline-flex items-center gap-2"
+                  target="_blank"
+                >
+                  {cta} <ArrowRight size={18} />
+                </Button>
+              </motion.div>
+            )}
           </motion.div>
 
           {/* LADO DIREITO: IMAGEM (Sem shadow, col-6) */}

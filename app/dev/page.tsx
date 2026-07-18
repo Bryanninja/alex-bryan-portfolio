@@ -21,20 +21,22 @@ const DevPage = () => {
       <GlobalExperience />
       <FocusSection
         badgeText="Desenvolvimento & Estratégia"
-        title="Não sou só mais um dev."
+        title="Não comecei pelo código."
         description={
           <>
             Venho do Branding — penso em marca, em narrativa, em como cada
             detalhe comunica algo. Hoje, levo essa visão para o{" "}
-            <strong>React e o Next.js</strong>, buscando construir produtos
-            que fazem sentido de ponta a ponta.
+            <strong>React e o Next.js</strong>, buscando construir produtos que
+            fazem sentido de ponta a ponta.
             <br /> <br />
-            Não tenho anos de experiência para mostrar, mas tenho algo que
-            não se ensina fácil: <strong>visão de produto e mentalidade de
-            empreendedor</strong>. Acordo todo dia querendo ser melhor do que
-            fui ontem — e isso aparece no código.
+            Não tenho anos de experiência para mostrar, mas tenho algo que não
+            se ensina fácil:{" "}
+            <strong>visão de produto e mentalidade de empreendedor</strong>.
+            Acordo todo dia querendo ser melhor do que fui ontem — e isso
+            aparece no código.
           </>
         }
+        showPrimaryButton={false}
       />
       <PortfolioSection filterCategory="dev" />
       <FloatingMenu />
