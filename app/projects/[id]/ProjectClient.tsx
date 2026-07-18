@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -31,6 +32,10 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
   const searchParams = useSearchParams();
   const fromPath = searchParams.get("from") || "/";
   const project = projectsData?.find((item) => item.id === projectId);
+
+  // Ref para detectar quando a galeria entra na tela
+  const galleryRef = useRef(null);
+  const isGalleryVisible = useInView(galleryRef, { once: false, margin: "0px 0px -100px 0px" });
 
   // Lógica para o Próximo Projeto
   const nextProject = projectsData.find(
@@ -133,15 +138,6 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
-
-              <Button
-                href={project.linkWebsite}
-                variant="outline"
-                target="blank"
-              >
-                Visualizar projeto
-                <ArrowUpRight />
-              </Button>
             </motion.div>
 
             {/* SIDEBAR BRAND-700 */}
@@ -219,7 +215,7 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
           </div>
 
           {/* GALERIA */}
-          <div className="mt-32 mb-40">
+          <div ref={galleryRef} className="mt-32 mb-40">
             <h3 className="font-heading text-3xl font-bold text-brand-800 mb-12">
               Galeria do Projeto
             </h3>
@@ -299,6 +295,24 @@ export default function ProjectClient({ projectId }: ProjectClientProps) {
           <Footer />
         )}
       </div>
+
+      {/* FLOATING CTA — aparece quando a galeria entra na tela */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={isGalleryVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 pointer-events-none"
+      >
+        <a
+          href={project.linkWebsite}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pointer-events-auto flex items-center gap-2.5 bg-brand-800 hover:bg-brand-700 text-brand-50 font-bold px-8 py-4 rounded-full shadow-2xl shadow-brand-900/30 transition-all duration-300 hover:scale-105 hover:shadow-brand-900/50"
+        >
+          Visualizar projeto
+          <ArrowUpRight size={18} strokeWidth={2.5} />
+        </a>
+      </motion.div>
     </main>
   );
 }
