@@ -26,8 +26,9 @@ const DevPage = () => {
           <>
             Venho do Branding — penso em marca, em narrativa, em como cada
             detalhe comunica algo. Hoje, levo essa visão para o{" "}
-            <strong>React e o Next.js</strong>, buscando construir produtos que
-            fazem sentido de ponta a ponta.
+            <strong>React e o Next.js</strong>, construindo produtos que
+            fazem sentido de ponta a ponta — da interface pensada no usuário
+            até a modelagem do banco de dados no backend.
             <br /> <br />
             Não tenho anos de experiência para mostrar, mas tenho algo que não
             se ensina fácil:{" "}
