@@ -18,7 +18,7 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
   const filteredProjects = projectsData.filter(p => filterCategory === 'all' || p.category === filterCategory || p.category === 'both');
   
   if (filterCategory === 'dev') {
-    filteredProjects.sort((a, b) => (a.devOrder || 99) - (b.devOrder || 99));
+    filteredProjects.sort((a, b) => (a.devOrder ?? 99) - (b.devOrder ?? 99));
   }
 
   const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 4);
@@ -95,7 +95,7 @@ const PortfolioSection = ({ filterCategory = 'all' }: { filterCategory?: 'all' |
                 >
                   <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-200 mb-5">
                     <Image
-                      src={[8, 9, 10, 11].includes(project.id) ? project.projectImg : project.gallery[1]}
+                      src={[8, 9, 10, 11, 12].includes(project.id) ? project.projectImg : project.gallery[1]}
                       alt={`Projeto ${project.projectName}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover/card:scale-105"

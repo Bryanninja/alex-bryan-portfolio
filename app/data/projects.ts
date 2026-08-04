@@ -103,6 +103,14 @@ import projTask04 from "../assets/img/projects/task-manager/task-04.webp";
 import logoBetel from "../assets/img/projects/igreja-betel.png";
 import logoTaskManager from "../assets/img/projects/tasks-mananger-logo.png";
 
+// Stockly ERP
+import logoStockly from "../assets/img/projects/stockly-logo.webp";
+import projStocklyCover from "../assets/img/projects/stockly/stockly-cover.webp";
+import projStockly01 from "../assets/img/projects/stockly/stockly-home-page.webp";
+import projStockly02 from "../assets/img/projects/stockly/stockly-products-page.webp";
+import projStockly03 from "../assets/img/projects/stockly/stockly-sales-page.webp";
+import projStockly04 from "../assets/img/projects/stockly/stockly-edit-page.webp";
+
 export const projectsData = [
   {
     id: 1,
@@ -407,5 +415,40 @@ export const projectsData = [
     techs: ["React 19", "TanStack Query", "Tailwind CSS", "React Hook Form"],
     linkWebsite: "https://app-tasks-red.vercel.app/",
     gallery: [projTask03, projTask01, projTask02, projTask04],
+  },
+  {
+    id: 12,
+    category: "dev",
+    devOrder: 0,
+    clientName: "Projeto Pessoal / SaaS",
+    projectName: "Stockly",
+    description:
+      "Sistema de Gestão de Estoque e Vendas (ERP) Full-Stack. Desenvolvido para modernizar a gestão de negócios com dados em tempo real e performance extrema.",
+    projectImg: projStocklyCover,
+    clientImg: logoStockly,
+    services: [
+      "Sistema Full-Stack (ERP)",
+      "Server Actions & Zod",
+      "PostgreSQL & Prisma",
+    ],
+    fullDescription: [
+      "O Stockly é uma plataforma Full-Stack desenvolvida para modernizar a gestão de estoque e o registro de vendas de pequenos e médios negócios. O sistema consolida dados em tempo real, fornecendo um Dashboard interativo e garantindo que os usuários nunca vendam produtos fora de estoque.",
+      "O grande objetivo técnico deste projeto foi construir uma aplicação robusta de ponta a ponta sem depender de uma API REST tradicional, garantindo que o fluxo de dados entre o banco de dados e a interface do usuário fosse extremamente rápido, seguro e sem telas de carregamento travadas.",
+      "Para resolver o problema de velocidade, utilizei o Next.js (App Router) aplicando o conceito de Streaming SSR (Server-Side Rendering). Isso permite que o Dashboard seja renderizado instantaneamente, enquanto os cálculos pesados dos gráficos carregam em segundo plano via <Suspense>.",
+      "Para a segurança dos dados, implementei as Server Actions em conjunto com a biblioteca Zod, garantindo que qualquer transação seja rigidamente validada diretamente no servidor antes de tocar no banco de dados.",
+      "Como um produto vivo, o Stockly está preparado para evoluir. As próximas atualizações incluem transformação em SaaS (Multi-tenant) com autenticação e isolamento de dados, além da geração automatizada de relatórios em PDF.",
+    ],
+    techs: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "PostgreSQL",
+      "Prisma",
+      "Zod",
+    ],
+    linkWebsite: "https://stockly-amber.vercel.app/",
+    gallery: [projStockly01, projStockly02, projStockly03, projStockly04], // PLACEHOLDERS
   },
 ];
