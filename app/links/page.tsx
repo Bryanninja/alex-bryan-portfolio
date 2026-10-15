@@ -34,7 +34,7 @@ export default function LinksPage() {
       <div className="z-10 flex w-full max-w-sm flex-col gap-4 md:max-w-md">
         {/* Link 1: WhatsApp (Foco Principal) */}
         <a
-          href="https://wa.me/5531971462832?text=Ol%C3%A1%21+Vim+pelo+Instagram+e+gostaria+de+conversar+sobre+um+projeto."
+          href="https://wa.me/5531971462832?text=Ol%C3%A1%2C+Bryan%21+Vim+pelo+Instagram+e+gostaria+de+conversar+sobre+um+projeto."
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-4 rounded-2xl bg-brand-800 px-5 py-4 font-semibold text-brand-50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-900/20 md:gap-6 md:px-6 md:py-5 md:text-lg"
